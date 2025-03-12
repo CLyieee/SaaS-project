@@ -695,23 +695,21 @@
 
                             <div class="col-md-6">
                               <label class="form-label">Supplier Type</label>
-                              <select
-                                class="select2 form-select"
-                                data-allow-clear="true"
-                              >
-                                <option value="">Select Supplier Type</option>
-                                <option value="product">
-                                  Product Supplier
-                                </option>
-                                <option value="service">
-                                  Service Provider
-                                </option>
-                                <option value="equipment">
-                                  Equipment Supplier
-                                </option>
-                                <option value="other">Other</option>
-                              </select>
+                              <input 
+                                type="text" 
+                                class="form-control" 
+                                list="supplierHistory" 
+                                id="supplierType" 
+                                placeholder="Enter Supplier Type" 
+                              />
+                              <datalist id="supplierHistory">
+                                <option value="Product Supplier"></option>
+                                <option value="Service Provider"></option>
+                                <option value="Equipment Supplier"></option>
+                                <option value="Other"></option>
+                              </datalist>
                             </div>
+                            
 
                             <div class="col-12">
                               <label class="form-label" for="address"

@@ -676,14 +676,12 @@
                           id="servicesTable_filter"
                         >
                           <!-- Search input will be inserted here by DataTables -->
+                          <small class="text-muted d-block mt-1">
+                            <i class="ti tabler-info-circle me-1"></i>
+                            Search by company name, contact number, or supplier
+                            type
+                          </small>
                         </div>
-                      </div>
-                      <div>
-                        <small class="text-muted">
-                          <i class="ti tabler-info-circle me-1"></i>
-                          Search by company name, contact number, or supplier
-                          type
-                        </small>
                       </div>
                     </div>
                   </div>
@@ -700,19 +698,19 @@
                         <th>Actions</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="servicesTableBody">
                       <tr>
-                        <td>ABC Equipment Co.</td>
-                        <td>+63 917 123 4567</td>
+                        <td>Supplier A</td>
+                        <td>+63 912 345 6789</td>
                         <td>
-                          <span class="badge bg-label-primary"
+                          <span class="badge bg-label-success"
                             >Equipment Supplier</span
                           >
                         </td>
                         <td>
                           <button
                             class="btn btn-sm btn-success"
-                            onclick="window.location.href='view-supplier.html'"
+                            onclick="window.location.href='view-supplier.html?id=1'"
                           >
                             View
                           </button>
@@ -721,36 +719,17 @@
                         </td>
                       </tr>
                       <tr>
-                        <td>XYZ Products Inc.</td>
-                        <td>+63 927 456 7890</td>
+                        <td>Supplier B</td>
+                        <td>+63 913 456 7890</td>
                         <td>
-                          <span class="badge bg-label-info"
+                          <span class="badge bg-label-success"
                             >Product Supplier</span
                           >
                         </td>
                         <td>
                           <button
                             class="btn btn-sm btn-success"
-                            onclick="window.location.href='view-supplier.html'"
-                          >
-                            View
-                          </button>
-                          <button class="btn btn-sm btn-primary">Edit</button>
-                          <button class="btn btn-sm btn-danger">Delete</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>ServiceTech Solutions</td>
-                        <td>+63 915 234 6789</td>
-                        <td>
-                          <span class="badge bg-label-warning"
-                            >Service Provider</span
-                          >
-                        </td>
-                        <td>
-                          <button
-                            class="btn btn-sm btn-success"
-                            onclick="window.location.href='view-supplier.html'"
+                            onclick="window.location.href='view-supplier.html?id=2'"
                           >
                             View
                           </button>
@@ -760,8 +739,42 @@
                       </tr>
                     </tbody>
                   </table>
-                  <br />
                 </div>
+
+                <script>
+                  document.addEventListener("DOMContentLoaded", function () {
+                    const tableBody =
+                      document.getElementById("servicesTableBody");
+                    const supplierTypes = [
+                      { type: "Equipment Supplier", badge: "bg-label-primary" },
+                      { type: "Product Supplier", badge: "bg-label-info" },
+                      { type: "Service Provider", badge: "bg-label-warning" },
+                    ];
+
+                    for (let i = 1; i <= 100; i++) {
+                      const randomType =
+                        supplierTypes[
+                          Math.floor(Math.random() * supplierTypes.length)
+                        ];
+                      const row = `
+                        <tr>
+                          <td>Company ${i}</td>
+                          <td>+63 9${Math.floor(
+                            100000000 + Math.random() * 900000000
+                          )}</td>
+                          <td><span class="badge ${randomType.badge}">${
+                        randomType.type
+                      }</span></td>
+                          <td>
+                            <button class="btn btn-sm btn-success" onclick="window.location.href='view-supplier.html?id=${i}'">View</button>
+                            <button class="btn btn-sm btn-primary">Edit</button>
+                            <button class="btn btn-sm btn-danger">Delete</button>
+                          </td>
+                        </tr>`;
+                      tableBody.insertAdjacentHTML("beforeend", row);
+                    }
+                  });
+                </script>
               </div>
             </div>
           </div>
