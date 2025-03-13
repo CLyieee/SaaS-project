@@ -115,6 +115,155 @@
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
 
     <script src="../../assets/js/config.js"></script>
+    <style>
+      /* Add to your existing CSS */
+      .backdrop-blur {
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+      }
+
+      .modal-content {
+        background: #f5f5f9;
+        border: none;
+        border-radius: 1rem;
+        box-shadow: 0 8px 32px 0 rgba(10, 54, 34, 0.37);
+      }
+
+      .modal-header {
+        background-color: #0a3622 !important;
+        color: white;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+        padding: 1.5rem;
+      }
+
+      .modal-body {
+        padding: 2rem;
+      }
+
+      .card {
+        background: white;
+        border: none;
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        transition: transform 0.2s;
+      }
+
+      .text-primary {
+        color: #0a3622 !important;
+      }
+
+      .btn-light-secondary {
+        background-color: #e7efe9;
+        color: #0a3622;
+        border: none;
+      }
+
+      .btn-light-secondary:hover {
+        background-color: #0a3622;
+        color: white;
+      }
+
+      .text-muted {
+        color: #697a8d !important;
+      }
+
+      .card:hover {
+        box-shadow: 0 4px 12px rgba(10, 54, 34, 0.15);
+      }
+
+      /* Update existing CSS */
+      .modal-content {
+        background: #f5f5f9;
+        border: none;
+        border-radius: 1rem;
+        box-shadow: 0 8px 32px 0 rgba(10, 54, 34, 0.37);
+      }
+
+      .modal-header {
+        background-color: #0a3622 !important;
+        color: white;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+        padding: 1.5rem;
+      }
+
+      .card-subtitle {
+        color: #0a3622 !important;
+        font-weight: 600;
+      }
+
+      .text-primary {
+        color: #0a3622 !important;
+      }
+
+      .text-muted {
+        color: #4a6153 !important;
+      }
+
+      .badge.bg-success {
+        background-color: #0a3622 !important;
+        color: white;
+      }
+
+      .btn-light-secondary {
+        background-color: #e7efe9;
+        color: #0a3622;
+        border: none;
+      }
+
+      .btn-light-secondary:hover {
+        background-color: #0a3622;
+        color: white;
+      }
+
+      .card {
+        background: white;
+        border: none;
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 12px rgba(10, 54, 34, 0.1);
+      }
+
+      .card:hover {
+        box-shadow: 0 4px 12px rgba(10, 54, 34, 0.15);
+      }
+
+      .icon-base {
+        color: #0a3622;
+      }
+
+      .modal-header .modal-title,
+      .modal-header .modal-title span {
+        color: white !important;
+      }
+
+      .supplier-images {
+        background: #f8f9fa;
+        padding: 1rem;
+        border: 1px solid #e9ecef;
+      }
+
+      .supplier-images img {
+        width: 150px; /* Reduced from 120px */
+        height: 150px; /* Reduced from 120px */
+        object-fit: cover;
+        border-radius: 0.5rem;
+        border: 2px solid #fff;
+        box-shadow: 0 2px 8px rgba(10, 54, 34, 0.1);
+      }
+
+      .modal-body {
+        padding: 1.5rem;
+      }
+
+      .modal-header {
+        padding: 1rem 1.5rem;
+      }
+
+      .modal-footer {
+        padding: 1rem 1.5rem;
+      }
+    </style>
   </head>
 
   <body>
@@ -708,32 +857,15 @@
                         </td>
                         <td>
                           <button
-                            class="btn btn-sm btn-success"
-                            onclick="window.location.href='view-supplier.html?id=1'"
+                            class="btn btn-sm btn-success view-supplier"
+                            data-bs-toggle="modal"
+                            data-bs-target="#supplierModal"
+                            data-company="Supplier A"
+                            data-contact="+63 912 345 6789"
+                            data-type="Equipment Supplier"
                           >
                             View
                           </button>
-                          <button class="btn btn-sm btn-primary">Edit</button>
-                          <button class="btn btn-sm btn-danger">Delete</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Supplier B</td>
-                        <td>+63 913 456 7890</td>
-                        <td>
-                          <span class="badge bg-label-success"
-                            >Product Supplier</span
-                          >
-                        </td>
-                        <td>
-                          <button
-                            class="btn btn-sm btn-success"
-                            onclick="window.location.href='view-supplier.html?id=2'"
-                          >
-                            View
-                          </button>
-                          <button class="btn btn-sm btn-primary">Edit</button>
-                          <button class="btn btn-sm btn-danger">Delete</button>
                         </td>
                       </tr>
                     </tbody>
@@ -741,6 +873,28 @@
                 </div>
 
                 <script>
+                  function generateRandomAddress() {
+                    const streets = [
+                      "Main Street",
+                      "Business Avenue",
+                      "Commerce Road",
+                      "Industry Lane",
+                    ];
+                    const cities = [
+                      "Makati",
+                      "Taguig",
+                      "Manila",
+                      "Quezon City",
+                    ];
+                    const street =
+                      streets[Math.floor(Math.random() * streets.length)];
+                    const city =
+                      cities[Math.floor(Math.random() * cities.length)];
+                    return `${Math.floor(
+                      Math.random() * 1000
+                    )} ${street}, ${city}`;
+                  }
+
                   document.addEventListener("DOMContentLoaded", function () {
                     const tableBody =
                       document.getElementById("servicesTableBody");
@@ -755,24 +909,142 @@
                         supplierTypes[
                           Math.floor(Math.random() * supplierTypes.length)
                         ];
+
                       const row = `
-                        <tr>
-                          <td>Company ${i}</td>
-                          <td>+63 9${Math.floor(
-                            100000000 + Math.random() * 900000000
-                          )}</td>
-                          <td><span class="badge ${randomType.badge}">${
-                        randomType.type
-                      }</span></td>
-                          <td>
-                            <button class="btn btn-sm btn-success" onclick="window.location.href='view-supplier.html?id=${i}'">View</button>
-                            <button class="btn btn-sm btn-primary">Edit</button>
-                            <button class="btn btn-sm btn-danger">Delete</button>
-                          </td>
-                        </tr>`;
+  <tr>
+    <td>Company ${i}</td>
+    <td>+63 9${Math.floor(100000000 + Math.random() * 900000000)}</td>
+    <td><span class="badge ${randomType.badge}">${randomType.type}</span></td>
+    <td>
+      <button 
+        class="btn btn-sm btn-success view-supplier" 
+        data-bs-toggle="modal" 
+        data-bs-target="#supplierModal"
+        data-company="Company ${i}"
+        data-contact="+63 9${Math.floor(100000000 + Math.random() * 900000000)}"
+        data-email="company${i}@supplier.com"
+        data-address="${generateRandomAddress()}"
+        data-type="${randomType.type}"
+        data-products="Sample products for ${randomType.type}"
+      >View</button>
+    </td>
+  </tr>`;
                       tableBody.insertAdjacentHTML("beforeend", row);
                     }
+
+                    // Add click handler for view buttons
+                    document
+                      .querySelectorAll(".view-supplier")
+                      .forEach((button) => {
+                        button.addEventListener("click", function () {
+                          document.getElementById(
+                            "modalCompanyName"
+                          ).textContent = this.dataset.company;
+                          document.getElementById("modalContact").textContent =
+                            this.dataset.contact;
+                          document.getElementById("modalEmail").textContent =
+                            this.dataset.email;
+                          document.getElementById("modalType").textContent =
+                            this.dataset.type;
+
+                          // Update status with appropriate badge color
+                          const statusElement =
+                            document.getElementById("modalStatus");
+                          statusElement.textContent = this.dataset.status;
+                          statusElement.className =
+                            "badge " +
+                            (this.dataset.status === "Active"
+                              ? "bg-success"
+                              : this.dataset.status === "Inactive"
+                              ? "bg-danger"
+                              : "bg-warning");
+
+                          document.getElementById(
+                            "modalLastOrder"
+                          ).textContent = this.dataset.lastorder;
+                        });
+                      });
                   });
+
+                  // Update the click handler
+                  document
+                    .querySelectorAll(".view-supplier")
+                    .forEach((button) => {
+                      button.addEventListener("click", function () {
+                        document.getElementById(
+                          "modalCompanyName"
+                        ).textContent = this.dataset.company;
+                        document.getElementById("modalContact").textContent =
+                          this.dataset.contact;
+                        document.getElementById("modalType").textContent =
+                          this.dataset.type;
+                      });
+                    });
+
+                  document
+                    .querySelectorAll(".view-supplier")
+                    .forEach((button) => {
+                      button.addEventListener("click", function () {
+                        document.getElementById(
+                          "modalCompanyName"
+                        ).textContent = this.dataset.company;
+                        document.getElementById("modalContact").textContent =
+                          this.dataset.contact;
+                        document.getElementById("modalEmail").textContent =
+                          this.dataset.email || "company@example.com";
+                        document.getElementById("modalAddress").textContent =
+                          this.dataset.address ||
+                          "123 Business Street, Metro Manila";
+                        document.getElementById("modalType").textContent =
+                          this.dataset.type;
+                        document.getElementById("modalProducts").textContent =
+                          this.dataset.products ||
+                          "Various equipment and supplies";
+                      });
+                    });
+
+                  // Add this to your existing JavaScript
+                  const supplierTypeImages = {
+                    "Equipment Supplier": [
+                      "../../assets/img/suppliers/equipment1.jpg",
+                      "../../assets/img/suppliers/equipment2.jpg",
+                      "../../assets/img/suppliers/equipment3.jpg",
+                    ],
+                    "Product Supplier": [
+                      "../../assets/img/suppliers/product1.jpg",
+                      "../../assets/img/suppliers/product2.jpg",
+                      "../../assets/img/suppliers/product3.jpg",
+                    ],
+                    "Service Provider": [
+                      "../../assets/img/suppliers/service1.jpg",
+                      "../../assets/img/suppliers/service2.jpg",
+                      "../../assets/img/suppliers/service3.jpg",
+                    ],
+                  };
+
+                  document
+                    .querySelectorAll(".view-supplier")
+                    .forEach((button) => {
+                      button.addEventListener("click", function () {
+                        // ... existing modal population code ...
+
+                        // Add images based on supplier type
+                        const supplierType = this.dataset.type;
+                        const imagesContainer =
+                          document.getElementById("supplierTypeImages");
+                        imagesContainer.innerHTML = ""; // Clear existing images
+
+                        if (supplierTypeImages[supplierType]) {
+                          supplierTypeImages[supplierType].forEach((imgSrc) => {
+                            imagesContainer.innerHTML += `
+          <div class="supplier-image">
+            <img src="${imgSrc}" alt="${supplierType} example" />
+          </div>
+        `;
+                          });
+                        }
+                      });
+                    });
                 </script>
               </div>
             </div>
@@ -792,6 +1064,79 @@
       <div class="drag-target"></div>
     </div>
     <!-- / Layout wrapper -->
+
+    <!-- Add this modal HTML before the closing body tag -->
+    <div class="modal fade" id="supplierModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <!-- Changed to modal-lg -->
+        <div class="modal-content border-0">
+          <div class="modal-header bg-primary text-white border-0">
+            <h5 class="modal-title text-white fs-4">
+              <!-- Added fs-4 for larger font -->
+              <i class="ti tabler-building-factory me-2"></i>
+              <span id="modalCompanyName" class="text-white"></span>
+            </h5>
+          </div>
+          <div class="modal-body p-4">
+            <!-- Increased padding -->
+            <!-- Example Images Section - increased size -->
+            <div class="mb-4">
+              <label class="text-muted mb-3 fs-5"
+                >Example Products/Services</label
+              >
+              <div class="supplier-images rounded overflow-hidden">
+                <div id="supplierTypeImages" class="d-flex flex-wrap gap-3">
+                  <!-- Images will be inserted here by JavaScript -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Increased spacing and font sizes for information sections -->
+            <div class="mb-4">
+              <label class="text-muted fs-5">Contact Information</label>
+              <div class="d-flex align-items-center mb-2 fs-6">
+                <i class="ti tabler-phone me-3 text-muted"></i>
+                <span id="modalContact"></span>
+              </div>
+              <div class="d-flex align-items-center fs-6">
+                <i class="ti tabler-mail me-3 text-muted"></i>
+                <span id="modalEmail"></span>
+              </div>
+            </div>
+            <div class="mb-4">
+              <label class="text-muted fs-5">Business Address</label>
+              <div class="d-flex align-items-center fs-6">
+                <i class="ti tabler-map-pin me-3 text-muted"></i>
+                <span id="modalAddress"></span>
+              </div>
+            </div>
+            <div class="mb-4">
+              <label class="text-muted fs-5">Supplier Type</label>
+              <div class="d-flex align-items-center fs-6">
+                <i class="ti tabler-truck me-3 text-muted"></i>
+                <span id="modalType"></span>
+              </div>
+            </div>
+            <div class="mb-4">
+              <label class="text-muted fs-5">Products/Services Offered</label>
+              <div class="d-flex align-items-center fs-6">
+                <i class="ti tabler-package me-3 text-muted"></i>
+                <span id="modalProducts"></span>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer border-0 pt-0">
+            <button
+              type="button"
+              class="btn btn-light-secondary btn-lg"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/theme.js -->
