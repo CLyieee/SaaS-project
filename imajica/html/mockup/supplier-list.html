@@ -974,46 +974,85 @@
                     // Clear existing content
                     tableBody.innerHTML = "";
 
-                    // Generate 30 examples instead of 100
-                    for (let i = 1; i <= 30; i++) {
+                    const aestheticCompanyNames = [
+                      "Glow & Grace Beauty Co.",
+                      "Pristine Aesthetics PH",
+                      "Radiant Beauty Solutions",
+                      "Lumiere Skin Clinic",
+                      "Beauty Haven Manila",
+                      "Ethereal Wellness Spa",
+                      "Divine Beauty Essentials",
+                      "Skin Perfection Center",
+                      "Luxe Beauty Supplies",
+                      "Bella Vita Aesthetics",
+                      "Pure Glow Solutions",
+                      "Serenity Beauty Labs",
+                      "Crystal Clear Beauty",
+                      "Bloom & Glow Manila",
+                      "Aesthetic Elements PH",
+                      "Beauty Fusion Manila",
+                      "Royal Skin Essentials",
+                      "Glamour Grove Supply",
+                      "Zenith Beauty Systems",
+                      "Eternal Beauty Works",
+                      "Pearl Aesthetics Co.",
+                      "Luminous Beauty Pro",
+                      "Radiance Medical Spa",
+                      "Elite Beauty Arsenal",
+                      "Derma Care Solutions",
+                      "Skin Science Manila",
+                      "Beauty Botanicals PH",
+                      "Pure Bliss Aesthetics",
+                      "Glam Tech Beauty Co.",
+                      "Aesthetic Authority PH",
+                    ];
+
+                    // Modify the row generation code:
+                    for (let i = 0; i < 30; i++) {
                       const randomType =
                         supplierTypes[
                           Math.floor(Math.random() * supplierTypes.length)
                         ];
 
                       const row = `
-      <tr>
-        <td>Company ${i}</td>
-        <td>+63 9${Math.floor(100000000 + Math.random() * 900000000)}</td>
-        <td><span class="badge ${randomType.badge}">${
+                        <tr>
+                          <td>${aestheticCompanyNames[i]}</td>
+                          <td>+63 9${Math.floor(
+                            100000000 + Math.random() * 900000000
+                          )}</td>
+                          <td><span class="badge ${randomType.badge}">${
                         randomType.type
                       }</span></td>
-        <td>
-          <div class="d-flex gap-2">
-            <button 
-              class="btn btn-icon btn-sm btn-success view-supplier" 
-              data-bs-toggle="modal" 
-              data-bs-target="#supplierModal"
-              data-company="Company ${i}"
-              data-contact="+63 9${Math.floor(
-                100000000 + Math.random() * 900000000
-              )}"
-              data-email="company${i}@supplier.com"
-              data-address="${generateRandomAddress()}"
-              data-type="${randomType.type}"
-              data-products="Sample products for ${randomType.type}"
-            >
-              <i class="ti tabler-eye"></i>
-            </button>
-            <button class="btn btn-icon btn-sm btn-info">
-              <i class="ti tabler-edit"></i>
-            </button>
-            <button class="btn btn-icon btn-sm btn-danger">
-              <i class="ti tabler-trash"></i>
-            </button>
-          </div>
-        </td>
-      </tr>`;
+                          <td>
+                            <div class="d-flex gap-2">
+                              <button 
+                                class="btn btn-icon btn-sm btn-success view-supplier" 
+                                data-bs-toggle="modal" 
+                                data-bs-target="#supplierModal"
+                                data-company="${aestheticCompanyNames[i]}"
+                                data-contact="+63 9${Math.floor(
+                                  100000000 + Math.random() * 900000000
+                                )}"
+                                data-email="info@${aestheticCompanyNames[i]
+                                  .toLowerCase()
+                                  .replace(/[^a-z0-9]/g, "")}.com"
+                                data-address="${generateRandomAddress()}"
+                                data-type="${randomType.type}"
+                                data-products="Premium ${
+                                  randomType.type
+                                } for aesthetic and beauty services"
+                              >
+                                <i class="ti tabler-eye"></i>
+                              </button>
+                              <button class="btn btn-icon btn-sm btn-info">
+                                <i class="ti tabler-edit"></i>
+                              </button>
+                              <button class="btn btn-icon btn-sm btn-danger">
+                                <i class="ti tabler-trash"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>`;
                       tableBody.insertAdjacentHTML("beforeend", row);
                     }
 
@@ -1278,16 +1317,38 @@
     <script src="../../assets/vendor/libs/%40form-validation/auto-focus.js"></script>
     <script>
       $(document).ready(function () {
-        var table = $("#servicesTable").DataTable();
-
-        // Filter by branch
-        $("#branchFilter").on("change", function () {
-          var selectedBranch = $(this).val();
-          table.column(0).search(selectedBranch).draw();
+        var table = $("#servicesTable").DataTable({
+          searching: true,
+          responsive: true,
+          dom: '<"row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6"f>>t<"row"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>',
+          language: {
+            search: "Search:",
+            searchPlaceholder: "Search company name...",
+            lengthMenu: "Show _MENU_ entries",
+            info: "Showing _START_ to _END_ of _TOTAL_ entries",
+            infoEmpty: "Showing 0 to 0 of 0 entries",
+            infoFiltered: "(filtered from _MAX_ total entries)",
+          },
+          columnDefs: [
+            {
+              targets: [0], // Only company name column is searchable
+              searchable: true,
+            },
+            {
+              targets: [1, 2, 3], // Make other columns non-searchable
+              searchable: false,
+            },
+          ],
+          order: [[0, "asc"]], // Sort by company name by default
         });
+
+        // Custom search functionality - search only first column (company name)
+        $("#servicesTable_filter input")
+          .unbind()
+          .bind("input", function () {
+            table.column(0).search(this.value).draw();
+          });
       });
     </script>
   </body>
 </html>
-
-<!-- beautify ignore:end -->
