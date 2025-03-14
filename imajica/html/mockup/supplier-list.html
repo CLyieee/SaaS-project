@@ -971,31 +971,49 @@
                       { type: "Service Provider", badge: "bg-label-warning" },
                     ];
 
-                    for (let i = 1; i <= 100; i++) {
+                    // Clear existing content
+                    tableBody.innerHTML = "";
+
+                    // Generate 30 examples instead of 100
+                    for (let i = 1; i <= 30; i++) {
                       const randomType =
                         supplierTypes[
                           Math.floor(Math.random() * supplierTypes.length)
                         ];
 
                       const row = `
-  <tr>
-    <td>Company ${i}</td>
-    <td>+63 9${Math.floor(100000000 + Math.random() * 900000000)}</td>
-    <td><span class="badge ${randomType.badge}">${randomType.type}</span></td>
-    <td>
-      <button 
-        class="btn btn-sm btn-success view-supplier" 
-        data-bs-toggle="modal" 
-        data-bs-target="#supplierModal"
-        data-company="Company ${i}"
-        data-contact="+63 9${Math.floor(100000000 + Math.random() * 900000000)}"
-        data-email="company${i}@supplier.com"
-        data-address="${generateRandomAddress()}"
-        data-type="${randomType.type}"
-        data-products="Sample products for ${randomType.type}"
-      >View</button>
-    </td>
-  </tr>`;
+      <tr>
+        <td>Company ${i}</td>
+        <td>+63 9${Math.floor(100000000 + Math.random() * 900000000)}</td>
+        <td><span class="badge ${randomType.badge}">${
+                        randomType.type
+                      }</span></td>
+        <td>
+          <div class="d-flex gap-2">
+            <button 
+              class="btn btn-icon btn-sm btn-success view-supplier" 
+              data-bs-toggle="modal" 
+              data-bs-target="#supplierModal"
+              data-company="Company ${i}"
+              data-contact="+63 9${Math.floor(
+                100000000 + Math.random() * 900000000
+              )}"
+              data-email="company${i}@supplier.com"
+              data-address="${generateRandomAddress()}"
+              data-type="${randomType.type}"
+              data-products="Sample products for ${randomType.type}"
+            >
+              <i class="ti tabler-eye"></i>
+            </button>
+            <button class="btn btn-icon btn-sm btn-info">
+              <i class="ti tabler-edit"></i>
+            </button>
+            <button class="btn btn-icon btn-sm btn-danger">
+              <i class="ti tabler-trash"></i>
+            </button>
+          </div>
+        </td>
+      </tr>`;
                       tableBody.insertAdjacentHTML("beforeend", row);
                     }
 
