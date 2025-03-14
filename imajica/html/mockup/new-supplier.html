@@ -67,6 +67,18 @@
       rel="stylesheet"
       href="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css"
     />
+    <link
+      rel="stylesheet"
+      href="../../assets/vendor/libs/flatpickr/flatpickr.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../assets/vendor/libs/bootstrap-daterangepicker/bootstrap-daterangepicker.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../assets/vendor/libs/jquery-timepicker/jquery-timepicker.css"
+    />
 
     <!-- endbuild -->
 
@@ -77,35 +89,6 @@
 
     <!-- Page CSS -->
 
-    <!-- endbuild -->
-
-    <link
-      rel="stylesheet"
-      href="../../assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css"
-    />
-    <link
-      rel="stylesheet"
-      href="../../assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css"
-    />
-    <link
-      rel="stylesheet"
-      href="../../assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css"
-    />
-    <link
-      rel="stylesheet"
-      href="../../assets/vendor/libs/flatpickr/flatpickr.css"
-    />
-    <!-- Row Group CSS -->
-    <link
-      rel="stylesheet"
-      href="../../assets/vendor/libs/datatables-rowgroup-bs5/rowgroup.bootstrap5.css"
-    />
-    <!-- Form Validation -->
-    <link
-      rel="stylesheet"
-      href="../../assets/vendor/libs/%40form-validation/form-validation.css"
-    />
-
     <!-- Helpers -->
     <script src="../../assets/vendor/js/helpers.js"></script>
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
@@ -115,6 +98,51 @@
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
 
     <script src="../../assets/js/config.js"></script>
+
+    <style>
+      /* Add to your existing styles */
+      .dropzone {
+        border: 2px dashed #0a3622;
+        border-radius: 0.5rem;
+        padding: 2rem;
+        text-align: center;
+        cursor: pointer;
+        background: #f8f9fa;
+        transition: all 0.3s ease;
+      }
+
+      .dropzone:hover {
+        background: #e9ecef;
+      }
+
+      .preview-container img {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 0.5rem;
+        border: 2px solid #fff;
+        box-shadow: 0 2px 8px rgba(10, 54, 34, 0.1);
+      }
+
+      .image-preview {
+        position: relative;
+        display: inline-block;
+      }
+
+      .remove-image {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        background: #dc3545;
+        color: white;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        line-height: 20px;
+        cursor: pointer;
+      }
+    </style>
   </head>
 
   <body>
@@ -229,13 +257,13 @@
       </ul>
     </li>-->
 
-            <li class="menu-item">
+            <li class="menu-item active open">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon icon-base ti tabler-truck"></i>
                 <div data-i18n="Supplier">Supplier</div>
               </a>
               <ul class="menu-sub">
-                <li class="menu-item">
+                <li class="menu-item active">
                   <a href="new-supplier.html" class="menu-link">
                     <div data-i18n="New Supplier">New Supplier</div>
                   </a>
@@ -362,7 +390,7 @@
               </ul>
             </li>
 
-            <li class="menu-item active open">
+            <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon icon-base ti tabler-file-description"></i>
                 <div data-i18n="Expenses">Expenses</div>
@@ -374,7 +402,7 @@
                   </a>
                 </li>
 
-                <li class="menu-item active">
+                <li class="menu-item">
                   <a href="expense-list.html" class="menu-link">
                     <div data-i18n="Expense List">Expense List</div>
                   </a>
@@ -654,144 +682,200 @@
 
           <!-- / Navbar -->
 
+          <!-- Content wrapper -->
           <div class="content-wrapper">
             <!-- Content -->
             <div class="container-xxl flex-grow-1 container-p-y">
-              <div class="card">
-                <!-- Branch Filter -->
-                <div class="px-4 py-3">
-                  <label for="branchFilter" class="fw-bold me-2"
-                    >Select Branch:</label
-                  >
-                  <select
-                    id="branchFilter"
-                    class="form-select w-auto d-inline-block"
-                  >
-                    <option value="">All Branches</option>
-                    <option value="Pasig City Branch">Pasig City Branch</option>
-                    <option value="San Mateo Rizal Branch">
-                      San Mateo Rizal Branch
-                    </option>
-                    <option value="Cainta Rizal Branch">
-                      Cainta Rizal Branch
-                    </option>
-                  </select>
-                </div>
+              <!-- Sticky Actions -->
+              <div class="row">
+                <div class="col-12">
+                  <div class="card">
+                    <div
+                      class="card-header sticky-element d-flex justify-content-sm-between align-items-sm-center flex-column flex-sm-row"
+                      style="background-color: #0a3622"
+                    >
+                      <h5 class="card-title mb-sm-0 me-2 text-white">
+                        Supplier Management
+                      </h5>
+                    </div>
+                    <div class="card-body pt-6">
+                      <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                          <div class="row g-6">
+                            <div class="col-md-6">
+                              <label class="form-label" for="fullname"
+                                >Company Name</label
+                              >
+                              <input
+                                type="text"
+                                id="fullname"
+                                class="form-control"
+                                placeholder="Company Name"
+                              />
+                            </div>
 
-                <!-- Table -->
-                <div class="table-responsive text-nowrap px-3">
-                  <table id="servicesTable" class="table table-striped">
-                    <thead class="table-light">
-                      <tr>
-                        <th>Expense Name</th>
+                            <div class="col-md-6">
+                              <label class="form-label" for="email"
+                                >Email Address</label
+                              >
+                              <input
+                                type="text"
+                                id="email"
+                                class="form-control"
+                                placeholder="Email Address"
+                              />
+                            </div>
 
-                        <th>Expense Category</th>
-                        <th>Payment Status</th>
-                        <th>Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Monthly Clinic Rent</td>
+                            <div class="col-md-6">
+                              <label class="form-label" for="contact"
+                                >Contact Number</label
+                              >
+                              <input
+                                type="text"
+                                id="contact"
+                                class="form-control"
+                                placeholder="Contact Number"
+                              />
+                            </div>
 
-                        <td>Rent</td>
-                        <td>
-                          <span class="badge bg-label-success">Paid</span>
-                        </td>
-                        <td>
-                          <button
-                            class="btn btn-sm btn-success"
-                            onclick="window.location.href='#'"
-                          >
-                            View
-                          </button>
-                          <button class="btn btn-sm btn-primary">Edit</button>
-                          <button class="btn btn-sm btn-danger">Delete</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Purchase of New Facial Equipment</td>
+                            <div class="col-md-6">
+                              <label class="form-label">Supplier Type</label>
+                              <input
+                                type="text"
+                                class="form-control"
+                                list="supplierHistory"
+                                id="supplierType"
+                                placeholder="Enter Supplier Type"
+                              />
+                              <datalist id="supplierHistory">
+                                <option value="Product Supplier"></option>
+                                <option value="Service Provider"></option>
+                                <option value="Equipment Supplier"></option>
+                                <option value="Other"></option>
+                              </datalist>
+                            </div>
 
-                        <td>Equipment & Supplies</td>
-                        <td>
-                          <span class="badge bg-label-success">Paid</span>
-                        </td>
-                        <td>
-                          <button
-                            class="btn btn-sm btn-success"
-                            onclick="window.location.href='#'"
-                          >
-                            View
-                          </button>
-                          <button class="btn btn-sm btn-primary">Edit</button>
-                          <button class="btn btn-sm btn-danger">Delete</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Social Media Ads Campaign</td>
+                            <div class="col-12">
+                              <label class="form-label" for="address"
+                                >Business Address</label
+                              >
+                              <textarea
+                                name="address"
+                                class="form-control"
+                                id="address"
+                                rows="4"
+                                placeholder="Business Address"
+                              ></textarea>
+                            </div>
 
-                        <td>Marketing & Advertising</td>
-                        <td>
-                          <span class="badge bg-label-success">Paid</span>
-                        </td>
-                        <td>
-                          <button
-                            class="btn btn-sm btn-success"
-                            onclick="window.location.href='#'"
-                          >
-                            View
-                          </button>
-                          <button class="btn btn-sm btn-primary">Edit</button>
-                          <button class="btn btn-sm btn-danger">Delete</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Staff Salary - January 2025</td>
+                            <div class="col-12">
+                              <label class="form-label" for="products"
+                                >Products/Services Offered</label
+                              >
+                              <textarea
+                                name="products"
+                                class="form-control"
+                                id="products"
+                                rows="4"
+                                placeholder="List of Products/Services Offered"
+                              ></textarea>
+                            </div>
 
-                        <td>Salaries & Wages</td>
-                        <td>
-                          <span class="badge bg-label-success">Paid</span>
-                        </td>
-                        <td>
-                          <button
-                            class="btn btn-sm btn-success"
-                            onclick="window.location.href='#'"
-                          >
-                            View
-                          </button>
-                          <button class="btn btn-sm btn-primary">Edit</button>
-                          <button class="btn btn-sm btn-danger">Delete</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Electricity Bills</td>
+                            <!-- Add this after the Products/Services Offered textarea -->
+                            <div class="col-12 mt-4">
+                              <label class="form-label">Product Images</label>
+                              <div class="card">
+                                <div class="card-body">
+                                  <div class="d-flex align-items-center mb-3">
+                                    <i
+                                      class="ti tabler-photo me-2"
+                                      style="color: #0a3622"
+                                    ></i>
+                                    <small class="text-muted"
+                                      >Upload images of your products/services
+                                      (Maximum 5 images)</small
+                                    >
+                                  </div>
+                                  <div class="dropzone" id="productImages">
+                                    <div class="dz-message">
+                                      <i
+                                        class="ti tabler-cloud-upload mb-2"
+                                        style="color: #0a3622; font-size: 2rem"
+                                      ></i>
+                                      <h6>
+                                        Drop files here or click to upload
+                                      </h6>
+                                    </div>
+                                    <div class="fallback">
+                                      <input name="file" type="file" multiple />
+                                    </div>
+                                  </div>
+                                  <div
+                                    class="preview-container mt-3 d-flex flex-wrap gap-2"
+                                  ></div>
+                                </div>
+                              </div>
+                            </div>
 
-                        <td>Utilities</td>
-                        <td>
-                          <span class="badge bg-label-danger">Overdue</span>
-                        </td>
-                        <td>
-                          <button
-                            class="btn btn-sm btn-success"
-                            onclick="window.location.href='#'"
-                          >
-                            View
-                          </button>
-                          <button class="btn btn-sm btn-primary">Edit</button>
-                          <button class="btn btn-sm btn-danger">Delete</button>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+                            <div class="col-12">
+                              <label class="form-label" for="notes"
+                                >Additional Notes</label
+                              >
+                              <textarea
+                                name="notes"
+                                class="form-control"
+                                id="notes"
+                                rows="4"
+                                placeholder="Additional Notes"
+                              ></textarea>
+                            </div>
+                          </div>
 
-                  <br />
+                          <br />
+                          <div class="col-sm-2 col-4 d-grid">
+                            <button class="btn btn-primary">
+                              Add Supplier
+                            </button>
+                          </div>
+                          <br />
+
+                          <!-- 4. Payment Method -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
+              <!-- /Sticky Actions -->
             </div>
+            <!-- / Content -->
+
+            <!-- Footer -->
+            <footer class="content-footer footer bg-footer-theme">
+              <div class="container-xxl">
+                <div
+                  class="footer-container d-flex align-items-center justify-content-between py-4 flex-md-row flex-column"
+                >
+                  <div class="text-body">
+                    ©
+                    <script>
+                      document.write(new Date().getFullYear());
+                    </script>
+                    Developed by
+                    <a
+                      href="https://intra-code.com/"
+                      target="_blank"
+                      class="footer-link"
+                      >Intracode IT Solutions</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </footer>
+            <!-- / Footer -->
+
+            <div class="content-backdrop fade"></div>
           </div>
-
-          <!-- Content wrapper -->
-
           <!-- Content wrapper -->
         </div>
         <!-- / Layout page -->
@@ -832,34 +916,88 @@
     <script src="../../assets/vendor/libs/cleave-zen/cleave-zen.js"></script>
     <script src="../../assets/vendor/libs/select2/select2.js"></script>
 
+    <script src="../../assets/vendor/libs/moment/moment.js"></script>
+    <script src="../../assets/vendor/libs/flatpickr/flatpickr.js"></script>
+    <script src="../../assets/vendor/libs/bootstrap-daterangepicker/bootstrap-daterangepicker.js"></script>
+    <script src="../../assets/vendor/libs/jquery-timepicker/jquery-timepicker.js"></script>
+    <script src="../../assets/vendor/libs/pickr/pickr.js"></script>
+
     <!-- Main JS -->
 
     <script src="../../assets/js/main.js"></script>
 
     <!-- Page JS -->
     <script src="../../assets/js/form-layouts.js"></script>
+    <script src="../../assets/js/forms-pickers.js"></script>
 
-    <!-- Vendors JS -->
-    <script src="../../assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
-    <!-- Flat Picker -->
-    <script src="../../assets/vendor/libs/moment/moment.js"></script>
-    <script src="../../assets/vendor/libs/flatpickr/flatpickr.js"></script>
-    <!-- Form Validation -->
-    <script src="../../assets/vendor/libs/%40form-validation/popular.js"></script>
-    <script src="../../assets/vendor/libs/%40form-validation/bootstrap5.js"></script>
-    <script src="../../assets/vendor/libs/%40form-validation/auto-focus.js"></script>
+    <!-- Add to your existing scripts -->
     <script>
-      $(document).ready(function () {
-        var table = $("#servicesTable").DataTable();
+      document.addEventListener("DOMContentLoaded", function () {
+        const dropzone = document.getElementById("productImages");
+        const previewContainer = document.querySelector(".preview-container");
+        const maxImages = 5;
+        let uploadedFiles = [];
 
-        // Filter by branch
-        $("#branchFilter").on("change", function () {
-          var selectedBranch = $(this).val();
-          table.column(0).search(selectedBranch).draw();
+        dropzone.addEventListener("dragover", (e) => {
+          e.preventDefault();
+          dropzone.style.borderColor = "#0a3622";
         });
+
+        dropzone.addEventListener("dragleave", () => {
+          dropzone.style.borderColor = "#dee2e6";
+        });
+
+        dropzone.addEventListener("drop", handleFileSelect);
+        dropzone
+          .querySelector('input[type="file"]')
+          .addEventListener("change", handleFileSelect);
+
+        function handleFileSelect(e) {
+          e.preventDefault();
+          const files = e.dataTransfer ? e.dataTransfer.files : e.target.files;
+
+          if (uploadedFiles.length + files.length > maxImages) {
+            alert(`Maximum ${maxImages} images allowed`);
+            return;
+          }
+
+          [...files].forEach((file) => {
+            if (file.type.startsWith("image/")) {
+              const reader = new FileReader();
+              reader.onload = function (e) {
+                const preview = createPreviewElement(e.target.result);
+                previewContainer.appendChild(preview);
+                uploadedFiles.push(file);
+              };
+              reader.readAsDataURL(file);
+            }
+          });
+        }
+
+        function createPreviewElement(src) {
+          const wrapper = document.createElement("div");
+          wrapper.className = "image-preview";
+
+          const img = document.createElement("img");
+          img.src = src;
+
+          const removeBtn = document.createElement("span");
+          removeBtn.className = "remove-image";
+          removeBtn.innerHTML = "×";
+          removeBtn.onclick = function () {
+            wrapper.remove();
+            uploadedFiles = uploadedFiles.filter((f) => f !== img.file);
+          };
+
+          wrapper.appendChild(img);
+          wrapper.appendChild(removeBtn);
+          return wrapper;
+        }
       });
     </script>
   </body>
+
+  <!-- Mirrored from demos.pixinvent.com/vuexy-html-admin-template/html/vertical-menu-template/form-layouts-sticky.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Feb 2025 08:27:42 GMT -->
 </html>
 
 <!-- beautify ignore:end -->
