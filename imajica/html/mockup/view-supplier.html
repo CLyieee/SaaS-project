@@ -16,7 +16,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Imajica Booking System</title>
+    <title>Imajica Booking System - Supplier Details</title>
 
     <meta name="description" content="Imajica Booking System" />
 
@@ -113,6 +113,54 @@
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
 
     <script src="../../assets/js/config.js"></script>
+
+    <script>
+      function getSupplierId() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get('id');
+      }
+
+      function displaySupplierInfo() {
+        const supplierId = getSupplierId();
+        // Example: Fetch supplier data based on the ID
+        // In a real application, you would fetch this data from a server
+        const suppliers = [
+          { 
+            id: 1, 
+            name: "Supplier A", 
+            contact: "+63 912 345 6789", 
+            type: "Equipment Supplier",
+            email: "contact@supplierA.com",
+            address: "123 Supplier St, City, Country",
+            notes: "Preferred payment method: Credit Card"
+          },
+          { 
+            id: 2, 
+            name: "Supplier B", 
+            contact: "+63 913 456 7890", 
+            type: "Product Supplier",
+            email: "info@supplierB.com",
+            address: "456 Supplier Ave, City, Country",
+            notes: "Offers discounts for bulk orders"
+          },
+          // Add more suppliers as needed
+        ];
+
+        const supplier = suppliers.find(s => s.id == supplierId);
+        if (supplier) {
+          document.getElementById('supplierName').innerText = supplier.name;
+          document.getElementById('supplierContact').innerText = supplier.contact;
+          document.getElementById('supplierType').innerText = supplier.type;
+          document.getElementById('supplierEmail').innerText = supplier.email;
+          document.getElementById('supplierAddress').innerText = supplier.address;
+          document.getElementById('supplierNotes').innerText = supplier.notes;
+        } else {
+          document.getElementById('supplierInfo').innerText = "Supplier not found.";
+        }
+      }
+
+      window.onload = displaySupplierInfo;
+    </script>
   </head>
 
   <body>
