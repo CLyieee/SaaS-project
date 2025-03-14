@@ -1,9 +1,5 @@
 <!doctype html>
 
-
-  
-
-
 <html
   lang="en"
   class=" layout-navbar-fixed layout-menu-fixed layout-compact "
@@ -61,15 +57,24 @@
     <!-- Vendors CSS -->
     
       <link rel="stylesheet" href="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
-      <link rel="stylesheet" href="../../assets/vendor/libs/flatpickr/flatpickr.css" />
-      <link rel="stylesheet" href="../../assets/vendor/libs/bootstrap-daterangepicker/bootstrap-daterangepicker.css" />
-      <link rel="stylesheet" href="../../assets/vendor/libs/jquery-timepicker/jquery-timepicker.css" />
- 
+    
     <!-- endbuild -->
 
     <link rel="stylesheet" href="../../assets/vendor/libs/select2/select2.css" />
 
     <!-- Page CSS -->
+
+    <!-- endbuild -->
+
+    <link rel="stylesheet" href="../../assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
+  <link rel="stylesheet" href="../../assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
+  <link rel="stylesheet" href="../../assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css" />
+  <link rel="stylesheet" href="../../assets/vendor/libs/flatpickr/flatpickr.css" />
+  <!-- Row Group CSS -->
+  <link rel="stylesheet" href="../../assets/vendor/libs/datatables-rowgroup-bs5/rowgroup.bootstrap5.css" />
+  <!-- Form Validation -->
+  <link rel="stylesheet" href="../../assets/vendor/libs/%40form-validation/form-validation.css" />
+
     
 
     <!-- Helpers -->
@@ -128,7 +133,7 @@
   
 
 
-    <li class="menu-item ">
+    <li class="menu-item">
       <a href="index.html" class="menu-link">
         <i class="menu-icon icon-base ti tabler-home"></i>
         <div data-i18n="Dashboard">Dashboard</div>
@@ -143,52 +148,42 @@
     </li>
    
     
-    <li class="menu-item ">
+    <li class="menu-item">
       <a href="booking.html" class="menu-link">
         <i class="menu-icon icon-base ti tabler-calendar"></i>
         <div data-i18n="Booking">Booking</div>
       </a>
     </li>
    
-    <li class="menu-item">     
+    <!-- Payment menu start -->
+    <li class="menu-item active open">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
-        <i class="menu-icon icon-base ti tabler-file-invoice"></i>
-        <div data-i18n="Invoice">Invoice</div>
+        <i class="menu-icon icon-base ti tabler-cash"></i>
+        <div data-i18n="Payment">Payment</div>
       </a>
       <ul class="menu-sub">
         <li class="menu-item">
-          <a href="invoice-list.html" class="menu-link">
-            <div data-i18n="List">List</div>
+          <a href="new-payment.html" class="menu-link">
+            <div data-i18n="New Payment">New Payment</div>
           </a>
         </li>
-    
-        <li class="menu-item">
-          <a href="invoice-edit.html" class="menu-link">
-            <div data-i18n="Edit">Edit</div>
+
+        <li class="menu-item active">
+          <a href="payment-list.html" class="menu-link">
+            <div data-i18n="Payment List">Payment List</div>
           </a>
         </li>
-        <li class="menu-item">
-          <a href="invoice-add.html" class="menu-link">
-            <div data-i18n="Add">Add</div>
-          </a>
-        </li>
-    
-        <li class="menu-item">
-          <a href="invoice.html" class="menu-link">
-            <div data-i18n="Preview">Preview</div>
-          </a>
-        </li>  
       </ul>
-    </li> 
+    </li>
+    <!-- Payment menu end -->
 
-
-    <li class="menu-item">
+    <li class="menu-item ">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class="menu-icon icon-base ti tabler-plus"></i>
         <div data-i18n="Services">Services</div>
       </a>
       <ul class="menu-sub">
-        <li class="menu-item">
+        <li class="menu-item ">
           <a href="new-services.html" class="menu-link">
             <div data-i18n="New Services">New Services</div>
           </a>
@@ -204,83 +199,14 @@
       </ul>
     </li>
 
-    <!-- e-commerce-app menu start -->
+   
     <li class="menu-item">
-      <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon icon-base ti tabler-shopping-cart"></i>
-          <div data-i18n="Product Management">Product Management</div>
-      </a>
-      <ul class="menu-sub">
-          <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                  <div data-i18n="Products">Products</div>
-              </a>
-              <ul class="menu-sub">
-                  <li class="menu-item">
-                      <a href="app-ecommerce-product-list.html" class="menu-link">
-                          <div data-i18n="Product List">Product List</div>
-                      </a>
-                  </li>
-                  <li class="menu-item">
-                      <a href="app-ecommerce-product-add.html" class="menu-link">
-                          <div data-i18n="Add Product">Add Product</div>
-                      </a>
-                  </li>
-                  <li class="menu-item">
-                      <a href="app-ecommerce-category-list.html" class="menu-link">
-                          <div data-i18n="Category List">Category List</div>
-                      </a>
-                  </li>
-              </ul>
-          </li>
-          <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                  <div data-i18n="Order">Order</div>
-              </a>
-              <ul class="menu-sub">
-                  <li class="menu-item">
-                      <a href="app-ecommerce-order-list.html" class="menu-link">
-                          <div data-i18n="Order List">Order List</div>
-                      </a>
-                  </li>
-                  <li class="menu-item">
-                      <a href="app-ecommerce-order-details.html" class="menu-link">
-                          <div data-i18n="Order Details">Order Details</div>
-                      </a>
-                  </li>
-              </ul>
-          </li>
-  
-          <!-- ✅ Inventory Section with Submenus -->
-          <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                  <div data-i18n="Inventory">Inventory</div>
-              </a>
-              <ul class="menu-sub">
-                  <li class="menu-item">
-                      <a href="inventory-stock.html" class="menu-link">
-                          <div data-i18n="Stock Management">Stock Management</div>
-                      </a>
-                  </li>
-                 
-                  <li class="menu-item">
-                      <a href="inventory-reports.html" class="menu-link">
-                          <div data-i18n="Inventory Reports">Inventory Reports</div>
-                      </a>
-                  </li>
-              </ul>
-          </li>
-  
-      </ul>
-  </li>
-
-    <li class="menu-item ">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class="menu-icon icon-base ti tabler-layout-board"></i>
         <div data-i18n="Coupon">Coupon</div>
       </a>
-      <ul class="menu-sub ">
-        <li class="menu-item ">
+      <ul class="menu-sub">
+        <li class="menu-item">
           <a href="new-coupon.html" class="menu-link">
             <div data-i18n="New Coupon">New Coupon</div>
           </a>
@@ -297,50 +223,13 @@
     </li>
 
 
-
-
-   
-    <!-- Academy menu start -->
-  
-    <!-- Academy menu end 
-   
     <li class="menu-item">
-      <a href="javascript:void(0);" class="menu-link menu-toggle">
-        <i class="menu-icon icon-base ti tabler-file-dollar"></i>
-        <div data-i18n="Invoice">Invoice</div>
-      </a>
-      <ul class="menu-sub">
-        <li class="menu-item">
-          <a href="app-invoice-list.html" class="menu-link">
-            <div data-i18n="List">List</div>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="app-invoice-preview.html" class="menu-link">
-            <div data-i18n="Preview">Preview</div>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="app-invoice-edit.html" class="menu-link">
-            <div data-i18n="Edit">Edit</div>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="app-invoice-add.html" class="menu-link">
-            <div data-i18n="Add">Add</div>
-          </a>
-        </li>
-      </ul>
-    </li>-->
-
-
-    <li class="menu-item ">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class="menu-icon icon-base ti tabler-users"></i>
         <div data-i18n="Client">Client</div>
       </a>
       <ul class="menu-sub">
-        <li class="menu-item ">
+        <li class="menu-item">
           <a href="new-client.html" class="menu-link">
             <div data-i18n="New Client">New Client</div>
           </a>
@@ -360,7 +249,7 @@
 
 
 
-    <li class="menu-item ">
+    <li class="menu-item">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class="menu-icon icon-base ti tabler-user"></i>
         <div data-i18n="Staff">Staff</div>
@@ -468,13 +357,13 @@
     </li>
 
 
-    <li class="menu-item active open">
+    <li class="menu-item">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class="menu-icon icon-base ti tabler-settings"></i>
         <div data-i18n="Users">Users</div>
       </a>
       <ul class="menu-sub">
-        <li class="menu-item active">
+        <li class="menu-item">
           <a href="new-user.html" class="menu-link">
             <div data-i18n="New User">New User</div>
           </a>
@@ -491,13 +380,8 @@
     </li>
 
 
-    <li class="menu-item">
-      <a href="system-settings.html" class="menu-link">
-          <i class="menu-icon icon-base ti tabler-adjustments"></i>
-          <div data-i18n="System Settings">System Settings</div>
-      </a>
-  </li>
 
+  
 
 
     <li class="menu-item">
@@ -663,137 +547,144 @@
 
 <!-- / Navbar -->
 
+
+<div class="content-wrapper">
+  <!-- Content -->
+  <div class="container-xxl flex-grow-1 container-p-y">
+
+    <div class="card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Payment List</h5>
+        <a href="new-payment.html" class="btn btn-primary">Add New Payment</a>
+      </div>
+      
+      <!-- Filters -->
+      <div class="px-4 py-3 d-flex flex-wrap gap-3">
+        <div>
+          <label for="branchFilter" class="fw-bold me-2">Branch:</label>
+          <select id="branchFilter" class="form-select w-auto d-inline-block">
+            <option value="">All Branches</option>
+            <option value="Pasig City Branch">Pasig City Branch</option>
+            <option value="San Mateo Rizal Branch">San Mateo Rizal Branch</option>
+            <option value="Cainta Rizal Branch">Cainta Rizal Branch</option>
+          </select>
+        </div>
         
+        <div>
+          <label for="statusFilter" class="fw-bold me-2">Status:</label>
+          <select id="statusFilter" class="form-select w-auto d-inline-block">
+            <option value="">All Statuses</option>
+            <option value="Paid">Paid</option>
+            <option value="Pending">Pending</option>
+            <option value="Failed">Failed</option>
+            <option value="Refunded">Refunded</option>
+          </select>
+        </div>
+        
+        <div>
+          <label for="dateRangeFilter" class="fw-bold me-2">Date Range:</label>
+          <input type="text" id="dateRangeFilter" class="form-control w-auto d-inline-block flatpickr-range" placeholder="YYYY-MM-DD to YYYY-MM-DD" />
+        </div>
+      </div>
+
+      <!-- Table -->
+      <div class="table-responsive text-nowrap px-3">
+        <table id="paymentsTable" class="table table-striped">
+          <thead class="table-light">
+            <tr>
+              <th>Client Name</th>
+              <th>Amount</th>
+              <th>Payment Method</th>
+              <th>Date</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Sophia Mendoza</td>
+              <td>PHP 2,500.00</td>
+              <td>Credit Card</td>
+              <td>2023-06-15</td>
+              <td><span class="badge bg-label-success">Paid</span></td>
+              <td>
+                <button class="btn btn-sm btn-success">View</button>
+                <button class="btn btn-sm btn-primary">Edit</button>
+                <button class="btn btn-sm btn-danger">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Isabelle Del Rosario</td>
+              <td>PHP 3,800.00</td>
+              <td>GCash</td>
+              <td>2023-06-16</td>
+              <td><span class="badge bg-label-success">Paid</span></td>
+              <td>
+                <button class="btn btn-sm btn-success">View</button>
+                <button class="btn btn-sm btn-primary">Edit</button>
+                <button class="btn btn-sm btn-danger">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Jared Alonzo</td>
+              <td>PHP 1,200.00</td>
+              <td>Cash</td>
+              <td>2023-06-17</td>
+              <td><span class="badge bg-label-warning">Pending</span></td>
+              <td>
+                <button class="btn btn-sm btn-success">View</button>
+                <button class="btn btn-sm btn-primary">Edit</button>
+                <button class="btn btn-sm btn-danger">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Bianca Tan</td>
+              <td>PHP 5,000.00</td>
+              <td>Bank Transfer</td>
+              <td>2023-06-18</td>
+              <td><span class="badge bg-label-success">Paid</span></td>
+              <td>
+                <button class="btn btn-sm btn-success">View</button>
+                <button class="btn btn-sm btn-primary">Edit</button>
+                <button class="btn btn-sm btn-danger">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Nathan Villanueva</td>
+              <td>PHP 3,500.00</td>
+              <td>PayMaya</td>
+              <td>2023-06-19</td>
+              <td><span class="badge bg-label-danger">Failed</span></td>
+              <td>
+                <button class="btn btn-sm btn-success">View</button>
+                <button class="btn btn-sm btn-primary">Edit</button>
+                <button class="btn btn-sm btn-danger">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Maria Santos</td>
+              <td>PHP 4,200.00</td>
+              <td>Credit Card</td>
+              <td>2023-06-20</td>
+              <td><span class="badge bg-label-info">Refunded</span></td>
+              <td>
+                <button class="btn btn-sm btn-success">View</button>
+                <button class="btn btn-sm btn-primary">Edit</button>
+                <button class="btn btn-sm btn-danger">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <br>
+      </div>
+      
+    </div>
+  </div>
+</div>
 
         <!-- Content wrapper -->
-        <div class="content-wrapper">
-          <!-- Content -->
-          <div class="container-xxl flex-grow-1 container-p-y">
-  <!-- Sticky Actions -->
-  <div class="row">
-    <div class="col-12">
-      <div class="card" >
-        <div class="card-header sticky-element bg-label-primary d-flex justify-content-sm-between align-items-sm-center flex-column flex-sm-row" >
-          <h5 class="card-title mb-sm-0 me-2" >User Management</h5>
-          
-        </div>
-        <div class="card-body pt-6">
-          <div class="row">
-            <div class="col-lg-8 mx-auto">
-              <!-- 1. Delivery Address -->
-        
-              <div class="row g-6">
-                <div class="col-md-6">
-                  <label class="form-label" for="fullname">Full Name</label>
-                  <input type="text" id="fullname" class="form-control" placeholder="Full Name" />
-                </div>
-
-                <div class="col-md-6">
-                  <label class="form-label" for="fullname">Email Address</label>
-                  <input type="text" id="fullname" class="form-control" placeholder="Email Address" />
-                </div>
-                
-                
-                <div class="col-md-6">
-                  <label class="form-label" for="fullname">Password</label>
-                  <input type="password" id="fullname" class="form-control" placeholder="Password" />
-                </div>
-
-              
-
-                <div class="col-md-6">
-                  <label class="form-label" >Role</label>
-                  <select  class="select2 form-select" data-allow-clear="true">
-                    <option value="">Select Role</option>
-                    <option value="AL">Admin</option>
-                    <option value="AK">Front Desk</option>
-                
-              
-                  </select>
-                </div>
-
-
-               
-               
-
-
-                <div class="col-md-12">
-                  <label class="form-label" >Branch</label>
-                  <select  class="select2 form-select" data-allow-clear="true">
-                    <option value="">Select Branch</option>
-                    <option value="AL">Pasig City Branch</option>
-                    <option value="AK">San Mateo Rizal Branch</option>
-                    <option value="AK">Cainta Rizal Branch</option>
-              
-                  </select>
-                </div>
-
-
-
-
-                
-
-
-
-             
-
-
-
-
-
-
-               
-              
-             
-                
-
-               
-              </div>
-           
-              <!-- 2. Delivery Type -->
-           
-              <br>
-              <div class="col-sm-2 col-4 d-grid">
-                <button class="btn btn-primary">Add User</button>
-              </div>
-              <br>
-              
-           
-              <!-- 4. Payment Method -->
-        
-           
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- /Sticky Actions --></div>
-          <!-- / Content -->
-
-          
-            
-
-<!-- Footer -->
-<footer class="content-footer footer bg-footer-theme">
-  <div class="container-xxl">
-    <div class="footer-container d-flex align-items-center justify-content-between py-4 flex-md-row flex-column">
-      <div class="text-body">
-        ©
-        <script>
-          document.write(new Date().getFullYear());
-        </script>
-         Developed by <a href="https://intra-code.com/" target="_blank" class="footer-link">Intracode IT Solutions</a>
-      </div>
-     
-    </div>
-  </div>
-</footer>
-<!-- / Footer -->
-
-          
-          <div class="content-backdrop fade"></div>
-        </div>
+    
         <!-- Content wrapper -->
       </div>
       <!-- / Layout page -->
@@ -852,12 +743,6 @@
     <script src="../../assets/vendor/libs/cleave-zen/cleave-zen.js"></script>
   <script src="../../assets/vendor/libs/select2/select2.js"></script>
 
-  <script src="../../assets/vendor/libs/moment/moment.js"></script>
-  <script src="../../assets/vendor/libs/flatpickr/flatpickr.js"></script>
-  <script src="../../assets/vendor/libs/bootstrap-daterangepicker/bootstrap-daterangepicker.js"></script>
-  <script src="../../assets/vendor/libs/jquery-timepicker/jquery-timepicker.js"></script>
-  <script src="../../assets/vendor/libs/pickr/pickr.js"></script>
-
     <!-- Main JS -->
     
       <script src="../../assets/js/main.js"></script>
@@ -865,11 +750,67 @@
 
     <!-- Page JS -->
     <script src="../../assets/js/form-layouts.js"></script>
-    <script src="../../assets/js/forms-pickers.js"></script>
-  </body>
 
-<!-- Mirrored from demos.pixinvent.com/vuexy-html-admin-template/html/vertical-menu-template/form-layouts-sticky.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Feb 2025 08:27:42 GMT -->
-</html>
+  
+    <!-- Vendors JS -->
+    <script src="../../assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
+  <!-- Flat Picker -->
+  <script src="../../assets/vendor/libs/moment/moment.js"></script>
+  <script src="../../assets/vendor/libs/flatpickr/flatpickr.js"></script>
+  <!-- Form Validation -->
+  <script src="../../assets/vendor/libs/%40form-validation/popular.js"></script>
+  <script src="../../assets/vendor/libs/%40form-validation/bootstrap5.js"></script>
+  <script src="../../assets/vendor/libs/%40form-validation/auto-focus.js"></script>
+<script>
+  $(document).ready(function() {
+    var table = $('#paymentsTable').DataTable(); 
 
-  <!-- beautify ignore:end -->
-
+    // Filter by branch
+    $('#branchFilter').on('change', function() {
+      var selectedBranch = $(this).val();
+      table.column(0).search(selectedBranch).draw();
+    });
+    
+    // Filter by status
+    $('#statusFilter').on('change', function() {
+      var selectedStatus = $(this).val();
+      table.column(4).search(selectedStatus).draw();
+    });
+    
+    // Initialize date range picker
+    if($('.flatpickr-range').length) {
+      $('.flatpickr-range').flatpickr({
+        mode: 'range',
+        dateFormat: 'Y-m-d'
+      });
+    }
+    
+    // Date range filter
+    $('#dateRangeFilter').on('change', function() {
+      var dateRange = $(this).val();
+      if (dateRange) {
+        var dates = dateRange.split(' to ');
+        var startDate = dates[0];
+        var endDate = dates.length > 1 ? dates[1] : startDate;
+        
+        // Custom filtering function for date range
+        $.fn.dataTable.ext.search.push(
+          function(settings, data, dataIndex) {
+            var rowDate = new Date(data[3]); // Updated column index for date
+            var start = new Date(startDate);
+            var end = new Date(endDate);
+            
+            return (rowDate >= start && rowDate <= end);
+          }
+        );
+        
+        table.draw();
+      } else {
+        // Remove custom filter if date range is cleared
+        $.fn.dataTable.ext.search.pop();
+        table.draw();
+      }
+    });
+  });
+</script>
+</rewritten_file>
