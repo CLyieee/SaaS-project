@@ -776,7 +776,7 @@
 
     <!-- Replace the existing client modal with this enhanced version -->
     <div class="modal fade" id="clientModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-dialog modal-dialog-centered modal-xl"> <!-- Changed to modal-xl -->
         <div class="modal-content border-0">
           <div class="modal-header bg-primary text-white border-0">
             <h5 class="modal-title text-white fs-4">
@@ -785,104 +785,108 @@
             </h5>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <!-- Update the modal body section to include profile picture -->
           <div class="modal-body p-4">
-            <!-- Profile Section -->
-            <div class="client-detail-card">
-              <div class="text-center mb-4">
-                <div class="client-profile-wrapper mx-auto">
-                  <img 
-                    src="../../assets/img/avatars/default-avatar.png" 
-                    alt="Client Profile" 
-                    class="client-profile-image"
-                    id="modalProfileImage"
-                  >
+            <div class="row g-3">
+              <!-- Profile and Personal Info Column -->
+              <div class="col-md-4">
+                <!-- Profile Section -->
+                <div class="client-detail-card h-100">
+                  <div class="text-center mb-3">
+                    <div class="client-profile-wrapper mx-auto">
+                      <img 
+                        src="../../assets/img/avatars/default-avatar.png" 
+                        alt="Client Profile" 
+                        class="client-profile-image"
+                        id="modalProfileImage"
+                      >
+                    </div>
+                    <h5 class="mt-3 mb-1" id="modalClientNameProfile"></h5>
+                    <span class="badge bg-label-success" id="modalMembershipBadge"></span>
+                  </div>
+                  <!-- Personal Info -->
+                  <div class="client-info-item">
+                    <div class="client-info-icon">
+                      <i class="ti tabler-phone"></i>
+                    </div>
+                    <div>
+                      <small class="text-muted d-block">Contact</small>
+                      <span id="modalContact" class="fw-semibold"></span>
+                    </div>
+                  </div>
+                  <div class="client-info-item">
+                    <div class="client-info-icon">
+                      <i class="ti tabler-mail"></i>
+                    </div>
+                    <div>
+                      <small class="text-muted d-block">Email</small>
+                      <span id="modalEmail" class="fw-semibold"></span>
+                    </div>
+                  </div>
+                  <div class="client-info-item mb-0">
+                    <div class="client-info-icon">
+                      <i class="ti tabler-map-pin"></i>
+                    </div>
+                    <div>
+                      <small class="text-muted d-block">Address</small>
+                      <span id="modalAddress" class="fw-semibold"></span>
+                    </div>
+                  </div>
                 </div>
-                <h5 class="mt-3 mb-1" id="modalClientNameProfile"></h5>
-                <span class="badge bg-label-success" id="modalMembershipBadge"></span>
               </div>
-            </div>
 
-            <!-- Personal Information Card -->
-            <div class="client-detail-card">
-              <h6 class="text-primary mb-3">Personal Information</h6>
-              <div class="client-info-item">
-                <div class="client-info-icon">
-                  <i class="ti tabler-phone"></i>
-                </div>
-                <div>
-                  <small class="text-muted d-block">Contact Number</small>
-                  <span id="modalContact" class="fw-semibold"></span>
+              <!-- Membership Details Column -->
+              <div class="col-md-4">
+                <div class="client-detail-card h-100">
+                  <h6 class="text-primary mb-3">Membership Details</h6>
+                  <div class="client-info-item">
+                    <div class="client-info-icon">
+                      <i class="ti tabler-award"></i>
+                    </div>
+                    <div>
+                      <small class="text-muted d-block">Tier</small>
+                      <span id="modalMembership" class="fw-semibold"></span>
+                    </div>
+                  </div>
+                  <div class="client-info-item">
+                    <div class="client-info-icon">
+                      <i class="ti tabler-points"></i>
+                    </div>
+                    <div>
+                      <small class="text-muted d-block">Points</small>
+                      <span id="modalPoints" class="fw-semibold"></span>
+                    </div>
+                  </div>
+                  <div class="client-info-item mb-0">
+                    <div class="client-info-icon">
+                      <i class="ti tabler-calendar"></i>
+                    </div>
+                    <div>
+                      <small class="text-muted d-block">Member Since</small>
+                      <span id="modalJoined" class="fw-semibold"></span>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="client-info-item">
-                <div class="client-info-icon">
-                  <i class="ti tabler-mail"></i>
-                </div>
-                <div>
-                  <small class="text-muted d-block">Email Address</small>
-                  <span id="modalEmail" class="fw-semibold"></span>
-                </div>
-              </div>
-              <div class="client-info-item">
-                <div class="client-info-icon">
-                  <i class="ti tabler-map-pin"></i>
-                </div>
-                <div>
-                  <small class="text-muted d-block">Address</small>
-                  <span id="modalAddress" class="fw-semibold"></span>
-                </div>
-              </div>
-            </div>
 
-            <!-- Membership Details Card -->
-            <div class="client-detail-card">
-              <h6 class="text-primary mb-3">Membership Details</h6>
-              <div class="client-info-item">
-                <div class="client-info-icon">
-                  <i class="ti tabler-award"></i>
+              <!-- Recent Bookings Column -->
+              <div class="col-md-4">
+                <div class="client-detail-card h-100">
+                  <h6 class="text-primary mb-3">Recent Bookings</h6>
+                  <div class="table-responsive">
+                    <table class="table table-sm mb-0">
+                      <thead>
+                        <tr>
+                          <th>Date</th>
+                          <th>Service</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody id="recentBookings">
+                        <!-- Will be populated dynamically -->
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
-                <div>
-                  <small class="text-muted d-block">Membership Tier</small>
-                  <span id="modalMembership" class="fw-semibold"></span>
-                </div>
-              </div>
-              <div class="client-info-item">
-                <div class="client-info-icon">
-                  <i class="ti tabler-points"></i>
-                </div>
-                <div>
-                  <small class="text-muted d-block">Reward Points</small>
-                  <span id="modalPoints" class="fw-semibold"></span>
-                </div>
-              </div>
-              <div class="client-info-item">
-                <div class="client-info-icon">
-                  <i class="ti tabler-calendar"></i>
-                </div>
-                <div>
-                  <small class="text-muted d-block">Member Since</small>
-                  <span id="modalJoined" class="fw-semibold"></span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Recent Bookings Card -->
-            <div class="client-detail-card">
-              <h6 class="text-primary mb-3">Recent Bookings</h6>
-              <div class="table-responsive">
-                <table class="table table-sm">
-                  <thead>
-                    <tr>
-                      <th>Date</th>
-                      <th>Service</th>
-                      <th>Status</th>
-                    </tr>
-                  </thead>
-                  <tbody id="recentBookings">
-                    <!-- Will be populated dynamically -->
-                  </tbody>
-                </table>
               </div>
             </div>
           </div>
@@ -975,6 +979,60 @@
       });
     });
     </script>
+
+    <!-- Update the CSS -->
+    <style>
+    .modal-xl {
+      max-width: 1140px;
+    }
+
+    .client-detail-card {
+      background: #fff;
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      height: 100%;
+      box-shadow: 0 0.125rem 0.25rem rgba(10, 54, 34, 0.075);
+    }
+
+    .client-profile-wrapper {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid #0a3622;
+      box-shadow: 0 4px 15px rgba(10, 54, 34, 0.2);
+      margin-bottom: 1rem;
+    }
+
+    .client-info-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+    }
+
+    .client-info-icon {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #e7efe9;
+      color: #0a3622;
+      border-radius: 0.5rem;
+      margin-right: 0.75rem;
+    }
+
+    .modal-content {
+      border-radius: 1rem;
+    }
+
+    .table-sm td, .table-sm th {
+      padding: 0.5rem;
+      font-size: 0.875rem;
+    }
+    </style>
   </body>
 </html>
 

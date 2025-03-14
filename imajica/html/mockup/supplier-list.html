@@ -330,6 +330,69 @@
         font-size: 0.8125rem;
         color: #6c757d;
       }
+
+      .modal-xl {
+        max-width: 1200px;
+      }
+
+      .supplier-detail-card {
+        background: #fff;
+        border-radius: 0.75rem;
+        padding: 1.25rem;
+        height: 100%;
+        box-shadow: 0 0.125rem 0.25rem rgba(10, 54, 34, 0.075);
+      }
+
+      .supplier-info-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+      }
+
+      .supplier-info-icon {
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #e7efe9;
+        color: #0a3622;
+        border-radius: 0.5rem;
+        margin-right: 0.75rem;
+      }
+
+      .supplier-gallery-compact {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+      }
+
+      .supplier-gallery-compact img {
+        width: 100%;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 0.5rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .modal-content {
+        border-radius: 1rem;
+      }
+
+      .modal-header {
+        padding: 1rem 1.5rem;
+        background: linear-gradient(
+          135deg,
+          #0a3622 0%,
+          #1a5c3c 100%
+        ) !important;
+      }
+
+      .modal-body {
+        padding: 1.5rem;
+      }
     </style>
   </head>
 
@@ -1191,12 +1254,10 @@
 
     <!-- Add this modal HTML before the closing body tag -->
     <div class="modal fade" id="supplierModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-lg">
-        <!-- Changed to modal-lg -->
+      <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content border-0">
           <div class="modal-header bg-primary text-white border-0">
             <h5 class="modal-title text-white fs-4">
-              <!-- Added fs-4 for larger font -->
               <i class="ti tabler-building-factory me-2"></i>
               <span id="modalCompanyName" class="text-white"></span>
             </h5>
@@ -1208,63 +1269,76 @@
             ></button>
           </div>
           <div class="modal-body p-4">
-            <div class="supplier-detail-card">
-              <h6 class="text-primary mb-3">Contact Information</h6>
-              <div class="supplier-info-item">
-                <div class="supplier-info-icon">
-                  <i class="ti tabler-phone"></i>
-                </div>
-                <div>
-                  <small class="text-muted d-block">Phone Number</small>
-                  <span id="modalContact" class="fw-semibold"></span>
+            <div class="row g-3">
+              <!-- Contact Information Card -->
+              <div class="col-md-4">
+                <div class="supplier-detail-card h-100">
+                  <h6 class="text-primary mb-3">Contact Information</h6>
+                  <div class="supplier-info-item">
+                    <div class="supplier-info-icon">
+                      <i class="ti tabler-phone"></i>
+                    </div>
+                    <div>
+                      <small class="text-muted d-block">Phone Number</small>
+                      <span id="modalContact" class="fw-semibold"></span>
+                    </div>
+                  </div>
+                  <div class="supplier-info-item">
+                    <div class="supplier-info-icon">
+                      <i class="ti tabler-mail"></i>
+                    </div>
+                    <div>
+                      <small class="text-muted d-block">Email Address</small>
+                      <span id="modalEmail" class="fw-semibold"></span>
+                    </div>
+                  </div>
+                  <div class="supplier-info-item mb-0">
+                    <div class="supplier-info-icon">
+                      <i class="ti tabler-map-pin"></i>
+                    </div>
+                    <div>
+                      <small class="text-muted d-block">Business Address</small>
+                      <span id="modalAddress" class="fw-semibold"></span>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="supplier-info-item">
-                <div class="supplier-info-icon">
-                  <i class="ti tabler-mail"></i>
-                </div>
-                <div>
-                  <small class="text-muted d-block">Email Address</small>
-                  <span id="modalEmail" class="fw-semibold"></span>
-                </div>
-              </div>
-              <div class="supplier-info-item">
-                <div class="supplier-info-icon">
-                  <i class="ti tabler-map-pin"></i>
-                </div>
-                <div>
-                  <small class="text-muted d-block">Business Address</small>
-                  <span id="modalAddress" class="fw-semibold"></span>
-                </div>
-              </div>
-            </div>
 
-            <div class="supplier-detail-card">
-              <h6 class="text-primary mb-3">Business Details</h6>
-              <div class="supplier-info-item">
-                <div class="supplier-info-icon">
-                  <i class="ti tabler-category"></i>
-                </div>
-                <div>
-                  <small class="text-muted d-block">Supplier Type</small>
-                  <span id="modalType" class="fw-semibold"></span>
+              <!-- Business Details Card -->
+              <div class="col-md-4">
+                <div class="supplier-detail-card h-100">
+                  <h6 class="text-primary mb-3">Business Details</h6>
+                  <div class="supplier-info-item">
+                    <div class="supplier-info-icon">
+                      <i class="ti tabler-category"></i>
+                    </div>
+                    <div>
+                      <small class="text-muted d-block">Supplier Type</small>
+                      <span id="modalType" class="fw-semibold"></span>
+                    </div>
+                  </div>
+                  <div class="supplier-info-item mb-0">
+                    <div class="supplier-info-icon">
+                      <i class="ti tabler-package"></i>
+                    </div>
+                    <div>
+                      <small class="text-muted d-block"
+                        >Products/Services</small
+                      >
+                      <span id="modalProducts" class="fw-semibold"></span>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="supplier-info-item">
-                <div class="supplier-info-icon">
-                  <i class="ti tabler-package"></i>
-                </div>
-                <div>
-                  <small class="text-muted d-block">Products/Services</small>
-                  <span id="modalProducts" class="fw-semibold"></span>
-                </div>
-              </div>
-            </div>
 
-            <div class="supplier-detail-card">
-              <h6 class="text-primary mb-3">Product Gallery</h6>
-              <div class="supplier-gallery" id="supplierTypeImages">
-                <!-- Images will be inserted here dynamically -->
+              <!-- Product Gallery Card -->
+              <div class="col-md-4">
+                <div class="supplier-detail-card h-100">
+                  <h6 class="text-primary mb-3">Product Gallery</h6>
+                  <div class="supplier-gallery-compact" id="supplierTypeImages">
+                    <!-- Images will be inserted here dynamically -->
+                  </div>
+                </div>
               </div>
             </div>
           </div>
