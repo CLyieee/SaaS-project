@@ -98,6 +98,45 @@
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
 
     <script src="../../assets/js/config.js"></script>
+
+    <!-- Add this CSS to the head section -->
+    <style>
+      .profile-upload-container {
+        width: 200px;
+        margin-bottom: 2rem;
+      }
+
+      .avatar-upload {
+        position: relative;
+        text-align: center;
+      }
+
+      .avatar-preview {
+        width: 150px;
+        height: 150px;
+        position: relative;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 4px solid #0a3622;
+        box-shadow: 0 0 20px rgba(10, 54, 34, 0.15);
+        margin: 0 auto;
+      }
+
+      .avatar-preview img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .avatar-edit label {
+        transition: all 0.3s ease;
+      }
+
+      .avatar-edit label:hover {
+        background-color: #0a3622;
+        border-color: #0a3622;
+      }
+    </style>
   </head>
 
   <body>
@@ -656,6 +695,38 @@
                     <div class="card-body pt-6">
                       <div class="row">
                         <div class="col-lg-8 mx-auto">
+                          <!-- Add this after the header and before the first form group -->
+                          <div class="row g-6">
+                            <div class="col-12 text-center mb-4">
+                              <div class="profile-upload-container mx-auto">
+                                <div class="avatar-upload">
+                                  <div class="avatar-preview">
+                                    <img
+                                      id="imagePreview"
+                                      src="../../assets/img/avatars/default-avatar.png"
+                                      alt="Profile Preview"
+                                    />
+                                  </div>
+                                  <div class="avatar-edit">
+                                    <input
+                                      type="file"
+                                      id="imageUpload"
+                                      accept=".png, .jpg, .jpeg"
+                                      class="d-none"
+                                    />
+                                    <label
+                                      for="imageUpload"
+                                      class="btn btn-primary btn-sm mt-2"
+                                    >
+                                      <i class="ti tabler-upload me-1"></i
+                                      >Upload Photo
+                                    </label>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
                           <!-- 1. Delivery Address -->
 
                           <div class="row g-6">
@@ -847,6 +918,27 @@
     <!-- Page JS -->
     <script src="../../assets/js/form-layouts.js"></script>
     <script src="../../assets/js/forms-pickers.js"></script>
+
+    <!-- Add this JavaScript before the closing body tag -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const imageUpload = document.getElementById("imageUpload");
+        const imagePreview = document.getElementById("imagePreview");
+
+        imageUpload.addEventListener("change", function (e) {
+          const file = e.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+              imagePreview.src = e.target.result;
+            };
+
+            reader.readAsDataURL(file);
+          }
+        });
+      });
+    </script>
   </body>
 
   <!-- Mirrored from demos.pixinvent.com/vuexy-html-admin-template/html/vertical-menu-template/form-layouts-sticky.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Feb 2025 08:27:42 GMT -->
