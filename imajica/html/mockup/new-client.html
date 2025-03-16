@@ -924,19 +924,66 @@
       document.addEventListener("DOMContentLoaded", function () {
         const imageUpload = document.getElementById("imageUpload");
         const imagePreview = document.getElementById("imagePreview");
+        const fullNameInput = document.getElementById("fullname");
 
+        function getInitials(name) {
+          return name
+            .split(" ")
+            .map((word) => word[0])
+            .join("")
+            .toUpperCase();
+        }
+
+        function createInitialsAvatar(initials) {
+          const canvas = document.createElement("canvas");
+          const context = canvas.getContext("2d");
+          canvas.width = 150;
+          canvas.height = 150;
+
+          // Background
+          context.fillStyle = "#0a3622";
+          context.beginPath();
+          context.arc(75, 75, 75, 0, Math.PI * 2);
+          context.fill();
+
+          // Text
+          context.font = "bold 60px Arial";
+          context.fillStyle = "#FFFFFF";
+          context.textAlign = "center";
+          context.textBaseline = "middle";
+          context.fillText(initials, 75, 75);
+
+          return canvas.toDataURL();
+        }
+
+        // Update avatar when name changes
+        fullNameInput.addEventListener("input", function () {
+          if (!imageUpload.files.length) {
+            const initials = getInitials(this.value) || "GC"; // Default to "GC" if no name
+            imagePreview.src = createInitialsAvatar(initials);
+          }
+        });
+
+        // Handle image upload
         imageUpload.addEventListener("change", function (e) {
           const file = e.target.files[0];
           if (file) {
             const reader = new FileReader();
-
             reader.onload = function (e) {
               imagePreview.src = e.target.result;
             };
-
             reader.readAsDataURL(file);
+          } else if (fullNameInput.value) {
+            imagePreview.src = createInitialsAvatar(
+              getInitials(fullNameInput.value)
+            );
+          } else {
+            imagePreview.src = createInitialsAvatar("GC");
           }
         });
+
+        // Set default avatar on load
+        imagePreview.src = createInitialsAvatar("GC");
       });
     </script>
   </body>

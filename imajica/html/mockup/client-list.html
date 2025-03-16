@@ -1044,6 +1044,7 @@
       height: 100%;
       object-fit: cover;
       transition: transform 0.3s ease;
+      background-color: #0a3622;
     }
 
     .client-profile-image:hover {
@@ -1057,27 +1058,68 @@
       border-top-right-radius: 1rem;
       padding: 1.5rem;
     }
+
+    .client-profile-wrapper {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid #0a3622;
+      box-shadow: 0 4px 15px rgba(10, 54, 34, 0.2);
+      margin: 0 auto 1rem;
+    }
     </style>
 
     <!-- Update the JavaScript event handler -->
     <script>
+    // Add this function to create initials avatar
+    function createInitialsAvatar(name) {
+      const canvas = document.createElement('canvas');
+      const context = canvas.getContext('2d');
+      canvas.width = 120;
+      canvas.height = 120;
+
+      // Draw circle background
+      context.fillStyle = '#0a3622';
+      context.beginPath();
+      context.arc(60, 60, 60, 0, Math.PI * 2);
+      context.fill();
+
+      // Get initials
+      const initials = name
+        .split(' ')
+        .map(word => word[0])
+        .join('')
+        .toUpperCase();
+
+      // Draw text
+      context.font = 'bold 48px Arial';
+      context.fillStyle = '#FFFFFF';
+      context.textAlign = 'center';
+      context.textBaseline = 'middle';
+      context.fillText(initials, 60, 60);
+
+      return canvas.toDataURL();
+    }
+
+    // Update the view client click handler
     document.addEventListener('DOMContentLoaded', function() {
       document.querySelectorAll('.view-client').forEach(button => {
         button.addEventListener('click', function() {
-          // Update profile section
-          document.getElementById('modalClientNameProfile').textContent = this.dataset.name;
-          document.getElementById('modalMembershipBadge').textContent = this.dataset.membership;
-          
-          // Set profile image if available
+          const name = this.dataset.name;
           const profileImage = document.getElementById('modalProfileImage');
+          
+          // Check if there's a profile image, if not use initials
           if (this.dataset.profileImage) {
             profileImage.src = this.dataset.profileImage;
           } else {
-            profileImage.src = '../../assets/img/avatars/default-avatar.png';
+            profileImage.src = createInitialsAvatar(name);
           }
 
-          // Existing modal data population
-          document.getElementById('modalClientName').textContent = this.dataset.name;
+          // Rest of your existing modal population code
+          document.getElementById('modalClientName').textContent = name;
+          document.getElementById('modalClientNameProfile').textContent = name;
+          document.getElementById('modalMembershipBadge').textContent = this.dataset.membership;
           document.getElementById('modalContact').textContent = this.dataset.contact;
           document.getElementById('modalEmail').textContent = this.dataset.email;
           document.getElementById('modalAddress').textContent = this.dataset.address;
