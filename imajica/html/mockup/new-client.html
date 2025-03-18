@@ -806,6 +806,37 @@
                               ></textarea>
                             </div>
 
+                              <!-- Add this new card section inside your modal body after the membership details card -->
+                          <div class="col-md-12 mt-3">
+                            <div class="client-detail-card">
+                              <h6 class="text-primary mb-3">
+                                Medical Information
+                              </h6>
+                              <div class="row">
+                                <div class="col-12">
+                                  <div class="client-info-item">
+                                    <div class="client-info-icon">
+                                      <i class="ti tabler-alert-circle"></i>
+                                    </div>
+                                    <div>
+                                      <small class="text-muted d-block"
+                                        >Allergies / Medical Concerns</small
+                                      >
+                                      <span
+                                        id="modalMedicalInfo"
+                                        class="fw-semibold"
+                                      >
+                                        • Allergic to certain essential oils •
+                                        Sensitive skin • High blood pressure •
+                                        Currently taking anticoagulants
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
                             <div class="col-12">
                               <label class="form-label" for="address"
                                 >Notes From Admin</label
@@ -819,6 +850,8 @@
                               ></textarea>
                             </div>
                           </div>
+
+                        
 
                           <!-- 2. Delivery Type -->
 
@@ -986,6 +1019,21 @@
         imagePreview.src = createInitialsAvatar("GC");
       });
     </script>
+    <button
+      class="btn btn-sm btn-success view-client"
+      data-bs-toggle="modal"
+      data-bs-target="#clientModal"
+      data-name="Sofia Mendoza"
+      data-contact="+63 917 123 4567"
+      data-email="sofia.mendoza@email.com"
+      data-address="123 Makati Avenue, Makati City"
+      data-membership="Gold"
+      data-points="750"
+      data-joined="2023-01-15"
+      data-medical="Allergic to certain essential oils, Sensitive skin, High blood pressure, Currently taking anticoagulants"
+    >
+      View
+    </button>
   </body>
 
   <!-- Mirrored from demos.pixinvent.com/vuexy-html-admin-template/html/vertical-menu-template/form-layouts-sticky.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Feb 2025 08:27:42 GMT -->
