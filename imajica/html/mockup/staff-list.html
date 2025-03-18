@@ -658,24 +658,35 @@
             <!-- Content -->
             <div class="container-xxl flex-grow-1 container-p-y">
               <div class="card">
-                <!-- Branch Filter -->
-                <div class="px-4 py-3">
-                  <label for="branchFilter" class="fw-bold me-2"
-                    >Select Branch:</label
-                  >
-                  <select
-                    id="branchFilter"
-                    class="form-select w-auto d-inline-block"
-                  >
-                    <option value="">All Branches</option>
-                    <option value="Pasig City Branch">Pasig City Branch</option>
-                    <option value="San Mateo Rizal Branch">
-                      San Mateo Rizal Branch
-                    </option>
-                    <option value="Cainta Rizal Branch">
-                      Cainta Rizal Branch
-                    </option>
-                  </select>
+                <!-- Table Header Section -->
+                <div
+                  class="px-4 py-3 d-flex justify-content-between align-items-center"
+                >
+                  <div>
+                    <h5 class="card-title mb-0">
+                      Total Employees: <span class="text-primary">5</span>
+                    </h5>
+                  </div>
+                  <div>
+                    <label for="branchFilter" class="fw-bold me-2"
+                      >Select Branch:</label
+                    >
+                    <select
+                      id="branchFilter"
+                      class="form-select w-auto d-inline-block"
+                    >
+                      <option value="">All Branches</option>
+                      <option value="Pasig City Branch">
+                        Pasig City Branch
+                      </option>
+                      <option value="San Mateo Rizal Branch">
+                        San Mateo Rizal Branch
+                      </option>
+                      <option value="Cainta Rizal Branch">
+                        Cainta Rizal Branch
+                      </option>
+                    </select>
+                  </div>
                 </div>
 
                 <!-- Table -->
@@ -832,11 +843,21 @@
       $(document).ready(function () {
         var table = $("#servicesTable").DataTable();
 
-        // Filter by branch
+        // Update total employees count
+        function updateTotalEmployees() {
+          var visibleRows = table.page.info().recordsDisplay;
+          $(".card-title span").text(visibleRows);
+        }
+
+        // Update count on filter change
         $("#branchFilter").on("change", function () {
           var selectedBranch = $(this).val();
-          table.column(0).search(selectedBranch).draw();
+          table.column(2).search(selectedBranch).draw();
+          updateTotalEmployees();
         });
+
+        // Initial count
+        updateTotalEmployees();
       });
     </script>
   </body>

@@ -222,9 +222,6 @@
               <a href="app-ecommerce-order-details.html" class="menu-link">
                 <div data-i18n="Order Details">Order Details</div>
               </a>
-            </li>
-          </ul>
-        </li>
  
       </ul>
     </li>-->
@@ -657,6 +654,32 @@
             <!-- Content -->
             <div class="container-xxl flex-grow-1 container-p-y">
               <div class="row g-4">
+                <!-- Search and Filter Section -->
+                <div class="card search-section">
+                  <div class="px-4 py-3">
+                    <div class="row g-3 align-items-center">
+                      <div class="col-md-8">
+                        <div class="input-group">
+                          <span class="input-group-text"
+                            ><i class="ti tabler-search"></i
+                          ></span>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="searchPatient"
+                            placeholder="Search patient name..."
+                          />
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <span class="badge bg-label-primary p-2">
+                          Total Patient: <span id="totalResults">0</span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                 <!-- Patient Card -->
                 <div class="col-md-6 col-lg-4">
                   <div class="card h-100">
@@ -763,14 +786,10 @@
                           data-points="350"
                           data-joined="2023-03-20"
                         >
-                           View
+                          View
                         </button>
-                        <button class="btn btn-info btn-sm">
-                          Edit
-                        </button>
-                        <button class="btn btn-danger btn-sm">
-                          Delete
-                        </button>
+                        <button class="btn btn-info btn-sm">Edit</button>
+                        <button class="btn btn-danger btn-sm">Delete</button>
                       </div>
                     </div>
                   </div>
@@ -805,6 +824,47 @@
 
               .card .btn-sm i {
                 font-size: 1rem;
+              }
+
+              .search-section {
+                background-color: #fff;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+              }
+
+              .input-group-text {
+                background-color: #fff;
+                border-right: none;
+              }
+
+              #searchPatient {
+                border-left: none;
+              }
+
+              #searchPatient:focus {
+                box-shadow: none;
+                border-color: #dee2e6;
+              }
+
+              .badge {
+                font-size: 0.875rem;
+              }
+
+              #totalResults {
+                font-weight: 600;
+              }
+
+              #membershipFilter {
+                border-radius: 0.375rem;
+              }
+
+              .badge.bg-label-primary {
+                font-size: 0.875rem;
+                padding: 0.5rem 1rem;
+              }
+
+              #totalResults {
+                font-weight: 600;
+                margin-left: 0.25rem;
               }
             </style>
           </div>
@@ -1572,6 +1632,42 @@
           )
           .join("");
       }
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const searchInput = document.getElementById("searchPatient");
+        const patientCards = document.querySelectorAll(".col-md-6.col-lg-4");
+        const totalResults = document.getElementById("totalResults");
+
+        function filterPatients() {
+          const searchTerm = searchInput.value.toLowerCase();
+          let visibleCount = 0;
+
+          patientCards.forEach((card) => {
+            const patientName = card
+              .querySelector("h5")
+              .textContent.toLowerCase();
+
+            // Only check if name matches search term
+            if (patientName.includes(searchTerm)) {
+              card.style.display = "";
+              visibleCount++;
+            } else {
+              card.style.display = "none";
+            }
+          });
+
+          // Update total results count
+          totalResults.textContent = visibleCount;
+        }
+
+        // Add event listener for search input
+        searchInput.addEventListener("input", filterPatients);
+
+        // Initial count
+        filterPatients();
+      });
     </script>
   </body>
 </html>
