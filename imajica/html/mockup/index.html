@@ -216,14 +216,10 @@
                 </a>
               </li>
             </ul>
-          </li>
-   
-        </ul>
-      </li>-->
+          </li>-->
 
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
-
                 <i class="menu-icon icon-base ti tabler-layout-board"></i>
                 <div data-i18n="Coupon">Coupon</div>
               </a>
@@ -231,13 +227,10 @@
                 <li class="menu-item">
                   <a href="new-coupon.html" class="menu-link">
                     <div data-i18n="New Coupon">New Coupon</div>
-
                   </a>
                 </li>
 
                 <li class="menu-item">
-
-
                   <a href="coupon-list.html" class="menu-link">
                     <div data-i18n="Coupon List">Coupon List</div>
                   </a>
@@ -629,21 +622,18 @@
           </nav>
 
           <!-- / Navbar -->
-
+        
           <!-- Content wrapper -->
           <div class="content-wrapper">
             <!-- Content -->
             <div class="container-xxl flex-grow-1 container-p-y">
-
               <!-- KPI Cards Row -->
               <div class="row g-4 mb-4">
-
                 <div class="col-lg-3 col-sm-6">
                   <div class="card card-border-shadow-primary h-100">
                     <div class="card-body">
                       <div class="d-flex align-items-center mb-2">
                         <div class="avatar me-4">
-
                           <span class="avatar-initial rounded bg-label-primary">
                             <i
                               class="icon-base ti tabler-calendar icon-28px"
@@ -666,13 +656,11 @@
                   </div>
                 </div>
 
-
                 <div class="col-lg-3 col-sm-6">
                   <div class="card card-border-shadow-warning h-100">
                     <div class="card-body">
                       <div class="d-flex align-items-center mb-2">
                         <div class="avatar me-4">
-
                           <span class="avatar-initial rounded bg-label-warning">
                             <i
                               class="icon-base ti tabler-shopping-cart icon-28px"
@@ -695,13 +683,11 @@
                   </div>
                 </div>
 
-
                 <div class="col-lg-3 col-sm-6">
                   <div class="card card-border-shadow-danger h-100">
                     <div class="card-body">
                       <div class="d-flex align-items-center mb-2">
                         <div class="avatar me-4">
-
                           <span class="avatar-initial rounded bg-label-danger">
                             <i class="icon-base ti tabler-users icon-28px"></i>
                           </span>
@@ -722,35 +708,35 @@
                   </div>
                 </div>
 
-
                 <div class="col-lg-3 col-sm-6">
-                  <div class="card card-border-shadow-info h-100">
+                  <div class="card card-border-shadow-danger h-100">
                     <div class="card-body">
                       <div class="d-flex align-items-center mb-2">
                         <div class="avatar me-4">
-
-                          <span class="avatar-initial rounded bg-label-info">
+                          <span class="avatar-initial rounded bg-label-danger">
                             <i
-                              class="icon-base ti tabler-chart-pie icon-28px"
+                              class="icon-base ti tabler-receipt icon-28px"
                             ></i>
                           </span>
                         </div>
                         <div>
-                          <h4 class="mb-0">82%</h4>
-                          <span class="badge bg-label-warning">-2.4%</span>
+                          <h4 class="mb-0">₱850,000</h4>
+                          <span class="badge bg-label-warning">+3.2%</span>
                         </div>
                       </div>
-                      <p class="mb-1">Booking Rate</p>
+                      <p class="mb-1">Total Expenses</p>
                       <div class="d-flex align-items-center">
                         <small class="text-body-secondary">vs last month</small>
                         <div class="ms-auto">
-                          <span class="text-danger">↓ 3.6%</span>
+                          <span class="text-warning">↑ ₱26,000</span>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-
+                
+                
+            
                 <!-- Enhanced Birthday Card -->
                 <div class="col-12 col-lg-14">
                   <div class="card">
@@ -766,9 +752,12 @@
                           Stay connected with your clients on their special day
                         </p>
                       </div>
-                      <button class="btn btn-primary btn-sm">
-                        <i class="ti tabler-list me-1"></i>
-                        View All
+                      <button
+                        class="btn btn-primary btn-sm"
+                        data-bs-toggle="modal"
+                        data-bs-target="#allBirthdaysModal"
+                      >
+                        <i class="ti tabler-list me-1"></i>View All
                       </button>
                     </div>
 
@@ -813,10 +802,16 @@
                               </div>
                             </div>
                             <div class="action-buttons d-flex gap-2">
-                              <button class="btn btn-sm btn-primary">
+                              <button
+                                class="btn btn-sm btn-primary"
+                                data-action="send-wishes"
+                              >
                                 <i class="ti tabler-mail me-1"></i>Send Wishes
                               </button>
-                              <button class="btn btn-sm btn-outline-primary">
+                              <button
+                                class="btn btn-sm btn-outline-primary"
+                                data-action="send-offers"
+                              >
                                 <i class="ti tabler-gift me-1"></i>Send Offer
                               </button>
                             </div>
@@ -865,25 +860,26 @@
                             </div>
                             <div class="dropdown">
                               <button
-                                class="btn btn-icon btn-text-secondary rounded-pill dropdown-toggle hide-arrow"
+                                class="btn btn-icon btn-text-secondary rounded-pill dropdown-toggle"
                                 data-bs-toggle="dropdown"
+                                aria-expanded="false"
                               >
                                 <i class="ti tabler-dots-vertical"></i>
                               </button>
-                              <ul class="dropdown-menu">
+                              <ul class="dropdown-menu dropdown-menu-end show-on-hover">
                                 <li>
-                                  <a class="dropdown-item" href="#"
-                                    ><i class="ti tabler-mail me-2"></i>Send
-                                    Wishes</a
-                                  >
+                                  <a class="dropdown-item" href="#" data-action="send-wishes">
+                                    <i class="ti tabler-mail me-2"></i>Send Wishes
+                                  </a>
                                 </li>
                                 <li>
-                                  <a class="dropdown-item" href="#"
-                                    ><i class="ti tabler-gift me-2"></i>Send
-                                    Offer</a
-                                  >
+                                  <a class="dropdown-item" href="#" data-action="send-offers">
+                                    <i class="ti tabler-gift me-2"></i>Send Offer
+                                  </a>
                                 </li>
                                 <li>
+                                  <a class="dropdown-item" href="#">
+                                    <i class="ti tabler-calendar-plus me-2"></i>Schedule Service
                                   <a class="dropdown-item" href="#"
                                     ><i class="ti tabler-calendar-plus me-2"></i
                                     >Schedule Service</a
@@ -933,16 +929,24 @@
                               </button>
                               <ul class="dropdown-menu">
                                 <li>
-                                  <a class="dropdown-item" href="#"
-                                    ><i class="ti tabler-mail me-2"></i>Send
-                                    Wishes</a
+                                  <a
+                                    class="dropdown-item"
+                                    href="#"
+                                    data-action="send-wishes"
                                   >
+                                    <i class="ti tabler-mail me-2"></i>Send
+                                    Wishes
+                                  </a>
                                 </li>
                                 <li>
-                                  <a class="dropdown-item" href="#"
-                                    ><i class="ti tabler-gift me-2"></i>Send
-                                    Offer</a
+                                  <a
+                                    class="dropdown-item"
+                                    href="#"
+                                    data-action="send-offers"
                                   >
+                                    <i class="ti tabler-gift me-2"></i>Send
+                                    Offer
+                                  </a>
                                 </li>
                                 <li>
                                   <a class="dropdown-item" href="#"
@@ -962,6 +966,90 @@
                   </div>
                 </div>
               </div>
+
+              
+  <!-- Merchant Banner -->
+<div class="row mb-4">
+  <div class="col-lg-12">
+    <div class="card text-white border-0 shadow-lg" 
+    style="background: linear-gradient(135deg, #7367f0, #a49cf6); border-radius: 15px;">
+      <div class="card-body p-4 d-flex justify-content-between align-items-center position-relative overflow-hidden">
+        <!-- Confetti Animation -->
+        <div class="position-absolute w-100 h-100" id="confetti-container"></div>
+
+        <!-- Text Content -->
+        <div>
+          <h3 class="text-white fw-bold">🎉 Happy Birthday to Our Valued Clients! 🎂</h3>
+          <p class="mb-3">Celebrate your special day with us and enjoy exclusive offers!</p>
+          <a href="#" class="btn btn-light text-primary fw-bold birthday-btn">
+            Claim Your Birthday Offer 🎁
+          </a>
+          
+          <style>
+            .birthday-btn {
+              border-radius: 30px;
+              background: #fff;
+              color: #92ffcc;
+              box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+              padding: 10px 20px;
+              font-size: 16px;
+              text-decoration: none;
+              display: inline-block;
+              transition: all 0.3s ease-in-out;
+            }
+          
+            /* Hover Effect */
+            .birthday-btn:hover {
+              background: #92ffcc;
+              color: #fff;
+              box-shadow: 0 0 15px rgba(125, 196, 165, 0.8);
+              transform: scale(1.05);
+            }
+          </style>
+          
+        </div>
+
+        <!-- Birthday Image -->
+        <div class="d-none d-md-block">
+          <img src="https://app.easethetics.ph/static/image/merchant-ads.png" alt="Birthday celebration"
+          style="max-height: 200px; transform: rotate(-5deg); border-radius: 10px;">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Confetti Animation Script -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const confettiContainer = document.getElementById("confetti-container");
+    for (let i = 0; i < 50; i++) {
+      let confetti = document.createElement("div");
+      confetti.style.position = "absolute";
+      confetti.style.width = "10px";
+      confetti.style.height = "10px";
+      confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 85%)`;
+      confetti.style.left = `${Math.random() * 100}%`;
+      confetti.style.top = `${Math.random() * 100}%`;
+      confetti.style.opacity = Math.random();
+      confetti.style.animation = `falling ${3 + Math.random() * 3}s linear infinite`;
+      confetti.style.borderRadius = "50%";
+      confettiContainer.appendChild(confetti);
+    }
+  });
+
+  /* Confetti Animation */
+  const style = document.createElement("style");
+  style.innerHTML = `
+    @keyframes falling {
+      0% { transform: translateY(-10px) rotate(0); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+  `;
+  document.head.appendChild(style);
+</script>
+
+                  
 
               <!-- Charts Row -->
               <div class="row g-4 mb-4">
@@ -1109,75 +1197,142 @@
                 <div class="col-12">
                   <div class="card">
                     <div
-                      class="card-header d-flex justify-content-between align-items-center"
+                      class="card-header d-flex justify-content-between align-items-center p-4"
                     >
-                      <h5 class="card-title mb-0">Recent Bookings</h5>
-                      <button class="btn btn-primary btn-sm">View All</button>
+                      <div>
+                        <h5 class="card-title mb-1">Recent Bookings</h5>
+                        <p class="text-muted mb-0 small">
+                          Overview of latest transactions
+                        </p>
+                      </div>
+                      <div class="d-flex gap-2">
+                        <div class="dropdown">
+                          <button
+                            class="btn btn-outline-secondary btn-sm dropdown-toggle"
+                            type="button"
+                            data-bs-toggle="dropdown"
+                          >
+                            <i class="ti tabler-filter me-1"></i>Filter
+                          </button>
+                          <ul class="dropdown-menu">
+                            <li>
+                              <a class="dropdown-item" href="#">All Bookings</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#">Completed</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#">Pending</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#">Cancelled</a>
+                            </li>
+                          </ul>
+                        </div>
+                        <button
+                          class="btn btn-primary btn-sm"
+                          data-bs-toggle="modal"
+                          data-bs-target="#viewAllBookingsModal"
+                        >
+                          <i class="ti tabler-list me-1"></i>View All
+                        </button>
+                      </div>
                     </div>
                     <div class="table-responsive">
-                      <table class="table table-hover">
-                        <thead>
+                      <table class="table table-hover booking-table">
+                        <thead class="table-light">
                           <tr>
                             <th>Booking ID</th>
                             <th>Client</th>
                             <th>Service</th>
-                            <th>Date</th>
+                            <th>Date & Time</th>
                             <th>Amount</th>
                             <th>Status</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>#BK001</td>
-                            <td>John Smith</td>
-                            <td>Hair Cut & Style</td>
-                            <td>2024-03-15</td>
-                            <td>₱1,500</td>
+                          <tr class="booking-row">
                             <td>
-                              <span class="badge bg-label-success"
+                              <span class="fw-semibold">#BK001</span>
+                            </td>
+                            <td>
+                              <div class="d-flex align-items-center">
+                                <div class="avatar avatar-sm me-2">
+                                  <span
+                                    class="avatar-initial rounded-circle bg-label-primary"
+                                    >JS</span
+                                  >
+                                </div>
+                                <div>
+                                  <h6 class="mb-0 fw-semibold">John Smith</h6>
+                                  <small class="text-muted"
+                                    >Regular Client</small
+                                  >
+                                </div>
+                              </div>
+                            </td>
+                            <td>
+                              <div>
+                                <h6 class="mb-0">Hair Cut & Style</h6>
+                                <small class="text-muted">45 mins</small>
+                              </div>
+                            </td>
+                            <td>
+                              <div>
+                                <h6 class="mb-0">Mar 15, 2024</h6>
+                                <small class="text-muted">10:30 AM</small>
+                              </div>
+                            </td>
+                            <td>
+                              <h6 class="mb-0">₱1,500</h6>
+                            </td>
+                            <td>
+                              <span class="badge bg-label-success rounded-pill"
                                 >Completed</span
                               >
                             </td>
                           </tr>
-                          <tr>
-                            <td>#BK002</td>
-                            <td>Maria Garcia</td>
-                            <td>Full Body Massage</td>
-                            <td>2024-03-15</td>
-                            <td>₱2,500</td>
+                          <tr class="booking-row">
                             <td>
-                              <span class="badge bg-label-warning"
+                              <span class="fw-semibold">#BK002</span>
+                            </td>
+                            <td>
+                              <div class="d-flex align-items-center">
+                                <div class="avatar avatar-sm me-2">
+                                  <span
+                                    class="avatar-initial rounded-circle bg-label-info"
+                                    >MG</span
+                                  >
+                                </div>
+                                <div>
+                                  <h6 class="mb-0 fw-semibold">Maria Garcia</h6>
+                                  <small class="text-muted">VIP Client</small>
+                                </div>
+                              </div>
+                            </td>
+                            <td>
+                              <div>
+                                <h6 class="mb-0">Full Body Massage</h6>
+                                <small class="text-muted">90 mins</small>
+                              </div>
+                            </td>
+                            <td>
+                              <div>
+                                <h6 class="mb-0">Mar 15, 2024</h6>
+                                <small class="text-muted">2:00 PM</small>
+                              </div>
+                            </td>
+                            <td>
+                              <h6 class="mb-0">₱2,500</h6>
+                            </td>
+                            <td>
+                              <span class="badge bg-label-warning rounded-pill"
                                 >Pending</span
-                              >
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>#BK003</td>
-                            <td>James Wilson</td>
-                            <td>Facial Treatment</td>
-                            <td>2024-03-14</td>
-                            <td>₱3,000</td>
-                            <td>
-                              <span class="badge bg-label-success"
-                                >Completed</span
-                              >
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>#BK004</td>
-                            <td>Sarah Johnson</td>
-                            <td>Manicure & Pedicure</td>
-                            <td>2024-03-14</td>
-                            <td>₱1,200</td>
-                            <td>
-                              <span class="badge bg-label-danger"
-                                >Cancelled</span
                               >
                             </td>
                           </tr>
                         </tbody>
                       </table>
-
                     </div>
                   </div>
                 </div>
@@ -1260,7 +1415,6 @@
     <script src="../../assets/vendor/libs/chartjs/chartjs.js"></script>
     <script src="../../assets/js/charts-chartjs-legend.js"></script>
     <script src="../../assets/js/charts-chartjs.js"></script>
-
 
     <script>
       // Revenue Overview Line Chart
@@ -1646,8 +1800,1098 @@
         transform: translateY(-2px);
         box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
       }
+
+      /* Add these styles to your existing CSS */
+      .booking-table {
+        --bs-table-hover-bg: rgba(105, 108, 255, 0.04);
+      }
+
+      .booking-row {
+        vertical-align: middle;
+        transition: all 0.3s ease;
+      }
+
+      .booking-row:hover {
+        transform: translateX(5px);
+      }
+
+      .btn-hover-scale {
+        transition: all 0.2s ease;
+      }
+
+      .btn-hover-scale:hover {
+        transform: scale(1.15);
+      }
+
+      .badge {
+        padding: 0.5em 0.9em;
+        font-weight: 500;
+      }
+
+      .avatar-sm {
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .avatar-initial {
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+
+      /* Status badge colors */
+      .bg-label-success {
+        background-color: rgba(40, 199, 111, 0.16) !important;
+        color: #28c76f !important;
+      }
+
+      .bg-label-warning {
+        background-color: rgba(255, 171, 0, 0.16) !important;
+        color: #ffab00 !important;
+      }
+
+      .bg-label-danger {
+        background-color: rgba(255, 62, 29, 0.16) !important;
+        color: #ff3e1d !important;
+      }
+
+      .table-light {
+        --bs-table-bg: rgba(105, 108, 255, 0.04);
+      }
+
+      .card-header {
+        border-bottom: 1px solid rgba(105, 108, 255, 0.1);
+      }
+
+      /* Add these styles to your existing CSS */
+      .birthday-calendar {
+        max-height: 60vh;
+        overflow-y: auto;
+      }
+
+      .month-grid {
+        display: grid;
+        gap: 1.5rem;
+      }
+
+      .month-card {
+        background: #fff;
+        border-radius: 0.5rem;
+        border: 1px solid rgba(105, 108, 255, 0.1);
+        overflow: hidden;
+      }
+
+      .month-card.current-month {
+        border: 1px solid rgba(105, 108, 255, 0.3);
+        box-shadow: 0 0 0.5rem rgba(105, 108, 255, 0.1);
+      }
+
+      .month-title {
+        padding: 1rem;
+        margin: 0;
+        background: rgba(105, 108, 255, 0.04);
+        border-bottom: 1px solid rgba(105, 108, 255, 0.1);
+      }
+
+      .birthday-list .birthday-item {
+        transition: all 0.3s ease;
+      }
+
+      .birthday-list .birthday-item:hover {
+        background: rgba(105, 108, 255, 0.04);
+      }
+
+      .avatar-md {
+        width: 45px;
+        height: 45px;
+      }
+
+      #birthdaySearch:focus,
+      #birthdayFilter:focus {
+        border-color: #696cff;
+        box-shadow: 0 0 0 0.25rem rgba(105, 108, 255, 0.1);
+      }
+
+      .modal-dialog-scrollable .modal-content {
+        max-height: 80vh;
+      }
+
+      /* Custom scrollbar for the birthday calendar */
+      .birthday-calendar::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      .birthday-calendar::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 3px;
+      }
+
+      .birthday-calendar::-webkit-scrollbar-thumb {
+        background: #696cff;
+        border-radius: 3px;
+      }
+
+      .birthday-calendar::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
     </style>
 
+    <!-- Send Wishes Modal -->
+    <div
+      class="modal fade"
+      id="sendWishesModal"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header bg-primary bg-opacity-10">
+            <h5 class="modal-title">
+              <i class="ti tabler-mail me-2 text-primary"></i>
+              Send Birthday Wishes
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-12 mb-3">
+                <div class="d-flex align-items-center mb-3">
+                  <div class="avatar avatar-sm me-2">
+                    <span class="avatar-initial rounded-circle bg-label-primary"
+                      >JS</span
+                    >
+                  </div>
+                  <div>
+                    <h6 class="mb-0">John Smith</h6>
+                    <small class="text-muted">Regular Client</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 mb-3">
+                <label class="form-label">Select Template</label>
+                <select class="form-select">
+                  <option value="1">Birthday Greeting - Standard</option>
+                  <option value="2">Birthday Greeting - VIP Client</option>
+                  <option value="3">Birthday Greeting - Premium</option>
+                  <option value="4">Custom Message</option>
+                </select>
+              </div>
+              <div class="col-12 mb-3">
+                <label class="form-label">Message</label>
+                <textarea class="form-control" rows="4">
+Dear [Client Name],
+
+Happy Birthday! 🎉 We hope your special day is filled with joy and wonderful moments. As a valued client of Imajica, we want to make your birthday extra special.
+
+Best wishes,
+The Imajica Team</textarea
+                >
+              </div>
+              <div class="col-12">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="sendCopy"
+                  />
+                  <label class="form-check-label" for="sendCopy">
+                    Send me a copy of this message
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-label-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <button type="button" class="btn btn-primary">
+              <i class="ti tabler-send me-1"></i>
+              Send Wishes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Send Offers Modal -->
+    <div
+      class="modal fade"
+      id="sendOffersModal"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header bg-primary bg-opacity-10">
+            <h5 class="modal-title">
+              <i class="ti tabler-gift me-2 text-primary"></i>
+              Send Birthday Offer
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-12 mb-3">
+                <div class="d-flex align-items-center mb-3">
+                  <div class="avatar avatar-sm me-2">
+                    <span class="avatar-initial rounded-circle bg-label-primary"
+                      >JS</span
+                    >
+                  </div>
+                  <div>
+                    <h6 class="mb-0">John Smith</h6>
+                    <small class="text-muted">Regular Client</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 mb-3">
+                <label class="form-label">Select Offer Type</label>
+                <select class="form-select mb-3">
+                  <option value="1">Birthday Discount - 20% Off</option>
+                  <option value="2">Birthday Spa Package</option>
+                  <option value="3">Free Service Add-on</option>
+                  <option value="4">Custom Offer</option>
+                </select>
+              </div>
+              <div class="col-12 mb-3">
+                <label class="form-label">Validity Period</label>
+                <div class="input-group">
+                  <input type="number" class="form-control" value="30" />
+                  <span class="input-group-text">days</span>
+                </div>
+                <small class="text-muted"
+                  >Number of days the offer will be valid</small
+                >
+              </div>
+              <div class="col-12 mb-3">
+                <label class="form-label">Offer Message</label>
+                <textarea class="form-control" rows="4">
+Dear [Client Name],
+
+As a birthday treat, we're delighted to offer you a special 20% discount on any service of your choice. This exclusive offer is valid for 30 days from your birthday.
+
+Terms & Conditions:
+- Valid for one-time use only
+- Cannot be combined with other offers
+- Must be redeemed within the validity period
+
+Happy Birthday!
+The Imajica Team</textarea
+                >
+              </div>
+              <div class="col-12">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="sendSMS"
+                    checked
+                  />
+                  <label class="form-check-label" for="sendSMS">
+                    Also send offer via SMS
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-label-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <button type="button" class="btn btn-primary">
+              <i class="ti tabler-gift me-1"></i>
+              Send Offer
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      /* Add these styles to your existing CSS */
+      .modal-header {
+        border-bottom: 1px solid rgba(105, 108, 255, 0.1);
+      }
+
+      .modal-footer {
+        border-top: 1px solid rgba(105, 108, 255, 0.1);
+      }
+
+      .form-check-input:checked {
+        background-color: #696cff;
+        border-color: #696cff;
+      }
+
+      .modal .btn-close {
+        background-color: transparent;
+        border-radius: 50%;
+        padding: 0.5rem;
+        transition: all 0.2s ease;
+      }
+
+      .modal .btn-close:hover {
+        background-color: rgba(105, 108, 255, 0.1);
+        transform: scale(1.1);
+      }
+
+      .modal textarea {
+        resize: none;
+      }
+
+      .modal .form-control:focus,
+      .modal .form-select:focus {
+        border-color: #696cff;
+        box-shadow: 0 0 0 0.25rem rgba(105, 108, 255, 0.1);
+      }
+    </style>
+
+    <script>
+      // Add this to your existing JavaScript
+      document.addEventListener("DOMContentLoaded", function () {
+        // Function to open Send Wishes Modal
+        function openSendWishesModal() {
+          const modal = new bootstrap.Modal(
+            document.getElementById("sendWishesModal")
+          );
+          modal.show();
+        }
+
+        // Function to open Send Offers Modal
+        function openSendOffersModal() {
+          const modal = new bootstrap.Modal(
+            document.getElementById("sendOffersModal")
+          );
+          modal.show();
+        }
+
+        // Add click event listeners to the menu items
+        document
+          .querySelectorAll('[data-action="send-wishes"]')
+          .forEach((button) => {
+            button.addEventListener("click", openSendWishesModal);
+          });
+
+        document
+          .querySelectorAll('[data-action="send-offers"]')
+          .forEach((button) => {
+            button.addEventListener("click", openSendOffersModal);
+          });
+      });
+    </script>
+
+    <!-- All Birthdays Modal -->
+    <div
+      class="modal fade"
+      id="allBirthdaysModal"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header bg-primary bg-opacity-10">
+            <h5 class="modal-title">
+              <i class="ti tabler-gift me-2 text-primary"></i>
+              All Client Birthdays
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <!-- Filter Section -->
+            <div class="row mb-4">
+              <div class="col-md-12">
+                <select class="form-select" id="birthdayFilter">
+                  <option value="all">All Months</option>
+                  <option value="current">Current Month</option>
+                  <option value="upcoming">Upcoming Birthdays</option>
+                  <option value="past">Past Birthdays</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Birthday Calendar View -->
+            <div class="birthday-calendar mb-4">
+              <div class="month-grid">
+                <!-- March -->
+                <div class="month-card current-month">
+                  <h6 class="month-title">March 2024</h6>
+                  <div class="birthday-list">
+                    <div
+                      class="birthday-item d-flex align-items-center p-3 border-bottom"
+                    >
+                      <div class="avatar avatar-md me-3">
+                        <span
+                          class="avatar-initial rounded-circle bg-label-danger"
+                          >ET</span
+                        >
+                      </div>
+                      <div class="flex-grow-1">
+                        <h6 class="mb-0">Emily Thompson</h6>
+                        <div class="d-flex align-items-center">
+                          <i
+                            class="ti tabler-calendar-event text-muted me-1"
+                          ></i>
+                          <small class="text-muted">March 22</small>
+                          <span class="badge bg-label-danger ms-2">Today</span>
+                        </div>
+                      </div>
+                      <div class="dropdown">
+                        <button
+                          class="btn btn-icon btn-text-secondary rounded-pill dropdown-toggle hide-arrow"
+                          data-bs-toggle="dropdown"
+                        >
+                          <i class="ti tabler-dots-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li>
+                            <a
+                              class="dropdown-item"
+                              href="#"
+                              data-action="send-wishes"
+                              ><i class="ti tabler-mail me-2"></i>Send Wishes</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              class="dropdown-item"
+                              href="#"
+                              data-action="send-offers"
+                              ><i class="ti tabler-gift me-2"></i>Send Offer</a
+                            >
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#"
+                              ><i class="ti tabler-calendar-plus me-2"></i
+                              >Schedule Service</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div
+                      class="birthday-item d-flex align-items-center p-3 border-bottom"
+                    >
+                      <div class="avatar avatar-md me-3">
+                        <span
+                          class="avatar-initial rounded-circle bg-label-primary"
+                          >MG</span
+                        >
+                      </div>
+                      <div class="flex-grow-1">
+                        <h6 class="mb-0">Maria Garcia</h6>
+                        <div class="d-flex align-items-center">
+                          <i
+                            class="ti tabler-calendar-event text-muted me-1"
+                          ></i>
+                          <small class="text-muted">March 25</small>
+                          <span class="badge bg-label-primary ms-2"
+                            >In 3 days</span
+                          >
+                        </div>
+                      </div>
+                      <div class="dropdown">
+                        <button
+                          class="btn btn-icon btn-text-secondary rounded-pill dropdown-toggle hide-arrow"
+                          data-bs-toggle="dropdown"
+                        >
+                          <i class="ti tabler-dots-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li>
+                            <a
+                              class="dropdown-item"
+                              href="#"
+                              data-action="send-wishes"
+                              ><i class="ti tabler-mail me-2"></i>Send Wishes</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              class="dropdown-item"
+                              href="#"
+                              data-action="send-offers"
+                              ><i class="ti tabler-gift me-2"></i>Send Offer</a
+                            >
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#"
+                              ><i class="ti tabler-calendar-plus me-2"></i
+                              >Schedule Service</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- April -->
+                <div class="month-card">
+                  <h6 class="month-title">April 2024</h6>
+                  <div class="birthday-list">
+                    <div
+                      class="birthday-item d-flex align-items-center p-3 border-bottom"
+                    >
+                      <div class="avatar avatar-md me-3">
+                        <span
+                          class="avatar-initial rounded-circle bg-label-info"
+                          >RJ</span
+                        >
+                      </div>
+                      <div class="flex-grow-1">
+                        <h6 class="mb-0">Robert Johnson</h6>
+                        <div class="d-flex align-items-center">
+                          <i
+                            class="ti tabler-calendar-event text-muted me-1"
+                          ></i>
+                          <small class="text-muted">April 5</small>
+                        </div>
+                      </div>
+                      <div class="dropdown">
+                        <button
+                          class="btn btn-icon btn-text-secondary rounded-pill dropdown-toggle hide-arrow"
+                          data-bs-toggle="dropdown"
+                        >
+                          <i class="ti tabler-dots-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li>
+                            <a
+                              class="dropdown-item"
+                              href="#"
+                              data-action="send-wishes"
+                              ><i class="ti tabler-mail me-2"></i>Send Wishes</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              class="dropdown-item"
+                              href="#"
+                              data-action="send-offers"
+                              ><i class="ti tabler-gift me-2"></i>Send Offer</a
+                            >
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#"
+                              ><i class="ti tabler-calendar-plus me-2"></i
+                              >Schedule Service</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- May -->
+                <div class="month-card">
+                  <h6 class="month-title">May 2024</h6>
+                  <div class="birthday-list">
+                    <div
+                      class="birthday-item d-flex align-items-center p-3 border-bottom"
+                    >
+                      <div class="avatar avatar-md me-3">
+                        <span
+                          class="avatar-initial rounded-circle bg-label-success"
+                          >SL</span
+                        >
+                      </div>
+                      <div class="flex-grow-1">
+                        <h6 class="mb-0">Sarah Lee</h6>
+                        <div class="d-flex align-items-center">
+                          <i
+                            class="ti tabler-calendar-event text-muted me-1"
+                          ></i>
+                          <small class="text-muted">May 15</small>
+                        </div>
+                      </div>
+                      <div class="dropdown">
+                        <button
+                          class="btn btn-icon btn-text-secondary rounded-pill dropdown-toggle hide-arrow"
+                          data-bs-toggle="dropdown"
+                        >
+                          <i class="ti tabler-dots-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li>
+                            <a
+                              class="dropdown-item"
+                              href="#"
+                              data-action="send-wishes"
+                              ><i class="ti tabler-mail me-2"></i>Send Wishes</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              class="dropdown-item"
+                              href="#"
+                              data-action="send-offers"
+                              ><i class="ti tabler-gift me-2"></i>Send Offer</a
+                            >
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#"
+                              ><i class="ti tabler-calendar-plus me-2"></i
+                              >Schedule Service</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-label-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Add this to your existing JavaScript
+      document.addEventListener("DOMContentLoaded", function () {
+        // Update the View All button click handler
+        const viewAllButton = document.querySelector(
+          "button[onclick=\"window.location.href='all-birthdays.html'\"]"
+        );
+        if (viewAllButton) {
+          viewAllButton.onclick = function (e) {
+            e.preventDefault();
+            const modal = new bootstrap.Modal(
+              document.getElementById("allBirthdaysModal")
+            );
+            modal.show();
+          };
+        }
+
+        // Search functionality
+        const searchInput = document.getElementById("birthdaySearch");
+        if (searchInput) {
+          searchInput.addEventListener("input", function (e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const birthdayItems = document.querySelectorAll(".birthday-item");
+
+            birthdayItems.forEach((item) => {
+              const name = item.querySelector("h6").textContent.toLowerCase();
+              if (name.includes(searchTerm)) {
+                item.style.display = "flex";
+              } else {
+                item.style.display = "none";
+              }
+            });
+          });
+        }
+
+        // Filter functionality
+        const filterSelect = document.getElementById("birthdayFilter");
+        if (filterSelect) {
+          filterSelect.addEventListener("change", function (e) {
+            const filterValue = e.target.value;
+            const monthCards = document.querySelectorAll(".month-card");
+
+            monthCards.forEach((card) => {
+              switch (filterValue) {
+                case "current":
+                  card.style.display = card.classList.contains("current-month")
+                    ? "block"
+                    : "none";
+                  break;
+                case "upcoming":
+                  // Add logic for upcoming months
+                  break;
+                case "past":
+                  // Add logic for past months
+                  break;
+                default:
+                  card.style.display = "block";
+              }
+            });
+          });
+        }
+      });
+    </script>
+
+    <!-- View All Bookings Modal -->
+    <div
+      class="modal fade"
+      id="viewAllBookingsModal"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+          <div class="modal-header bg-primary bg-opacity-10">
+            <h5 class="modal-title">
+              <i class="ti tabler-calendar me-2 text-primary"></i>
+              All Bookings
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <!-- Filter and Search Tools -->
+            <div class="row g-3 mb-4">
+              <div class="col-md-6 col-lg-3">
+                <div class="input-group">
+                  <span class="input-group-text"
+                    ><i class="ti tabler-search"></i
+                  ></span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="searchBookings"
+                    placeholder="Search bookings..."
+                  />
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3">
+                <select class="form-select" id="statusFilter">
+                  <option value="all">All Status</option>
+                  <option value="completed">Completed</option>
+                  <option value="pending">Pending</option>
+                  <option value="cancelled">Cancelled</option>
+                </select>
+              </div>
+              <div class="col-md-6 col-lg-3">
+                <input type="date" class="form-control" id="dateFilter" />
+              </div>
+              <div class="col-md-6 col-lg-3">
+                <button class="btn btn-primary w-100" id="exportBookings">
+                  <i class="ti tabler-download me-1"></i>Export
+                </button>
+              </div>
+            </div>
+
+            <!-- Bookings Table -->
+            <div class="table-responsive">
+              <table class="table table-hover booking-table">
+                <thead class="table-light">
+                  <tr>
+                    <th>Booking ID</th>
+                    <th>Client</th>
+                    <th>Service</th>
+                    <th>Date & Time</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- First Row -->
+                  <tr class="booking-row">
+                    <td><span class="fw-semibold">#BK001</span></td>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <div class="avatar avatar-sm me-2">
+                          <span
+                            class="avatar-initial rounded-circle bg-label-primary"
+                            >JS</span
+                          >
+                        </div>
+                        <div>
+                          <h6 class="mb-0 fw-semibold">John Smith</h6>
+                          <small class="text-muted">Regular Client</small>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div>
+                        <h6 class="mb-0">Hair Cut & Style</h6>
+                        <small class="text-muted">45 mins</small>
+                      </div>
+                    </td>
+                    <td>
+                      <div>
+                        <h6 class="mb-0">Mar 15, 2024</h6>
+                        <small class="text-muted">10:30 AM</small>
+                      </div>
+                    </td>
+                    <td><h6 class="mb-0">₱1,500</h6></td>
+                    <td>
+                      <span class="badge bg-label-success rounded-pill"
+                        >Completed</span
+                      >
+                    </td>
+                    <td>
+                      <div class="dropdown">
+                        <button
+                          class="btn btn-icon btn-text-secondary rounded-pill dropdown-toggle hide-arrow"
+                          data-bs-toggle="dropdown"
+                        >
+                          <i class="ti tabler-dots-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li>
+                            <a class="dropdown-item" href="#"
+                              ><i class="ti tabler-edit me-1"></i>Edit</a
+                            >
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#"
+                              ><i class="ti tabler-calendar me-1"></i
+                              >Reschedule</a
+                            >
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#"
+                              ><i class="ti tabler-trash me-1"></i>Cancel</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <!-- Second Row -->
+                  <tr class="booking-row">
+                    <td><span class="fw-semibold">#BK002</span></td>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <div class="avatar avatar-sm me-2">
+                          <span
+                            class="avatar-initial rounded-circle bg-label-info"
+                            >MG</span
+                          >
+                        </div>
+                        <div>
+                          <h6 class="mb-0 fw-semibold">Maria Garcia</h6>
+                          <small class="text-muted">VIP Client</small>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div>
+                        <h6 class="mb-0">Full Body Massage</h6>
+                        <small class="text-muted">90 mins</small>
+                      </div>
+                    </td>
+                    <td>
+                      <div>
+                        <h6 class="mb-0">Mar 15, 2024</h6>
+                        <small class="text-muted">2:00 PM</small>
+                      </div>
+                    </td>
+                    <td><h6 class="mb-0">₱2,500</h6></td>
+                    <td>
+                      <span class="badge bg-label-warning rounded-pill"
+                        >Pending</span
+                      >
+                    </td>
+                    <td>
+                      <div class="dropdown">
+                        <button
+                          class="btn btn-icon btn-text-secondary rounded-pill dropdown-toggle hide-arrow"
+                          data-bs-toggle="dropdown"
+                        >
+                          <i class="ti tabler-dots-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li>
+                            <a class="dropdown-item" href="#"
+                              ><i class="ti tabler-edit me-1"></i>Edit</a
+                            >
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#"
+                              ><i class="ti tabler-calendar me-1"></i
+                              >Reschedule</a
+                            >
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#"
+                              ><i class="ti tabler-trash me-1"></i>Cancel</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Pagination -->
+            <div class="d-flex justify-content-between align-items-center mt-4">
+              <div class="text-muted">Showing 1 to 10 of 50 entries</div>
+              <nav aria-label="Page navigation">
+                <ul class="pagination mb-0">
+                  <li class="page-item prev">
+                    <a class="page-link" href="#"
+                      ><i class="ti tabler-chevron-left"></i
+                    ></a>
+                  </li>
+                  <li class="page-item active">
+                    <a class="page-link" href="#">1</a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item next">
+                    <a class="page-link" href="#"
+                      ><i class="ti tabler-chevron-right"></i
+                    ></a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add this CSS -->
+    <style>
+      /* Modal styles */
+      .modal-xl {
+        max-width: 1200px;
+      }
+
+      /* Table styles */
+      .booking-table th {
+        white-space: nowrap;
+      }
+
+      .booking-row {
+        transition: all 0.3s ease;
+      }
+
+      .booking-row:hover {
+        background-color: rgba(105, 108, 255, 0.04);
+        transform: translateX(5px);
+      }
+
+      /* Form control focus states */
+      .form-control:focus,
+      .form-select:focus {
+        border-color: #696cff;
+        box-shadow: 0 0 0 0.25rem rgba(105, 108, 255, 0.1);
+      }
+
+      /* Pagination styles */
+      .pagination .page-link {
+        color: #696cff;
+      }
+
+      .pagination .active .page-link {
+        background-color: #696cff;
+        border-color: #696cff;
+        color: #fff;
+      }
+
+      /* Badge hover effect */
+      .badge {
+        transition: all 0.3s ease;
+      }
+
+      .badge:hover {
+        transform: scale(1.1);
+      }
+    </style>
+
+    <!-- Add this JavaScript -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Search functionality
+        const searchInput = document.getElementById("searchBookings");
+        searchInput.addEventListener("input", function (e) {
+          const searchTerm = e.target.value.toLowerCase();
+          const rows = document.querySelectorAll(".booking-table tbody tr");
+
+          rows.forEach((row) => {
+            const text = row.textContent.toLowerCase();
+            row.style.display = text.includes(searchTerm) ? "" : "none";
+          });
+        });
+
+        // Status filter
+        const statusFilter = document.getElementById("statusFilter");
+        statusFilter.addEventListener("change", function (e) {
+          const status = e.target.value.toLowerCase();
+          const rows = document.querySelectorAll(".booking-table tbody tr");
+
+          rows.forEach((row) => {
+            if (status === "all") {
+              row.style.display = "";
+              return;
+            }
+
+            const statusCell = row
+              .querySelector(".badge")
+              .textContent.toLowerCase();
+            row.style.display = statusCell === status ? "" : "none";
+          });
+        });
+
+        // Date filter
+        const dateFilter = document.getElementById("dateFilter");
+        dateFilter.addEventListener("change", function (e) {
+          const selectedDate = new Date(e.target.value);
+          const rows = document.querySelectorAll(".booking-table tbody tr");
+
+          rows.forEach((row) => {
+            const dateCell =
+              row.querySelector("td:nth-child(4) h6").textContent;
+            const bookingDate = new Date(dateCell);
+
+            if (isNaN(selectedDate.getTime())) {
+              row.style.display = "";
+              return;
+            }
+
+            row.style.display =
+              selectedDate.toDateString() === bookingDate.toDateString()
+                ? ""
+                : "none";
+          });
+        });
+
+        // Export functionality
+        document
+          .getElementById("exportBookings")
+          .addEventListener("click", function () {
+            // Add your export logic here
+            alert("Export functionality will be implemented here");
+          });
+      });
+    </script>
   </body>
 </html>
 

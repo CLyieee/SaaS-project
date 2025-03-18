@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  class="layout-navbar-fixed layout-menu-fixed layout-compact"
+  dir="ltr"
+  data-skin="default"
+  data-assets-path="../../assets/"
+>
+  <head>
+    <!-- Keep the same head section as index.html -->
+    <title>Client Birthdays | Imajica Booking System</title>
+    <!-- Include the same CSS/JS files as index.html -->
+  </head>
+  <body>
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        <!-- Keep the same menu sidebar as index.html -->
+
+        <div class="layout-page">
+          <!-- Keep the same navbar as index.html -->
+
+          <div class="content-wrapper">
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <!-- Page Header -->
+              <div class="row mb-4">
+                <div class="col-12">
+                  <div class="card bg-primary bg-opacity-10">
+                    <div class="card-body p-4">
+                      <div
+                        class="d-flex justify-content-between align-items-center"
+                      >
+                        <div>
+                          <h4 class="mb-1">
+                            <i class="ti tabler-gift me-2 text-primary"></i>
+                            Client Birthdays
+                          </h4>
+                          <p class="mb-0 text-muted">
+                            Manage and track all client birthdays
+                          </p>
+                        </div>
+                        <div class="d-flex gap-2">
+                          <button class="btn btn-primary">
+                            <i class="ti tabler-download me-1"></i>
+                            Export List
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Filters and Search -->
+              <div class="card mb-4">
+                <div class="card-body">
+                  <div class="row g-3">
+                    <div class="col-md-3">
+                      <label class="form-label">Month</label>
+                      <select class="form-select">
+                        <option value="">All Months</option>
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <!-- Add all months -->
+                      </select>
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-label">Client Type</label>
+                      <select class="form-select">
+                        <option value="">All Types</option>
+                        <option value="regular">Regular</option>
+                        <option value="vip">VIP</option>
+                        <option value="premium">Premium</option>
+                      </select>
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label">Search</label>
+                      <div class="input-group">
+                        <span class="input-group-text"
+                          ><i class="ti tabler-search"></i
+                        ></span>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Search by name..."
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-2 d-flex align-items-end">
+                      <button class="btn btn-primary w-100">
+                        <i class="ti tabler-filter me-1"></i>
+                        Apply Filters
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Birthday Timeline -->
+              <div class="card">
+                <div class="card-body">
+                  <div class="birthday-timeline">
+                    <!-- Today's Birthdays -->
+                    <div class="birthday-section mb-4">
+                      <h5 class="text-primary mb-3">
+                        <i class="ti tabler-confetti me-2"></i>
+                        Today's Birthdays
+                      </h5>
+                      <div class="birthday-list today">
+                        <!-- Birthday Item -->
+                        <div class="birthday-item active">
+                          <div class="d-flex align-items-center gap-3">
+                            <div class="avatar avatar-lg">
+                              <span
+                                class="avatar-initial rounded-circle bg-label-primary"
+                                >ET</span
+                              >
+                            </div>
+                            <div class="flex-grow-1">
+                              <div
+                                class="d-flex justify-content-between align-items-center mb-1"
+                              >
+                                <h6 class="mb-0">Emily Thompson</h6>
+                                <span class="badge bg-label-danger">
+                                  <i class="ti tabler-cake me-1"></i>
+                                  Today
+                                </span>
+                              </div>
+                              <div class="client-info mb-2">
+                                <span class="text-muted me-3">
+                                  <i class="ti tabler-user me-1"></i>
+                                  VIP Client
+                                </span>
+                                <span class="text-muted">
+                                  <i class="ti tabler-calendar me-1"></i>
+                                  March 22, 1988
+                                </span>
+                              </div>
+                              <div class="d-flex gap-2">
+                                <button class="btn btn-primary btn-sm">
+                                  <i class="ti tabler-mail me-1"></i>
+                                  Send Wishes
+                                </button>
+                                <button class="btn btn-outline-primary btn-sm">
+                                  <i class="ti tabler-gift me-1"></i>
+                                  Send Offer
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Upcoming Birthdays -->
+                    <div class="birthday-section">
+                      <h5 class="text-primary mb-3">
+                        <i class="ti tabler-calendar-event me-2"></i>
+                        Upcoming Birthdays
+                      </h5>
+                      <div class="birthday-list">
+                        <!-- Repeat this structure for each upcoming birthday -->
+                        <div class="birthday-item">
+                          <div class="d-flex align-items-center gap-3">
+                            <div class="avatar avatar-lg">
+                              <span
+                                class="avatar-initial rounded-circle bg-label-info"
+                                >MG</span
+                              >
+                            </div>
+                            <div class="flex-grow-1">
+                              <div
+                                class="d-flex justify-content-between align-items-center mb-1"
+                              >
+                                <h6 class="mb-0">Maria Garcia</h6>
+                                <span class="badge bg-label-primary">
+                                  <i class="ti tabler-clock me-1"></i>
+                                  In 3 days
+                                </span>
+                              </div>
+                              <div class="client-info mb-2">
+                                <span class="text-muted me-3">
+                                  <i class="ti tabler-user me-1"></i>
+                                  Regular Client
+                                </span>
+                                <span class="text-muted">
+                                  <i class="ti tabler-calendar me-1"></i>
+                                  March 25, 1990
+                                </span>
+                              </div>
+                              <div class="d-flex gap-2">
+                                <button class="btn btn-primary btn-sm">
+                                  <i class="ti tabler-mail me-1"></i>
+                                  Send Wishes
+                                </button>
+                                <button class="btn btn-outline-primary btn-sm">
+                                  <i class="ti tabler-gift me-1"></i>
+                                  Send Offer
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Add more birthday items here -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Keep the same footer as index.html -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add this CSS to your existing styles -->
+    <style>
+      .birthday-timeline {
+        position: relative;
+      }
+
+      .birthday-section {
+        position: relative;
+        padding-left: 1rem;
+      }
+
+      .birthday-section::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 2rem;
+        bottom: 0;
+        width: 2px;
+        background: rgba(105, 108, 255, 0.1);
+      }
+
+      .birthday-item {
+        background: #fff;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+        border: 1px solid rgba(105, 108, 255, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .birthday-item:hover {
+        transform: translateX(5px);
+        border-color: rgba(105, 108, 255, 0.5);
+        box-shadow: 0 0.125rem 0.25rem rgba(105, 108, 255, 0.1);
+      }
+
+      .birthday-item.active {
+        background: linear-gradient(
+          to right,
+          rgba(105, 108, 255, 0.04),
+          rgba(105, 108, 255, 0.08)
+        );
+        border: 1px dashed rgba(105, 108, 255, 0.4);
+      }
+
+      .avatar-lg {
+        width: 48px;
+        height: 48px;
+      }
+
+      .client-info {
+        font-size: 0.875rem;
+      }
+
+      .badge {
+        padding: 0.5em 0.9em;
+      }
+
+      .btn-sm {
+        padding: 0.4rem 0.8rem;
+      }
+
+      /* Animation for new items */
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateX(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .birthday-item {
+        animation: slideIn 0.3s ease-out;
+      }
+    </style>
+
+    <!-- Keep the same script imports as index.html -->
+    <!-- Add this JavaScript for interactivity -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Add click handlers for the Send Wishes and Send Offer buttons
+        // These should open the same modals as in index.html
+        document
+          .querySelectorAll('[data-action="send-wishes"]')
+          .forEach((button) => {
+            button.addEventListener("click", openSendWishesModal);
+          });
+
+        document
+          .querySelectorAll('[data-action="send-offers"]')
+          .forEach((button) => {
+            button.addEventListener("click", openSendOffersModal);
+          });
+      });
+    </script>
+  </body>
+</html>
