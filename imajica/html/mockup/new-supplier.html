@@ -98,51 +98,6 @@
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
 
     <script src="../../assets/js/config.js"></script>
-
-    <style>
-      /* Add to your existing styles */
-      .dropzone {
-        border: 2px dashed #0a3622;
-        border-radius: 0.5rem;
-        padding: 2rem;
-        text-align: center;
-        cursor: pointer;
-        background: #f8f9fa;
-        transition: all 0.3s ease;
-      }
-
-      .dropzone:hover {
-        background: #e9ecef;
-      }
-
-      .preview-container img {
-        width: 120px;
-        height: 120px;
-        object-fit: cover;
-        border-radius: 0.5rem;
-        border: 2px solid #fff;
-        box-shadow: 0 2px 8px rgba(10, 54, 34, 0.1);
-      }
-
-      .image-preview {
-        position: relative;
-        display: inline-block;
-      }
-
-      .remove-image {
-        position: absolute;
-        top: -8px;
-        right: -8px;
-        background: #dc3545;
-        color: white;
-        border-radius: 50%;
-        width: 20px;
-        height: 20px;
-        text-align: center;
-        line-height: 20px;
-        cursor: pointer;
-      }
-    </style>
   </head>
 
   <body>
@@ -704,13 +659,13 @@
                           <div class="row g-6">
                             <div class="col-md-6">
                               <label class="form-label" for="fullname"
-                                >Company Name</label
+                                >Supplier Name</label
                               >
                               <input
                                 type="text"
                                 id="fullname"
                                 class="form-control"
-                                placeholder="Company Name"
+                                placeholder="Supplier Name"
                               />
                             </div>
 
@@ -757,14 +712,14 @@
 
                             <div class="col-12">
                               <label class="form-label" for="address"
-                                >Business Address</label
+                                >Supplier Address</label
                               >
                               <textarea
                                 name="address"
                                 class="form-control"
                                 id="address"
                                 rows="4"
-                                placeholder="Business Address"
+                                placeholder="Supplier Address"
                               ></textarea>
                             </div>
 
@@ -779,42 +734,6 @@
                                 rows="4"
                                 placeholder="List of Products/Services Offered"
                               ></textarea>
-                            </div>
-
-                            <!-- Add this after the Products/Services Offered textarea -->
-                            <div class="col-12 mt-4">
-                              <label class="form-label">Product Images</label>
-                              <div class="card">
-                                <div class="card-body">
-                                  <div class="d-flex align-items-center mb-3">
-                                    <i
-                                      class="ti tabler-photo me-2"
-                                      style="color: #0a3622"
-                                    ></i>
-                                    <small class="text-muted"
-                                      >Upload images of your products/services
-                                      (Maximum 5 images)</small
-                                    >
-                                  </div>
-                                  <div class="dropzone" id="productImages">
-                                    <div class="dz-message">
-                                      <i
-                                        class="ti tabler-cloud-upload mb-2"
-                                        style="color: #0a3622; font-size: 2rem"
-                                      ></i>
-                                      <h6>
-                                        Drop files here or click to upload
-                                      </h6>
-                                    </div>
-                                    <div class="fallback">
-                                      <input name="file" type="file" multiple />
-                                    </div>
-                                  </div>
-                                  <div
-                                    class="preview-container mt-3 d-flex flex-wrap gap-2"
-                                  ></div>
-                                </div>
-                              </div>
                             </div>
 
                             <div class="col-12">
@@ -929,72 +848,6 @@
     <!-- Page JS -->
     <script src="../../assets/js/form-layouts.js"></script>
     <script src="../../assets/js/forms-pickers.js"></script>
-
-    <!-- Add to your existing scripts -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const dropzone = document.getElementById("productImages");
-        const previewContainer = document.querySelector(".preview-container");
-        const maxImages = 5;
-        let uploadedFiles = [];
-
-        dropzone.addEventListener("dragover", (e) => {
-          e.preventDefault();
-          dropzone.style.borderColor = "#0a3622";
-        });
-
-        dropzone.addEventListener("dragleave", () => {
-          dropzone.style.borderColor = "#dee2e6";
-        });
-
-        dropzone.addEventListener("drop", handleFileSelect);
-        dropzone
-          .querySelector('input[type="file"]')
-          .addEventListener("change", handleFileSelect);
-
-        function handleFileSelect(e) {
-          e.preventDefault();
-          const files = e.dataTransfer ? e.dataTransfer.files : e.target.files;
-
-          if (uploadedFiles.length + files.length > maxImages) {
-            alert(`Maximum ${maxImages} images allowed`);
-            return;
-          }
-
-          [...files].forEach((file) => {
-            if (file.type.startsWith("image/")) {
-              const reader = new FileReader();
-              reader.onload = function (e) {
-                const preview = createPreviewElement(e.target.result);
-                previewContainer.appendChild(preview);
-                uploadedFiles.push(file);
-              };
-              reader.readAsDataURL(file);
-            }
-          });
-        }
-
-        function createPreviewElement(src) {
-          const wrapper = document.createElement("div");
-          wrapper.className = "image-preview";
-
-          const img = document.createElement("img");
-          img.src = src;
-
-          const removeBtn = document.createElement("span");
-          removeBtn.className = "remove-image";
-          removeBtn.innerHTML = "×";
-          removeBtn.onclick = function () {
-            wrapper.remove();
-            uploadedFiles = uploadedFiles.filter((f) => f !== img.file);
-          };
-
-          wrapper.appendChild(img);
-          wrapper.appendChild(removeBtn);
-          return wrapper;
-        }
-      });
-    </script>
   </body>
 
   <!-- Mirrored from demos.pixinvent.com/vuexy-html-admin-template/html/vertical-menu-template/form-layouts-sticky.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Feb 2025 08:27:42 GMT -->

@@ -1029,7 +1029,7 @@
                       </div>
                       <small class="text-muted d-block mt-1">
                         <i class="ti tabler-info-circle me-1"></i>
-                        Search by company name or contact number
+                        Search by supplier name
                       </small>
                     </div>
                   </div>
@@ -1040,7 +1040,7 @@
                   <table id="servicesTable" class="table table-striped">
                     <thead class="table-light">
                       <tr>
-                        <th>Company Name</th>
+                        <th>Supplier Name</th>
                         <th>Contact Number</th>
                         <th>Supplier Type</th>
                         <th>Actions</th>
@@ -1073,27 +1073,42 @@
                 </div>
 
                 <script>
-                  function generateRandomAddress() {
-                    const streets = [
-                      "Main Street",
-                      "Business Avenue",
-                      "Commerce Road",
-                      "Industry Lane",
-                    ];
-                    const cities = [
-                      "Makati",
-                      "Taguig",
-                      "Manila",
-                      "Quezon City",
-                    ];
-                    const street =
-                      streets[Math.floor(Math.random() * streets.length)];
-                    const city =
-                      cities[Math.floor(Math.random() * cities.length)];
-                    return `${Math.floor(
-                      Math.random() * 1000
-                    )} ${street}, ${city}`;
-                  }
+                  // Add this mockup data object before your existing DOMContentLoaded event listener
+                  const supplierMockData = {
+                    "Glow & Grace Beauty Co.": {
+                      contact: "+63 917 123 4567",
+                      email: "contact@glowandgrace.com",
+                      address:
+                        "Unit 1234 Glorietta Complex, Ayala Center, Makati City",
+                      type: "Product Supplier",
+                      products:
+                        "Premium skincare products, Professional beauty equipment, Dermatological supplies",
+                    },
+                    "Pristine Aesthetics PH": {
+                      contact: "+63 918 234 5678",
+                      email: "info@pristineaesthetics.ph",
+                      address: "456 The Podium, Ortigas Center, Pasig City",
+                      type: "Equipment Supplier",
+                      products:
+                        "Medical-grade facial machines, Advanced laser equipment, Professional massage beds",
+                    },
+                    "Radiant Beauty Solutions": {
+                      contact: "+63 919 345 6789",
+                      email: "sales@radiantbeauty.com",
+                      address: "789 SM Megamall, Mandaluyong City",
+                      type: "Service Provider",
+                      products:
+                        "Beauty treatment supplies, Spa essentials, Professional beauty tools",
+                    },
+                    "Lumiere Skin Clinic": {
+                      contact: "+63 920 456 7890",
+                      email: "info@lumiereclinic.com",
+                      address: "123 Bonifacio High Street, BGC, Taguig City",
+                      type: "Equipment Supplier",
+                      products:
+                        "High-end aesthetic equipment, Professional skincare machines, Clinical beauty tools",
+                    },
+                  };
 
                   document.addEventListener("DOMContentLoaded", function () {
                     const tableBody =
@@ -1302,6 +1317,162 @@
                         }
                       });
                     });
+
+                  // Update the view button click handler
+                  document
+                    .querySelectorAll(".view-supplier")
+                    .forEach((button) => {
+                      button.addEventListener("click", function () {
+                        const companyName = this.dataset.company;
+                        // Get data from mockup or generate if not in mockup
+                        const data = supplierMockData[companyName] || {
+                          contact:
+                            "+63 9" +
+                            Math.floor(Math.random() * 900000000 + 100000000),
+                          email: `info@${companyName
+                            .toLowerCase()
+                            .replace(/[^a-z0-9]/g, "")}.com`,
+                          address: generateRandomAddress(),
+                          type: this.dataset.type,
+                          products: `Premium ${this.dataset.type} equipment and supplies for aesthetic clinics and beauty centers`,
+                        };
+
+                        // Update modal with data
+                        document.getElementById(
+                          "modalCompanyName"
+                        ).textContent = companyName;
+                        document.getElementById("modalContact").textContent =
+                          data.contact;
+                        document.getElementById("modalEmail").textContent =
+                          data.email;
+                        document.getElementById("modalAddress").textContent =
+                          data.address;
+                        document.getElementById("modalType").textContent =
+                          data.type;
+                        document.getElementById("modalProducts").textContent =
+                          data.products;
+                      });
+                    });
+
+                  // Update the random address generator to be more realistic
+                  function generateRandomAddress() {
+                    const buildings = [
+                      "SM",
+                      "Ayala",
+                      "Robinsons",
+                      "The Podium",
+                      "Market Market",
+                      "Greenbelt",
+                    ];
+                    const areas = [
+                      "Makati",
+                      "BGC",
+                      "Ortigas",
+                      "Alabang",
+                      "Quezon City",
+                      "Manila",
+                    ];
+                    const streets = [
+                      "Corporate Center",
+                      "Business District",
+                      "Commercial Avenue",
+                      "Plaza",
+                      "Mall Complex",
+                    ];
+
+                    const building =
+                      buildings[Math.floor(Math.random() * buildings.length)];
+                    const area =
+                      areas[Math.floor(Math.random() * areas.length)];
+                    const street =
+                      streets[Math.floor(Math.random() * streets.length)];
+
+                    return `${building} ${street}, ${area}, Metro Manila`;
+                  }
+
+                  // Update your view-supplier click handler
+                  document
+                    .querySelectorAll(".view-supplier")
+                    .forEach((button) => {
+                      button.addEventListener("click", function () {
+                        // Example mockup data for display
+                        const mockupData = {
+                          contact: "+63 917 123 4567",
+                          email: "contact@glowandgrace.com",
+                          address:
+                            "Unit 1234 Glorietta Complex, Ayala Center, Makati City",
+                          type: "Product Supplier",
+                          products:
+                            "• Premium Facial Equipment\n• Dermatological Supplies\n• Professional Beauty Tools\n• Skincare Products\n• Treatment Machines",
+                        };
+
+                        // Update modal with mockup data
+                        document.getElementById("modalContact").textContent =
+                          mockupData.contact;
+                        document.getElementById("modalEmail").textContent =
+                          mockupData.email;
+                        document.getElementById("modalAddress").textContent =
+                          mockupData.address;
+                        document.getElementById("modalType").textContent =
+                          mockupData.type;
+                        document.getElementById("modalProducts").textContent =
+                          mockupData.products;
+                      });
+                    });
+
+                  // Update the view-supplier click handler with static mockup data
+                  document
+                    .querySelectorAll(".view-supplier")
+                    .forEach((button) => {
+                      button.addEventListener("click", function () {
+                        const mockData = {
+                          "Glow & Grace Beauty Co.": {
+                            contact: "+63 917 123 4567",
+                            email: "info@glowandgrace.com",
+                            address:
+                              "Unit 1234 Glorietta Complex, Ayala Center, Makati City",
+                            type: "Product Supplier",
+                            products: [
+                              "Premium Facial Equipment",
+                              "Dermatological Supplies",
+                              "Professional Beauty Tools",
+                              "Skincare Products",
+                              "Treatment Machines",
+                            ].join("\n• "),
+                          },
+                        };
+
+                        // Always use the same mockup data for demonstration
+                        document.getElementById("modalContact").textContent =
+                          mockData["Glow & Grace Beauty Co."].contact;
+                        document.getElementById("modalEmail").textContent =
+                          mockData["Glow & Grace Beauty Co."].email;
+                        document.getElementById("modalAddress").textContent =
+                          mockData["Glow & Grace Beauty Co."].address;
+                        document.getElementById("modalType").textContent =
+                          mockData["Glow & Grace Beauty Co."].type;
+                        document.getElementById("modalProducts").textContent =
+                          "• " + mockData["Glow & Grace Beauty Co."].products;
+                      });
+                    });
+
+                  document
+                    .querySelectorAll(".view-supplier")
+                    .forEach((button) => {
+                      button.addEventListener("click", function () {
+                        // Update modal with data from button attributes
+                        document.getElementById("modalContact").textContent =
+                          this.dataset.contact;
+                        document.getElementById("modalEmail").textContent =
+                          this.dataset.email;
+                        document.getElementById("modalAddress").textContent =
+                          this.dataset.address;
+                        document.getElementById("modalType").textContent =
+                          this.dataset.type;
+                        document.getElementById("modalProducts").textContent =
+                          this.dataset.products;
+                      });
+                    });
                 </script>
               </div>
             </div>
@@ -1322,7 +1493,7 @@
     </div>
     <!-- / Layout wrapper -->
 
-    <!-- Add this modal HTML before the closing body tag -->
+    <!-- Replace the existing modal HTML -->
     <div class="modal fade" id="supplierModal" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content border-0">
@@ -1340,7 +1511,7 @@
           <div class="modal-body p-4">
             <div class="row g-3">
               <!-- Column 1: Contact Information -->
-              <div class="col-md-4">
+              <div class="col-md-6">
                 <div class="supplier-detail-card h-100">
                   <h6 class="text-primary mb-3">Contact Information</h6>
                   <div class="supplier-info-item">
@@ -1366,17 +1537,17 @@
                       <i class="ti tabler-map-pin"></i>
                     </div>
                     <div>
-                      <small class="text-muted d-block">Business Address</small>
+                      <small class="text-muted d-block">Supplier Address</small>
                       <span id="modalAddress" class="fw-semibold"></span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <!-- Column 2: Business Details -->
-              <div class="col-md-4">
+              <!-- Column 2: Product Details -->
+              <div class="col-md-6">
                 <div class="supplier-detail-card h-100">
-                  <h6 class="text-primary mb-3">Business Details</h6>
+                  <h6 class="text-primary mb-3">Product Details</h6>
                   <div class="supplier-info-item">
                     <div class="supplier-info-icon">
                       <i class="ti tabler-category"></i>
@@ -1396,16 +1567,6 @@
                       >
                       <span id="modalProducts" class="fw-semibold"></span>
                     </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Column 3: Product Gallery -->
-              <div class="col-md-4">
-                <div class="supplier-detail-card h-100">
-                  <h6 class="text-primary mb-3">Product Gallery</h6>
-                  <div class="supplier-gallery-compact" id="supplierTypeImages">
-                    <!-- Images will be inserted here dynamically -->
                   </div>
                 </div>
               </div>

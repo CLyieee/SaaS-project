@@ -806,6 +806,37 @@
                               ></textarea>
                             </div>
 
+                              <!-- Add this new card section inside your modal body after the membership details card -->
+                          <div class="col-md-12 mt-3">
+                            <div class="client-detail-card">
+                              <h6 class="text-primary mb-3">
+                                Medical Information
+                              </h6>
+                              <div class="row">
+                                <div class="col-12">
+                                  <div class="client-info-item">
+                                    <div class="client-info-icon">
+                                      <i class="ti tabler-alert-circle"></i>
+                                    </div>
+                                    <div>
+                                      <small class="text-muted d-block"
+                                        >Allergies / Medical Concerns</small
+                                      >
+                                      <span
+                                        id="modalMedicalInfo"
+                                        class="fw-semibold"
+                                      >
+                                        • Allergic to certain essential oils •
+                                        Sensitive skin • High blood pressure •
+                                        Currently taking anticoagulants
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
                             <div class="col-12">
                               <label class="form-label" for="address"
                                 >Notes From Admin</label
@@ -819,6 +850,8 @@
                               ></textarea>
                             </div>
                           </div>
+
+                        
 
                           <!-- 2. Delivery Type -->
 
@@ -924,21 +957,83 @@
       document.addEventListener("DOMContentLoaded", function () {
         const imageUpload = document.getElementById("imageUpload");
         const imagePreview = document.getElementById("imagePreview");
+        const fullNameInput = document.getElementById("fullname");
 
+        function getInitials(name) {
+          return name
+            .split(" ")
+            .map((word) => word[0])
+            .join("")
+            .toUpperCase();
+        }
+
+        function createInitialsAvatar(initials) {
+          const canvas = document.createElement("canvas");
+          const context = canvas.getContext("2d");
+          canvas.width = 150;
+          canvas.height = 150;
+
+          // Background
+          context.fillStyle = "#0a3622";
+          context.beginPath();
+          context.arc(75, 75, 75, 0, Math.PI * 2);
+          context.fill();
+
+          // Text
+          context.font = "bold 60px Arial";
+          context.fillStyle = "#FFFFFF";
+          context.textAlign = "center";
+          context.textBaseline = "middle";
+          context.fillText(initials, 75, 75);
+
+          return canvas.toDataURL();
+        }
+
+        // Update avatar when name changes
+        fullNameInput.addEventListener("input", function () {
+          if (!imageUpload.files.length) {
+            const initials = getInitials(this.value) || "GC"; // Default to "GC" if no name
+            imagePreview.src = createInitialsAvatar(initials);
+          }
+        });
+
+        // Handle image upload
         imageUpload.addEventListener("change", function (e) {
           const file = e.target.files[0];
           if (file) {
             const reader = new FileReader();
-
             reader.onload = function (e) {
               imagePreview.src = e.target.result;
             };
-
             reader.readAsDataURL(file);
+          } else if (fullNameInput.value) {
+            imagePreview.src = createInitialsAvatar(
+              getInitials(fullNameInput.value)
+            );
+          } else {
+            imagePreview.src = createInitialsAvatar("GC");
           }
         });
+
+        // Set default avatar on load
+        imagePreview.src = createInitialsAvatar("GC");
       });
     </script>
+    <button
+      class="btn btn-sm btn-success view-client"
+      data-bs-toggle="modal"
+      data-bs-target="#clientModal"
+      data-name="Sofia Mendoza"
+      data-contact="+63 917 123 4567"
+      data-email="sofia.mendoza@email.com"
+      data-address="123 Makati Avenue, Makati City"
+      data-membership="Gold"
+      data-points="750"
+      data-joined="2023-01-15"
+      data-medical="Allergic to certain essential oils, Sensitive skin, High blood pressure, Currently taking anticoagulants"
+    >
+      View
+    </button>
   </body>
 
   <!-- Mirrored from demos.pixinvent.com/vuexy-html-admin-template/html/vertical-menu-template/form-layouts-sticky.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Feb 2025 08:27:42 GMT -->
