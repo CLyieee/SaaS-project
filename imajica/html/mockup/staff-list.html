@@ -302,25 +302,27 @@
       </ul>
     </li>-->
 
-            <li class="menu-item active open">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon icon-base ti tabler-users"></i>
-                <div data-i18n="Patient">Patient</div>
-              </a>
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="new-patient.html" class="menu-link">
-                    <div data-i18n="New Patient">New Patient</div>
-                  </a>
-                </li>
+    
+    
+    <li class="menu-item">
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <i class="menu-icon icon-base ti tabler-users"></i>
+        <div data-i18n="Patient">Patient</div>
+      </a>
+      <ul class="menu-sub">
+        <li class="menu-item">
+          <a href="new-patient.html" class="menu-link">
+            <div data-i18n="New Patient">New Patient</div>
+          </a>
+        </li>
 
-                <li class="menu-item active">
-                  <a href="patient-list.html" class="menu-link">
-                    <div data-i18n="Patient List">Patient List</div>
-                  </a>
-                </li>
-              </ul>
-            </li>
+        <li class="menu-item">
+          <a href="patient-list.html" class="menu-link">
+            <div data-i18n="Patient List">Patient List</div>
+          </a>
+        </li>
+      </ul>
+    </li>
 
             <li class="menu-item active open">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -730,6 +732,8 @@
                           data-branch="Pasig City Branch"
                           data-joined="2023-01-15"
                           data-specialization="General Medicine"
+                          data-certifications="Board Certified in Internal Medicine, Advanced Cardiac Life Support"
+                          data-notes="Excellent team player with outstanding patient care records."
                         >
                           View
                         </button>
@@ -754,7 +758,7 @@
             >
               <div class="modal-dialog modal-dialog-centered modal-xl">
                 <div class="modal-content border-0">
-                  <div class="modal-header bg-primary text-white border-0">
+                  <div class="modal-header text-white border-0">
                     <h5 class="modal-title text-white fs-4">
                       <i class="ti tabler-user me-2"></i>
                       <span id="modalStaffName"></span>
@@ -766,6 +770,7 @@
                       aria-label="Close"
                     ></button>
                   </div>
+
                   <div class="modal-body p-4">
                     <div class="row g-3">
                       <!-- Profile and Personal Info Column -->
@@ -795,7 +800,7 @@
                               <i class="ti tabler-phone"></i>
                             </div>
                             <div>
-                              <small class="text-muted d-block">Contact</small>
+                              <span class="text-muted">Contact:</span>
                               <span
                                 class="fw-semibold"
                                 id="modalContact"
@@ -808,7 +813,7 @@
                               <i class="ti tabler-mail"></i>
                             </div>
                             <div>
-                              <small class="text-muted d-block">Email</small>
+                              <span class="text-muted">Email:</span>
                               <span class="fw-semibold" id="modalEmail"></span>
                             </div>
                           </div>
@@ -818,7 +823,7 @@
                               <i class="ti tabler-map-pin"></i>
                             </div>
                             <div>
-                              <small class="text-muted d-block">Branch</small>
+                              <span class="text-muted">Branch:</span>
                               <span class="fw-semibold" id="modalBranch"></span>
                             </div>
                           </div>
@@ -837,8 +842,13 @@
                               <i class="ti tabler-briefcase"></i>
                             </div>
                             <div>
-                              <small class="text-muted d-block">Role</small>
-                              <span class="fw-semibold" id="modalRole"></span>
+                              <strong class="text-dark d-block mb-1"
+                                >Role</strong
+                              >
+                              <span
+                                class="text-secondary"
+                                id="modalRole"
+                              ></span>
                             </div>
                           </div>
 
@@ -847,11 +857,11 @@
                               <i class="ti tabler-certificate"></i>
                             </div>
                             <div>
-                              <small class="text-muted d-block"
-                                >Specialization</small
+                              <strong class="text-dark d-block mb-1"
+                                >Specialization</strong
                               >
                               <span
-                                class="fw-semibold"
+                                class="text-secondary"
                                 id="modalSpecialization"
                               ></span>
                             </div>
@@ -862,10 +872,53 @@
                               <i class="ti tabler-calendar"></i>
                             </div>
                             <div>
-                              <small class="text-muted d-block"
-                                >Joined Date</small
+                              <strong class="text-dark d-block mb-1"
+                                >Joined Date</strong
                               >
-                              <span class="fw-semibold" id="modalJoined"></span>
+                              <span
+                                class="text-secondary"
+                                id="modalJoined"
+                              ></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Additional Information Section -->
+                      <div class="col-12">
+                        <div class="staff-detail-card">
+                          <h6
+                            class="text-primary d-flex align-items-center mb-3"
+                          >
+                            <i class="ti tabler-file-text me-2"></i>
+                            Additional Information
+                          </h6>
+
+                          <div class="additional-info-content">
+                            <div class="alert alert-info-custom mb-3">
+                              <div class="d-flex align-items-start">
+                                <i
+                                  class="ti tabler-certificate-2 fs-5 me-2 text-primary"
+                                ></i>
+                                <div>
+                                  <h6 class="alert-heading mb-1">
+                                    Certifications
+                                  </h6>
+                                  <div id="modalCertifications"></div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="alert alert-info-custom mb-0">
+                              <div class="d-flex align-items-start">
+                                <i
+                                  class="ti tabler-notes fs-5 me-2 text-primary"
+                                ></i>
+                                <div>
+                                  <h6 class="alert-heading mb-1">Notes</h6>
+                                  <p class="mb-0" id="modalNotes"></p>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -947,9 +1000,11 @@
               .staff-info-item {
                 display: flex;
                 align-items: center;
+                gap: 1rem;
                 margin-bottom: 1rem;
-                padding: 0.5rem;
+                padding: 0.75rem;
                 border-radius: 0.5rem;
+                background-color: rgba(10, 54, 34, 0.03);
               }
 
               .staff-info-icon {
@@ -961,7 +1016,23 @@
                 background: #e7efe9;
                 color: #0a3622;
                 border-radius: 0.5rem;
-                margin-right: 0.75rem;
+                flex-shrink: 0;
+              }
+
+              .staff-info-content {
+                flex: 1;
+              }
+
+              .staff-info-label {
+                font-size: 0.75rem;
+                color: #6c757d;
+                margin-bottom: 0.25rem;
+                display: block;
+              }
+
+              .staff-info-value {
+                color: #2c3e50;
+                font-weight: 500;
               }
 
               .modal-header {
@@ -977,6 +1048,25 @@
 
               .modal-content {
                 border-radius: 1rem;
+              }
+              .alert-info-custom {
+                background-color: rgba(10, 54, 34, 0.05);
+                border: none;
+                border-radius: 0.75rem;
+              }
+
+              .staff-cert-item {
+                margin-bottom: 0.5rem;
+                display: flex;
+                align-items: center;
+              }
+
+              .text-muted {
+                margin-right: 0.5rem;
+              }
+
+              .fw-semibold {
+                font-weight: 600;
               }
             </style>
 
@@ -1091,6 +1181,114 @@
                       this.dataset.specialization;
                     document.getElementById("modalJoined").textContent =
                       this.dataset.joined;
+                  });
+                });
+              });
+            </script>
+            <script>
+              document.addEventListener("DOMContentLoaded", function () {
+                document.querySelectorAll(".view-staff").forEach((button) => {
+                  button.addEventListener("click", function () {
+                    const name = this.dataset.name;
+
+                    // Update modal content
+                    document.getElementById("modalStaffName").textContent =
+                      name;
+                    document.getElementById(
+                      "modalStaffNameProfile"
+                    ).textContent = name;
+                    document.getElementById("modalRoleBadge").textContent =
+                      this.dataset.role;
+                    document.getElementById("modalContact").textContent =
+                      this.dataset.contact;
+                    document.getElementById("modalEmail").textContent =
+                      this.dataset.email;
+                    document.getElementById("modalBranch").textContent =
+                      this.dataset.branch;
+                    document.getElementById("modalRole").textContent =
+                      this.dataset.role;
+                    document.getElementById("modalSpecialization").textContent =
+                      this.dataset.specialization;
+                    document.getElementById("modalJoined").textContent =
+                      this.dataset.joined;
+
+                    // Handle certifications
+                    const certifications = this.dataset.certifications;
+                    const certDiv = document.getElementById(
+                      "modalCertifications"
+                    );
+                    if (certifications) {
+                      const certList = certifications
+                        .split(",")
+                        .map(
+                          (cert) => `<div class="staff-cert-item">
+            <i class="ti tabler-point text-primary me-2"></i>
+            ${cert.trim()}
+          </div>`
+                        )
+                        .join("");
+                      certDiv.innerHTML = certList;
+                    } else {
+                      certDiv.innerHTML =
+                        '<p class="mb-0">No certifications listed</p>';
+                    }
+
+                    // Handle notes
+                    document.getElementById("modalNotes").textContent =
+                      this.dataset.notes || "No additional notes";
+                  });
+                });
+              });
+            </script>
+            <script>
+              document.addEventListener("DOMContentLoaded", function () {
+                document.querySelectorAll(".view-staff").forEach((button) => {
+                  button.addEventListener("click", function () {
+                    // Update modal content
+                    document.getElementById("modalStaffName").textContent =
+                      this.dataset.name;
+                    document.getElementById(
+                      "modalStaffNameProfile"
+                    ).textContent = this.dataset.name;
+                    document.getElementById("modalRoleBadge").textContent =
+                      this.dataset.role;
+                    document.getElementById("modalContact").textContent =
+                      this.dataset.contact;
+                    document.getElementById("modalEmail").textContent =
+                      this.dataset.email;
+                    document.getElementById("modalBranch").textContent =
+                      this.dataset.branch;
+                    document.getElementById("modalRole").textContent =
+                      this.dataset.role;
+                    document.getElementById("modalSpecialization").textContent =
+                      this.dataset.specialization;
+                    document.getElementById("modalJoined").textContent =
+                      this.dataset.joined;
+
+                    // Handle certifications
+                    const certifications = this.dataset.certifications;
+                    const certDiv = document.getElementById(
+                      "modalCertifications"
+                    );
+                    if (certifications) {
+                      const certList = certifications
+                        .split(",")
+                        .map(
+                          (cert) => `<div class="staff-cert-item">
+                          <i class="ti tabler-point text-primary me-2"></i>
+                          ${cert.trim()}
+                        </div>`
+                        )
+                        .join("");
+                      certDiv.innerHTML = certList;
+                    } else {
+                      certDiv.innerHTML =
+                        '<p class="mb-0">No certifications listed</p>';
+                    }
+
+                    // Handle notes
+                    document.getElementById("modalNotes").textContent =
+                      this.dataset.notes || "No additional notes";
                   });
                 });
               });

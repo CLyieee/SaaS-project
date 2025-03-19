@@ -293,7 +293,7 @@
         </ul>
       </li>-->
 
-            <li class="menu-item has-sub">
+            <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon icon-base ti tabler-users"></i>
                 <div data-i18n="Patient">Patient</div>
@@ -304,6 +304,7 @@
                     <div data-i18n="New Patient">New Patient</div>
                   </a>
                 </li>
+
                 <li class="menu-item">
                   <a href="patient-list.html" class="menu-link">
                     <div data-i18n="Patient List">Patient List</div>
@@ -1648,6 +1649,37 @@
       .action-buttons .btn:hover {
         transform: translateY(-2px);
         box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Add to your existing styles */
+      .menu-sub {
+        display: none;
+      }
+
+      .menu-item.open > .menu-sub {
+        display: block;
+      }
+
+      .menu-item.active > .menu-link {
+        background-color: rgba(10, 54, 34, 0.1) !important;
+        color: #0a3622 !important;
+      }
+
+      .menu-sub .menu-item.active > .menu-link {
+        background-color: rgba(10, 54, 34, 0.1) !important;
+      }
+
+      /* Add after existing styles */
+      .menu-sub {
+        display: none;
+      }
+
+      .menu-sub.show {
+        display: block;
+      }
+
+      .menu-toggle {
+        cursor: pointer;
       }
     </style>
   </body>
