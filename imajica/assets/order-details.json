@@ -1,0 +1,11 @@
+[
+    {
+        "id": 1,
+        "product_name": "Product A",
+        "price": 29.99,
+        "qty": 10,
+        "product_info": "Description of Product A",
+        "image": "amazon-echo.jpg"
+    }
+   
+]

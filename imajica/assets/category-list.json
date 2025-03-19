@@ -1,0 +1,61 @@
+{
+    "data": [
+      {
+        "id": 1,
+        "categories": "Electronics",
+        "category_detail": "Gadgets & Devices",
+        "cat_image": "electronics.jpg",
+        "total_products": 120,
+        "total_earnings": "$25,000"
+      },
+      {
+        "id": 2,
+        "categories": "Fashion",
+        "category_detail": "Clothing & Accessories",
+        "cat_image": "fashion.jpg",
+        "total_products": 95,
+        "total_earnings": "$18,500"
+      },
+      {
+        "id": 3,
+        "categories": "Home & Living",
+        "category_detail": "Furniture & Decor",
+        "cat_image": "home.jpg",
+        "total_products": 75,
+        "total_earnings": "$12,300"
+      },
+      {
+        "id": 4,
+        "categories": "Beauty & Health",
+        "category_detail": "Cosmetics & Wellness",
+        "cat_image": "beauty.jpg",
+        "total_products": 50,
+        "total_earnings": "$9,800"
+      },
+      {
+        "id": 5,
+        "categories": "Sports & Outdoors",
+        "category_detail": "Equipment & Gear",
+        "cat_image": "sports.jpg",
+        "total_products": 60,
+        "total_earnings": "$14,200"
+      },
+      {
+        "id": 6,
+        "categories": "Automotive",
+        "category_detail": "Car Accessories & Parts",
+        "cat_image": "automotive.jpg",
+        "total_products": 30,
+        "total_earnings": "$7,600"
+      },
+      {
+        "id": 7,
+        "categories": "Toys & Games",
+        "category_detail": "Kids & Family",
+        "cat_image": "toys.jpg",
+        "total_products": 85,
+        "total_earnings": "$11,400"
+      }
+    ]
+  }
+  

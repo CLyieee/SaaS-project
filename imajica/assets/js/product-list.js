@@ -1,7 +1,17 @@
-document.addEventListener("DOMContentLoaded",function(e){config.colors.borderColor,config.colors.bodyBg,config.colors.headingColor;let t=document.querySelector(".datatables-products"),o={1:{title:"Scheduled",class:"bg-label-warning"},2:{title:"Publish",class:"bg-label-success"},3:{title:"Inactive",class:"bg-label-danger"}},s={0:{title:"Household"},1:{title:"Office"},2:{title:"Electronics"},3:{title:"Shoes"},4:{title:"Accessories"},5:{title:"Game"}},r={0:{title:"Out_of_Stock"},1:{title:"In_Stock"}};t&&new DataTable(t,{ajax:assetsPath+"/product-list.json",columns:[{data:"id"},{data:"id",orderable:!1,render:DataTable.render.select()},{data:"product_name"},{data:"category"},{data:"stock"},{data:"sku"},{data:"price"},{data:"quantity"},{data:"status"},{data:"id"}],columnDefs:[{className:"control",searchable:!1,orderable:!1,responsivePriority:2,targets:0,render:function(e,t,n,a){return""}},{targets:1,orderable:!1,searchable:!1,responsivePriority:3,checkboxes:!0,checkboxes:{selectAllRender:'<input type="checkbox" class="form-check-input">'},render:function(){return'<input type="checkbox" class="dt-checkboxes form-check-input">'}},{targets:2,responsivePriority:1,render:function(e,t,n,a){var o=n.product_name,s=n.product_brand,r=n.image;let c;return`
+document.addEventListener("DOMContentLoaded",function(e){config.colors.borderColor,config.colors.bodyBg,config.colors.headingColor;let t=document.querySelector(".datatables-products"),o={1:{title:"Scheduled",class:"bg-label-warning"},2:{title:"Publish",class:"bg-label-success"},3:{title:"Inactive",class:"bg-label-danger"}},s={0:{title:"Household"},1:{title:"Office"},2:{title:"Electronics"},3:{title:"Shoes"},4:{title:"Accessories"},5:{title:"Game"}},r={0:{title:"Out_of_Stock"},1:{title:"In_Stock"}};
+t&&new DataTable(t,{ajax:assetsPath+"/product-list.json"
+  ,columns:[
+    {data:"id"},
+    {data:"id",orderable:!1,render:DataTable.render.select()},
+    {data:"product_name"},
+    {data:"category"},{data:"stock"},
+    {data:"sku"},{data:"price"},
+    {data:"quantity"},{data:"status"},
+    {data:"id"}],
+    columnDefs:[{className:"control",searchable:!1,orderable:!1,responsivePriority:2,targets:0,render:function(e,t,n,a){return""}},{targets:1,orderable:!1,searchable:!1,responsivePriority:3,checkboxes:!0,checkboxes:{selectAllRender:'<input type="checkbox" class="form-check-input">'},render:function(){return'<input type="checkbox" class="dt-checkboxes form-check-input">'}},{targets:2,responsivePriority:1,render:function(e,t,n,a){var o=n.product_name,s=n.product_brand,r=n.image;let c;return`
     <div class="d-flex justify-content-start align-items-center product-name">
       <div class="avatar-wrapper">
-        <div class="avatar avatar me-2 me-sm-4 rounded-2 bg-label-secondary">${c=r?`<img src="${assetsPath}img/ecommerce-images/${r}" alt="Product-${n.id}" class="rounded">`:`<span class="avatar-initial rounded-2 bg-label-${["success","danger","warning","info","dark","primary","secondary"][Math.floor(6*Math.random())]}">${(s.match(/\b\w/g)||[]).slice(0,2).join("").toUpperCase()}</span>`}</div>
+        <div class="avatar avatar me-2 me-sm-4 rounded-2 bg-label-secondary">${c=r?`<img src="${assetsPath}img/products/${r}" class="rounded">`:`<span class="avatar-initial rounded-2 bg-label-${["success","danger","warning","info","dark","primary","secondary"][Math.floor(6*Math.random())]}">${(s.match(/\b\w/g)||[]).slice(0,2).join("").toUpperCase()}</span>`}</div>
       </div>
       <div class="d-flex flex-column">
         <h6 class="text-nowrap mb-0">${o}</h6>

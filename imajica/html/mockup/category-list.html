@@ -26,12 +26,12 @@
   data-template="vertical-menu-template"
   data-bs-theme="light">
   
-<!-- Mirrored from demos.pixinvent.com/vuexy-html-admin-template/html/vertical-menu-template/app-ecommerce-order-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Feb 2025 08:26:18 GMT -->
+<!-- Mirrored from demos.pixinvent.com/vuexy-html-admin-template/html/vertical-menu-template/app-ecommerce-category-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Feb 2025 08:26:17 GMT -->
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Imajica Booking System</title>
+    <title>Demo: eCommerce Category List - Apps | Vuexy - Bootstrap Dashboard PRO</title>
 
     
       <meta name="description" content="Vuexy is the best bootstrap 5 dashboard for responsive web apps. Streamline your app development process with ease." />
@@ -92,9 +92,15 @@
     <link rel="stylesheet" href="../../assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
   <link rel="stylesheet" href="../../assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
   <link rel="stylesheet" href="../../assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css" />
+  <link rel="stylesheet" href="../../assets/vendor/libs/select2/select2.css" />
+  <link rel="stylesheet" href="../../assets/vendor/libs/%40form-validation/form-validation.css" />
+  <link rel="stylesheet" href="../../assets/vendor/libs/quill/typography.css" />
+  <link rel="stylesheet" href="../../assets/vendor/libs/quill/katex.css" />
+  <link rel="stylesheet" href="../../assets/vendor/libs/quill/editor.css" />
 
     <!-- Page CSS -->
     
+  <link rel="stylesheet" href="../../assets/vendor/css/pages/app-ecommerce.css" />
 
     <!-- Helpers -->
     <script src="../../assets/vendor/js/helpers.js"></script>
@@ -127,443 +133,443 @@
 <!-- Menu -->
 
 <aside id="layout-menu" class="layout-menu menu-vertical menu" >
-  <br>
-      <br>
-  <div class="app-brand demo ">
-    <a href="index.html" class="app-brand-link">
+    <br>
+        <br>
+    <div class="app-brand demo ">
+      <a href="index.html" class="app-brand-link">
+        
+        
+      <img src="logo.png" alt="Logo" width="100%" >
+   
+  
+  
       
-      
-    <img src="logo.png" alt="Logo" width="100%" >
- 
-
-
+      </a>
+  
+     
+    </div>
+    <br>
+    <br>
+    <div class="menu-inner-shadow"></div>
+  
     
+    
+      <ul class="menu-inner py-1">
+        <!-- Dashboards -->
+  
+      
+  
+      
+  
+  
+        <li class="menu-item">
+          <a href="index.html" class="menu-link">
+            <i class="menu-icon icon-base ti tabler-home"></i>
+            <div data-i18n="Dashboard">Dashboard</div>
+          </a>
+        </li>
+  
+   
+  
+        <!-- Apps & Pages -->
+        <li class="menu-header small">
+          <span class="menu-header-text" data-i18n="Main Menu">Main Menu</span>
+        </li>
+       
+        
+        <li class="menu-item">
+          <a href="booking.html" class="menu-link">
+            <i class="menu-icon icon-base ti tabler-calendar"></i>
+            <div data-i18n="Booking">Booking</div>
+          </a>
+        </li>
+       
+        <li class="menu-item">
+        
+          <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class="menu-icon icon-base ti tabler-chart-pie "></i>
+            <div data-i18n="Accounting">Accounting</div>
+          </a>
+          <ul class="menu-sub">
+            <li class="menu-item">
+              <a href="sales-transaction.html" class="menu-link">
+                <div data-i18n="Sales Transaction">Sales Transaction</div>
+              </a>
+            </li>
+        
+            <li class="menu-item">
+              <a href="commision-employee.html" class="menu-link">
+                <div data-i18n="Commision for Employee">Commision for Employee</div>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="employee-sales.html" class="menu-link">
+                <div data-i18n="Employee Sales">Employee Sales</div>
+              </a>
+            </li>
+        
+            <li class="menu-item">
+              <a href="purchase.html" class="menu-link">
+                <div data-i18n="Purchase">Purchase</div>
+              </a>
+            </li>
+  
+            <li class="menu-item">
+              <a href="invoice.html" class="menu-link">
+                <div data-i18n="Void Logs">Void Logs</div>
+              </a>
+            </li>
+             
+          </ul>
+        </li> 
+  
+   <!-- <li class="menu-item">
+        
+    <a href="javascript:void(0);" class="menu-link menu-toggle">
+      <i class="menu-icon icon-base ti tabler-file-invoice"></i>
+      <div data-i18n="Invoice">Invoice</div>
     </a>
-
-   
-  </div>
-  <br>
-  <br>
-  <div class="menu-inner-shadow"></div>
-
+    <ul class="menu-sub">
+      <li class="menu-item">
+        <a href="invoice-list.html" class="menu-link">
+          <div data-i18n="List">List</div>
+        </a>
+      </li>
   
+      <li class="menu-item">
+        <a href="invoice-edit.html" class="menu-link">
+          <div data-i18n="Edit">Edit</div>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="invoice-add.html" class="menu-link">
+          <div data-i18n="Add">Add</div>
+        </a>
+      </li>
   
-    <ul class="menu-inner py-1">
-      <!-- Dashboards -->
-
-    
-
-    
-
-
-      <li class="menu-item active">
-        <a href="index.html" class="menu-link">
-          <i class="menu-icon icon-base ti tabler-home"></i>
-          <div data-i18n="Dashboard">Dashboard</div>
+      <li class="menu-item">
+        <a href="invoice.html" class="menu-link">
+          <div data-i18n="Preview">Preview</div>
         </a>
       </li>
-
- 
-
-      <!-- Apps & Pages -->
-      <li class="menu-header small">
-        <span class="menu-header-text" data-i18n="Main Menu">Main Menu</span>
-      </li>
-     
+  
       
-      <li class="menu-item">
-        <a href="booking.html" class="menu-link">
-          <i class="menu-icon icon-base ti tabler-calendar"></i>
-          <div data-i18n="Booking">Booking</div>
-        </a>
-      </li>
-     
-      <li class="menu-item">
-      
-        <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon icon-base ti tabler-chart-pie "></i>
-          <div data-i18n="Accounting">Accounting</div>
-        </a>
-        <ul class="menu-sub">
-          <li class="menu-item">
-            <a href="sales-transaction.html" class="menu-link">
-              <div data-i18n="Sales Transaction">Sales Transaction</div>
-            </a>
-          </li>
-      
-          <li class="menu-item">
-            <a href="commision-employee.html" class="menu-link">
-              <div data-i18n="Commision for Employee">Commision for Employee</div>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="employee-sales.html" class="menu-link">
-              <div data-i18n="Employee Sales">Employee Sales</div>
-            </a>
-          </li>
-      
-          <li class="menu-item">
-            <a href="purchase.html" class="menu-link">
-              <div data-i18n="Purchase">Purchase</div>
-            </a>
-          </li>
-
-          <li class="menu-item">
-            <a href="invoice.html" class="menu-link">
-              <div data-i18n="Void Logs">Void Logs</div>
-            </a>
-          </li>
-           
-        </ul>
-      </li> 
-
- <!-- <li class="menu-item">
-      
-  <a href="javascript:void(0);" class="menu-link menu-toggle">
-    <i class="menu-icon icon-base ti tabler-file-invoice"></i>
-    <div data-i18n="Invoice">Invoice</div>
-  </a>
-  <ul class="menu-sub">
-    <li class="menu-item">
-      <a href="invoice-list.html" class="menu-link">
-        <div data-i18n="List">List</div>
-      </a>
-    </li>
-
-    <li class="menu-item">
-      <a href="invoice-edit.html" class="menu-link">
-        <div data-i18n="Edit">Edit</div>
-      </a>
-    </li>
-    <li class="menu-item">
-      <a href="invoice-add.html" class="menu-link">
-        <div data-i18n="Add">Add</div>
-      </a>
-    </li>
-
-    <li class="menu-item">
-      <a href="invoice.html" class="menu-link">
-        <div data-i18n="Preview">Preview</div>
-      </a>
-    </li>
-
-    
-  </ul>
-</li>  -->
-
-      <li class="menu-item">
-        <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon icon-base ti tabler-plus"></i>
-          <div data-i18n="Services">Services</div>
-        </a>
-        <ul class="menu-sub">
-          <li class="menu-item">
-            <a href="new-services.html" class="menu-link">
-              <div data-i18n="New Services">New Services</div>
-            </a>
-          </li>
-
-          <li class="menu-item">
-            <a href="services-list.html" class="menu-link">
-              <div data-i18n="Services List">Services List </div>
-            </a>
-          </li>
-
-          
-        </ul>
-      </li>
-
-      <!-- e-commerce-app menu start -->
-    <li class="menu-item open active">
-        <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon icon-base ti tabler-shopping-cart"></i>
-          <div data-i18n="Product Management">Product Management</div>
-        </a>
-        <ul class="menu-sub">
-          
-          <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-              <div data-i18n="Products">Products</div>
-            </a>
-            <ul class="menu-sub">
-              <li class="menu-item">
-                <a href="product-list.html" class="menu-link">
-                  <div data-i18n="Product List">Product List</div>
-                </a>
-              </li>
-              <li class="menu-item">
-                <a href="add-product.html" class="menu-link">
-                  <div data-i18n="Add Product">Add Product</div>
-                </a>
-              </li>
-              <li class="menu-item">
-                <a href="category-list.html" class="menu-link">
-                  <div data-i18n="Category List">Category List</div>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="menu-item open">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-              <div data-i18n="Order">Order</div>
-            </a>
-            <ul class="menu-sub">
-              <li class="menu-item active">
-                <a href="order-list.html" class="menu-link">
-                  <div data-i18n="Order List">Order List</div>
-                </a>
-              </li>
-              <li class="menu-item">
-                <a href="order-details.html" class="menu-link">
-                  <div data-i18n="Order Details">Order Details</div>
-                </a>
-              </li>
-            </ul>
-          </li>
-   
-        </ul>
-      </li>
-
-
-     
-      <li class="menu-item">
-        <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon icon-base ti tabler-layout-board"></i>
-          <div data-i18n="Coupon">Coupon</div>
-        </a>
-        <ul class="menu-sub">
-          <li class="menu-item">
-            <a href="new-coupon.html" class="menu-link">
-              <div data-i18n="New Coupon">New Coupon</div>
-            </a>
-          </li>
-
-          <li class="menu-item">
-            <a href="coupon-list.html" class="menu-link">
-              <div data-i18n="Coupon List">Coupon List</div>
-            </a>
-          </li>    
-        </ul>
-      </li>
-
-
-
- 
-     
-      <!-- Academy menu start -->
-    
-      <!-- Academy menu end 
-     
-      <li class="menu-item">
-        <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon icon-base ti tabler-file-dollar"></i>
-          <div data-i18n="Invoice">Invoice</div>
-        </a>
-        <ul class="menu-sub">
-          <li class="menu-item">
-            <a href="app-invoice-list.html" class="menu-link">
-              <div data-i18n="List">List</div>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="app-invoice-preview.html" class="menu-link">
-              <div data-i18n="Preview">Preview</div>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="app-invoice-edit.html" class="menu-link">
-              <div data-i18n="Edit">Edit</div>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="app-invoice-add.html" class="menu-link">
-              <div data-i18n="Add">Add</div>
-            </a>
-          </li>
-        </ul>
-      </li>-->
-
-
-      <li class="menu-item">
-        <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon icon-base ti tabler-users"></i>
-          <div data-i18n="Client">Client</div>
-        </a>
-        <ul class="menu-sub">
-          <li class="menu-item">
-            <a href="new-client.html" class="menu-link">
-              <div data-i18n="New Client">New Client</div>
-            </a>
-          </li>
-
-          <li class="menu-item">
-            <a href="client-list.html" class="menu-link">
-              <div data-i18n="Client List">Client List</div>
-            </a>
-          </li>
-
-          
-        </ul>
-      </li>
-
-
-
-
-
-      <li class="menu-item">
-        <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon icon-base ti tabler-user"></i>
-          <div data-i18n="Staff">Staff</div>
-        </a>
-        <ul class="menu-sub">
-          <li class="menu-item">
-            <a href="new-staff.html" class="menu-link">
-              <div data-i18n="New Staff">New Staff</div>
-            </a>
-          </li>
-
-          <li class="menu-item">
-            <a href="staff-list.html" class="menu-link">
-              <div data-i18n="Staff List">Staff List</div>
-            </a>
-          </li>
-
-          
-        </ul>
-      </li>
-
-
-      <li class="menu-item">
-        <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon icon-base ti tabler-map"></i>
-          <div data-i18n="Branch">Branch</div>
-        </a>
-        <ul class="menu-sub">
-          <li class="menu-item">
-            <a href="new-branch.html" class="menu-link">
-              <div data-i18n="New Branch">New Branch</div>
-            </a>
-          </li>
-
-          <li class="menu-item">
-            <a href="branch-list.html" class="menu-link">
-              <div data-i18n="Branch List">Branch List</div>
-            </a>
-          </li>
-
-          
-        </ul>
-      </li>
-    
-
-
-      <li class="menu-item">
-        <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon icon-base ti tabler-file-description"></i>
-          <div data-i18n="Expenses">Expenses</div>
-        </a>
-        <ul class="menu-sub">
-          <li class="menu-item">
-            <a href="new-expense.html" class="menu-link">
-              <div data-i18n="New Expense">New Expense</div>
-            </a>
-          </li>
-
-          <li class="menu-item">
-            <a href="expense-list.html" class="menu-link">
-              <div data-i18n="Expense List">Expense List</div>
-            </a>
-          </li>
-
-          
-        </ul>
-      </li>
-
-
-
-
-      <li class="menu-item">
-        <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon icon-base ti tabler-id"></i>
-          <div data-i18n="Loyalty Rewards">Loyalty Rewards</div>
-        </a>
-        <ul class="menu-sub">
-          <li class="menu-item">
-            <a href="new-loyalty.html" class="menu-link">
-              <div data-i18n="New Loyalty Reward">New Loyalty Reward</div>
-            </a>
-          </li>
-
-          <li class="menu-item">
-            <a href="loyalty-list.html" class="menu-link">
-              <div data-i18n="Loyalty Rewards List">Loyalty Rewards List</div>
-            </a>
-          </li>
-
-          
-        </ul>
-      </li>
-
-
-      
-   
-   
-
-
-      <li class="menu-item">
-        <a href="reports.html" class="menu-link">
-          <i class="menu-icon icon-base ti tabler-table"></i>
-          <div data-i18n="Reports">Reports</div>
-        </a>
-      </li>
-
-
-      <li class="menu-item">
-        <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon icon-base ti tabler-settings"></i>
-          <div data-i18n="Users">Users</div>
-        </a>
-        <ul class="menu-sub">
-          <li class="menu-item">
-            <a href="new-user.html" class="menu-link">
-              <div data-i18n="New User">New User</div>
-            </a>
-          </li>
-
-          <li class="menu-item">
-            <a href="users-list.html" class="menu-link">
-              <div data-i18n="Users List">Users List</div>
-            </a>
-          </li>
-
-          
-        </ul>
-      </li>
-
-      <li class="menu-item">
-        <a href="system-settings.html" class="menu-link">
-            <i class="menu-icon icon-base ti tabler-adjustments"></i>
-            <div data-i18n="System Settings">System Settings</div>
-        </a>
-    </li>
-
-
-
-      <li class="menu-item">
-        <a href="login.html" class="menu-link">
-          <i class="menu-icon icon-base ti tabler-logout"></i>
-          <div data-i18n="Logout">Logout</div>
-        </a>
-      </li>
-
-
-
-
- 
     </ul>
-    
+  </li>  -->
   
-</aside>
+        <li class="menu-item">
+          <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class="menu-icon icon-base ti tabler-plus"></i>
+            <div data-i18n="Services">Services</div>
+          </a>
+          <ul class="menu-sub">
+            <li class="menu-item">
+              <a href="new-services.html" class="menu-link">
+                <div data-i18n="New Services">New Services</div>
+              </a>
+            </li>
+  
+            <li class="menu-item">
+              <a href="services-list.html" class="menu-link">
+                <div data-i18n="Services List">Services List </div>
+              </a>
+            </li>
+  
+            
+          </ul>
+        </li>
+  
+        <!-- e-commerce-app menu start -->
+      <li class="menu-item open">
+          <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class="menu-icon icon-base ti tabler-shopping-cart"></i>
+            <div data-i18n="Product Management">Product Management</div>
+          </a>
+          <ul class="menu-sub">
+            
+            <li class="menu-item open">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <div data-i18n="Products">Products</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="product-list.html" class="menu-link">
+                    <div data-i18n="Product List">Product List</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="add-product.html" class="menu-link">
+                    <div data-i18n="Add Product">Add Product</div>
+                  </a>
+                </li>
+                <li class="menu-item active">
+                  <a href="category-list.html" class="menu-link">
+                    <div data-i18n="Category List">Category List</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <div data-i18n="Order">Order</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="order-list.html" class="menu-link">
+                    <div data-i18n="Order List">Order List</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="app-ecommerce-order-details.html" class="menu-link">
+                    <div data-i18n="Order Details">Order Details</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+     
+          </ul>
+        </li>
+  
+  
+       
+        <li class="menu-item">
+          <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class="menu-icon icon-base ti tabler-layout-board"></i>
+            <div data-i18n="Coupon">Coupon</div>
+          </a>
+          <ul class="menu-sub">
+            <li class="menu-item">
+              <a href="new-coupon.html" class="menu-link">
+                <div data-i18n="New Coupon">New Coupon</div>
+              </a>
+            </li>
+  
+            <li class="menu-item">
+              <a href="coupon-list.html" class="menu-link">
+                <div data-i18n="Coupon List">Coupon List</div>
+              </a>
+            </li>    
+          </ul>
+        </li>
+  
+  
+  
+   
+       
+        <!-- Academy menu start -->
+      
+        <!-- Academy menu end 
+       
+        <li class="menu-item">
+          <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class="menu-icon icon-base ti tabler-file-dollar"></i>
+            <div data-i18n="Invoice">Invoice</div>
+          </a>
+          <ul class="menu-sub">
+            <li class="menu-item">
+              <a href="app-invoice-list.html" class="menu-link">
+                <div data-i18n="List">List</div>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="app-invoice-preview.html" class="menu-link">
+                <div data-i18n="Preview">Preview</div>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="app-invoice-edit.html" class="menu-link">
+                <div data-i18n="Edit">Edit</div>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="app-invoice-add.html" class="menu-link">
+                <div data-i18n="Add">Add</div>
+              </a>
+            </li>
+          </ul>
+        </li>-->
+  
+  
+        <li class="menu-item">
+          <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class="menu-icon icon-base ti tabler-users"></i>
+            <div data-i18n="Client">Client</div>
+          </a>
+          <ul class="menu-sub">
+            <li class="menu-item">
+              <a href="new-client.html" class="menu-link">
+                <div data-i18n="New Client">New Client</div>
+              </a>
+            </li>
+  
+            <li class="menu-item">
+              <a href="client-list.html" class="menu-link">
+                <div data-i18n="Client List">Client List</div>
+              </a>
+            </li>
+  
+            
+          </ul>
+        </li>
+  
+  
+  
+  
+  
+        <li class="menu-item">
+          <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class="menu-icon icon-base ti tabler-user"></i>
+            <div data-i18n="Staff">Staff</div>
+          </a>
+          <ul class="menu-sub">
+            <li class="menu-item">
+              <a href="new-staff.html" class="menu-link">
+                <div data-i18n="New Staff">New Staff</div>
+              </a>
+            </li>
+  
+            <li class="menu-item">
+              <a href="staff-list.html" class="menu-link">
+                <div data-i18n="Staff List">Staff List</div>
+              </a>
+            </li>
+  
+            
+          </ul>
+        </li>
+  
+  
+        <li class="menu-item">
+          <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class="menu-icon icon-base ti tabler-map"></i>
+            <div data-i18n="Branch">Branch</div>
+          </a>
+          <ul class="menu-sub">
+            <li class="menu-item">
+              <a href="new-branch.html" class="menu-link">
+                <div data-i18n="New Branch">New Branch</div>
+              </a>
+            </li>
+  
+            <li class="menu-item">
+              <a href="branch-list.html" class="menu-link">
+                <div data-i18n="Branch List">Branch List</div>
+              </a>
+            </li>
+  
+            
+          </ul>
+        </li>
+      
+  
+  
+        <li class="menu-item">
+          <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class="menu-icon icon-base ti tabler-file-description"></i>
+            <div data-i18n="Expenses">Expenses</div>
+          </a>
+          <ul class="menu-sub">
+            <li class="menu-item">
+              <a href="new-expense.html" class="menu-link">
+                <div data-i18n="New Expense">New Expense</div>
+              </a>
+            </li>
+  
+            <li class="menu-item">
+              <a href="expense-list.html" class="menu-link">
+                <div data-i18n="Expense List">Expense List</div>
+              </a>
+            </li>
+  
+            
+          </ul>
+        </li>
+  
+  
+  
+  
+        <li class="menu-item">
+          <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class="menu-icon icon-base ti tabler-id"></i>
+            <div data-i18n="Loyalty Rewards">Loyalty Rewards</div>
+          </a>
+          <ul class="menu-sub">
+            <li class="menu-item">
+              <a href="new-loyalty.html" class="menu-link">
+                <div data-i18n="New Loyalty Reward">New Loyalty Reward</div>
+              </a>
+            </li>
+  
+            <li class="menu-item">
+              <a href="loyalty-list.html" class="menu-link">
+                <div data-i18n="Loyalty Rewards List">Loyalty Rewards List</div>
+              </a>
+            </li>
+  
+            
+          </ul>
+        </li>
+  
+  
+        
+     
+     
+  
+  
+        <li class="menu-item">
+          <a href="reports.html" class="menu-link">
+            <i class="menu-icon icon-base ti tabler-table"></i>
+            <div data-i18n="Reports">Reports</div>
+          </a>
+        </li>
+  
+  
+        <li class="menu-item">
+          <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class="menu-icon icon-base ti tabler-settings"></i>
+            <div data-i18n="Users">Users</div>
+          </a>
+          <ul class="menu-sub">
+            <li class="menu-item">
+              <a href="new-user.html" class="menu-link">
+                <div data-i18n="New User">New User</div>
+              </a>
+            </li>
+  
+            <li class="menu-item">
+              <a href="users-list.html" class="menu-link">
+                <div data-i18n="Users List">Users List</div>
+              </a>
+            </li>
+  
+            
+          </ul>
+        </li>
+  
+        <li class="menu-item">
+          <a href="system-settings.html" class="menu-link">
+              <i class="menu-icon icon-base ti tabler-adjustments"></i>
+              <div data-i18n="System Settings">System Settings</div>
+          </a>
+      </li>
+  
+  
+  
+        <li class="menu-item">
+          <a href="login.html" class="menu-link">
+            <i class="menu-icon icon-base ti tabler-logout"></i>
+            <div data-i18n="Logout">Logout</div>
+          </a>
+        </li>
+  
+  
+  
+  
+   
+      </ul>
+      
+    
+  </aside>
 
 <div class="menu-mobile-toggler d-xl-none rounded-1">
   <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large text-bg-secondary p-2 rounded-1">
@@ -780,6 +786,7 @@
                 <div class="d-flex">
                   <div class="flex-shrink-0 me-3">
                     <div class="avatar">
+                      <img src="../../assets/img/avatars/1.png" alt class="rounded-circle" />
                     </div>
                   </div>
                   <div class="flex-grow-1">
@@ -1023,83 +1030,98 @@
         <div class="content-wrapper">
           <!-- Content -->
           <div class="container-xxl flex-grow-1 container-p-y">
-  <!-- Order List Widget -->
-
-  <div class="card mb-6">
-    <div class="card-widget-separator-wrapper">
-      <div class="card-body card-widget-separator">
-        <div class="row gy-4 gy-sm-1">
-          <div class="col-sm-6 col-lg-3">
-            <div class="d-flex justify-content-between align-items-start card-widget-1 border-end pb-4 pb-sm-0">
-              <div>
-                <h4 class="mb-0">56</h4>
-                <p class="mb-0">Pending Payment</p>
-              </div>
-              <span class="avatar me-sm-6">
-                <span class="avatar-initial bg-label-secondary rounded text-heading">
-                  <i class="icon-base ti tabler-calendar-stats icon-26px text-heading"></i>
-                </span>
-              </span>
-            </div>
-            <hr class="d-none d-sm-block d-lg-none me-6" />
-          </div>
-          <div class="col-sm-6 col-lg-3">
-            <div class="d-flex justify-content-between align-items-start card-widget-2 border-end pb-4 pb-sm-0">
-              <div>
-                <h4 class="mb-0">12,689</h4>
-                <p class="mb-0">Completed</p>
-              </div>
-              <span class="avatar p-2 me-lg-6">
-                <span class="avatar-initial bg-label-secondary rounded"><i class="icon-base ti tabler-checks icon-26px text-heading"></i></span>
-              </span>
-            </div>
-            <hr class="d-none d-sm-block d-lg-none" />
-          </div>
-          <div class="col-sm-6 col-lg-3">
-            <div class="d-flex justify-content-between align-items-start border-end pb-4 pb-sm-0 card-widget-3">
-              <div>
-                <h4 class="mb-0">124</h4>
-                <p class="mb-0">Refunded</p>
-              </div>
-              <span class="avatar p-2 me-sm-6">
-                <span class="avatar-initial bg-label-secondary rounded"><i class="icon-base ti tabler-wallet icon-26px text-heading"></i></span>
-              </span>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-3">
-            <div class="d-flex justify-content-between align-items-start">
-              <div>
-                <h4 class="mb-0">32</h4>
-                <p class="mb-0">Failed</p>
-              </div>
-              <span class="avatar p-2">
-                <span class="avatar-initial bg-label-secondary rounded"><i class="icon-base ti tabler-alert-octagon icon-26px text-heading"></i></span>
-              </span>
-            </div>
-          </div>
-        </div>
+  <div class="app-ecommerce-category">
+    <!-- Category List Table -->
+    <div class="card">
+      <div class="card-datatable">
+        <table class="datatables-category-list table">
+          <thead>
+            <tr>
+              <th></th>
+              <th></th>
+              <th>Categories</th>
+              <th class="text-nowrap text-sm">Total Products</th>
+              <th class="text-nowrap text-sm">Total Earning</th>
+              <th class="text-lg">Actions</th>
+            </tr>
+          </thead>
+        </table>
       </div>
     </div>
-  </div>
-
-  <!-- Order List Table -->
-  <div class="card">
-    <div class="card-datatable table-responsive">
-      <table class="datatables-order table border-top">
-        <thead>
-          <tr>
-            <th></th>
-            <th></th>
-            <th>order</th>
-            <th>date</th>
-            <th>customers</th>
-            <th>payment</th>
-            <th>status</th>
-            <th>method</th>
-            <th>actions</th>
-          </tr>
-        </thead>
-      </table>
+    <!-- Offcanvas to add new customer -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasEcommerceCategoryList" aria-labelledby="offcanvasEcommerceCategoryListLabel">
+      <!-- Offcanvas Header -->
+      <div class="offcanvas-header py-6">
+        <h5 id="offcanvasEcommerceCategoryListLabel" class="offcanvas-title">Add Category</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <!-- Offcanvas Body -->
+      <div class="offcanvas-body border-top">
+        <form class="pt-0" id="eCommerceCategoryListForm" onsubmit="return true">
+          <!-- Title -->
+          <div class="mb-6 form-control-validation">
+            <label class="form-label" for="ecommerce-category-title">Title</label>
+            <input type="text" class="form-control" id="ecommerce-category-title" placeholder="Enter category title" name="categoryTitle" aria-label="category title" />
+          </div>
+          <!-- Slug -->
+          <div class="mb-6 form-control-validation">
+            <label class="form-label" for="ecommerce-category-slug">Slug</label>
+            <input type="text" id="ecommerce-category-slug" class="form-control" placeholder="Enter slug" aria-label="slug" name="slug" />
+          </div>
+          <!-- Image -->
+          <div class="mb-6">
+            <label class="form-label" for="ecommerce-category-image">Attachment</label>
+            <input class="form-control" type="file" id="ecommerce-category-image" />
+          </div>
+          <!-- Parent category -->
+          <div class="mb-6 ecommerce-select2-dropdown">
+            <label class="form-label" for="ecommerce-category-parent-category">Parent category</label>
+            <select id="ecommerce-category-parent-category" class="select2 form-select" data-placeholder="Select parent category">
+              <option value="">Select parent Category</option>
+              <option value="Household">Household</option>
+              <option value="Management">Management</option>
+              <option value="Electronics">Electronics</option>
+              <option value="Office">Office</option>
+              <option value="Automotive">Automotive</option>
+            </select>
+          </div>
+          <!-- Description -->
+          <div class="mb-6">
+            <label class="form-label">Description</label>
+            <div class="form-control p-0 py-1">
+              <div class="comment-editor border-0" id="ecommerce-category-description"></div>
+              <div class="comment-toolbar border-0 rounded">
+                <div class="d-flex justify-content-end">
+                  <span class="ql-formats me-0">
+                    <button class="ql-bold"></button>
+                    <button class="ql-italic"></button>
+                    <button class="ql-underline"></button>
+                    <button class="ql-list" value="ordered"></button>
+                    <button class="ql-list" value="bullet"></button>
+                    <button class="ql-link"></button>
+                    <button class="ql-image"></button>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Status -->
+          <div class="mb-6 ecommerce-select2-dropdown">
+            <label class="form-label">Select category status</label>
+            <select id="ecommerce-category-status" class="select2 form-select" data-placeholder="Select category status">
+              <option value="">Select category status</option>
+              <option value="Scheduled">Scheduled</option>
+              <option value="Publish">Publish</option>
+              <option value="Inactive">Inactive</option>
+            </select>
+          </div>
+          <!-- Submit and reset -->
+          <div class="mb-6">
+            <button type="submit" class="btn btn-primary me-sm-3 me-1 data-submit">Add</button>
+            <button type="reset" class="btn btn-label-danger" data-bs-dismiss="offcanvas">Discard</button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </div>
@@ -1147,7 +1169,6 @@
 
     
     
-    
 
     
 
@@ -1183,7 +1204,14 @@
     <!-- endbuild -->
 
     <!-- Vendors JS -->
-    <script src="../../assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
+    <script src="../../assets/vendor/libs/moment/moment.js"></script>
+  <script src="../../assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
+  <script src="../../assets/vendor/libs/select2/select2.js"></script>
+  <script src="../../assets/vendor/libs/%40form-validation/popular.js"></script>
+  <script src="../../assets/vendor/libs/%40form-validation/bootstrap5.js"></script>
+  <script src="../../assets/vendor/libs/%40form-validation/auto-focus.js"></script>
+  <script src="../../assets/vendor/libs/quill/katex.js"></script>
+  <script src="../../assets/vendor/libs/quill/quill.js"></script>
 
     <!-- Main JS -->
     
@@ -1191,11 +1219,27 @@
     
 
     <!-- Page JS -->
-    <script src="../../assets/js/order-list.js"></script>
+    <script src="../../assets/js/category-list.js"></script>
     
+
+    <script>
+        var table = new DataTable('.datatables-category-list', {
+            ajax: '../../assets/category-list.json',
+            columns: [
+                { data: "id" },
+                { data: "id", orderable: false, render: DataTable.render.select() },
+                { data: "categories" },
+                { data: "total_products" },
+                { data: "total_earnings" },
+                { data: "id" }
+            ]
+        });
+    </script>
+    
+
   </body>
 
-<!-- Mirrored from demos.pixinvent.com/vuexy-html-admin-template/html/vertical-menu-template/app-ecommerce-order-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Feb 2025 08:26:18 GMT -->
+<!-- Mirrored from demos.pixinvent.com/vuexy-html-admin-template/html/vertical-menu-template/app-ecommerce-category-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Feb 2025 08:26:18 GMT -->
 </html>
 
   <!-- beautify ignore:end -->

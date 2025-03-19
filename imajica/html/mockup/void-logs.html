@@ -1,4 +1,5 @@
-<!doctype html>
+<!doctype
+ html>
 
     <!-- =========================================================
 * Vuexy - Bootstrap Dashboard PRO | v3.0.0
@@ -26,13 +27,13 @@
   data-template="vertical-menu-template"
   data-bs-theme="light">
   
-<!-- Mirrored from demos.pixinvent.com/vuexy-html-admin-template/html/vertical-menu-template/app-ecommerce-order-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Feb 2025 08:26:18 GMT -->
+<!-- Mirrored from demos.pixinvent.com/vuexy-html-admin-template/html/vertical-menu-template/app-invoice-preview.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Feb 2025 08:26:32 GMT -->
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Imajica Booking System</title>
-
+    
+        <title>Imajica Booking System</title>
     
       <meta name="description" content="Vuexy is the best bootstrap 5 dashboard for responsive web apps. Streamline your app development process with ease." />
       <!-- Canonical SEO -->
@@ -89,12 +90,11 @@
     
     <!-- endbuild -->
 
-    <link rel="stylesheet" href="../../assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
-  <link rel="stylesheet" href="../../assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
-  <link rel="stylesheet" href="../../assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css" />
+    <link rel="stylesheet" href="../../assets/vendor/libs/flatpickr/flatpickr.css" />
 
     <!-- Page CSS -->
     
+  <link rel="stylesheet" href="../../assets/vendor/css/pages/app-invoice.css" />
 
     <!-- Helpers -->
     <script src="../../assets/vendor/js/helpers.js"></script>
@@ -106,7 +106,8 @@
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     
       <script src="../../assets/js/config.js"></script>
-    
+    <script src="../../assets/sales-transaction.json"></script>
+    <script src="../../assets/js/sales-transaction.js"></script>
   </head>
 
   <body>
@@ -117,16 +118,8 @@
     
     <!-- Layout wrapper -->
   <div class="layout-wrapper layout-content-navbar  ">
-    <div class="layout-container">
-      
-        
 
-
-
-
-<!-- Menu -->
-
-<aside id="layout-menu" class="layout-menu menu-vertical menu" >
+    <aside id="layout-menu" class="layout-menu menu-vertical menu" >
   <br>
       <br>
   <div class="app-brand demo ">
@@ -178,7 +171,7 @@
         </a>
       </li>
      
-      <li class="menu-item">
+      <li class="menu-item open active">
       
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class="menu-icon icon-base ti tabler-chart-pie "></i>
@@ -203,13 +196,13 @@
           </li>
       
           <li class="menu-item">
-            <a href="purchase.html" class="menu-link">
+            <a href="invoice.html" class="menu-link">
               <div data-i18n="Purchase">Purchase</div>
             </a>
           </li>
 
-          <li class="menu-item">
-            <a href="invoice.html" class="menu-link">
+          <li class="menu-item active">
+            <a href="void-logs.html" class="menu-link">
               <div data-i18n="Void Logs">Void Logs</div>
             </a>
           </li>
@@ -274,7 +267,7 @@
       </li>
 
       <!-- e-commerce-app menu start -->
-    <li class="menu-item open active">
+    <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class="menu-icon icon-base ti tabler-shopping-cart"></i>
           <div data-i18n="Product Management">Product Management</div>
@@ -292,29 +285,29 @@
                 </a>
               </li>
               <li class="menu-item">
-                <a href="add-product.html" class="menu-link">
+                <a href="app-ecommerce-product-add.html" class="menu-link">
                   <div data-i18n="Add Product">Add Product</div>
                 </a>
               </li>
               <li class="menu-item">
-                <a href="category-list.html" class="menu-link">
+                <a href="app-ecommerce-category-list.html" class="menu-link">
                   <div data-i18n="Category List">Category List</div>
                 </a>
               </li>
             </ul>
           </li>
-          <li class="menu-item open">
+          <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
               <div data-i18n="Order">Order</div>
             </a>
             <ul class="menu-sub">
-              <li class="menu-item active">
+              <li class="menu-item">
                 <a href="order-list.html" class="menu-link">
                   <div data-i18n="Order List">Order List</div>
                 </a>
               </li>
               <li class="menu-item">
-                <a href="order-details.html" class="menu-link">
+                <a href="app-ecommerce-order-details.html" class="menu-link">
                   <div data-i18n="Order Details">Order Details</div>
                 </a>
               </li>
@@ -564,6 +557,7 @@
     
   
 </aside>
+    
 
 <div class="menu-mobile-toggler d-xl-none rounded-1">
   <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large text-bg-secondary p-2 rounded-1">
@@ -617,34 +611,7 @@
     
 
       
-      <li class="nav-item dropdown-language dropdown">
-        <a class="nav-link dropdown-toggle hide-arrow btn btn-icon btn-text-secondary rounded-pill" href="javascript:void(0);" data-bs-toggle="dropdown">
-          <i class="icon-base ti tabler-language icon-22px text-heading"></i>
-        </a>
-        <ul class="dropdown-menu dropdown-menu-end">
-          <li>
-            <a class="dropdown-item" href="javascript:void(0);" data-language="en" data-text-direction="ltr">
-              <span>English</span>
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="javascript:void(0);" data-language="fr" data-text-direction="ltr">
-              <span>French</span>
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="javascript:void(0);" data-language="ar" data-text-direction="rtl">
-              <span>Arabic</span>
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="javascript:void(0);" data-language="de" data-text-direction="ltr">
-              <span>German</span>
-            </a>
-          </li>
-        </ul>
-      </li>
-      <!--/ Language -->
+    
 
       
         <!-- Style Switcher -->
@@ -780,6 +747,7 @@
                 <div class="d-flex">
                   <div class="flex-shrink-0 me-3">
                     <div class="avatar">
+                      <img src="../../assets/img/avatars/1.png" alt class="rounded-circle" />
                     </div>
                   </div>
                   <div class="flex-grow-1">
@@ -1017,89 +985,146 @@
 
 <!-- / Navbar -->
 
-        
+<style>
+  .card-weekly-voided{
+background-color: #d4edda; /* Light green */
+}
+
+.card-daily-voided {
+background-color: #cce5ff; /* Light blue */
+}
+
+.card-total-voided {
+background-color: #fff3cd; /* Light yellow */
+}
+
+.card-monthly-voided {
+background-color: #d1ecf1; /* Light cyan */
+}
+</style>        
+
 
         <!-- Content wrapper -->
         <div class="content-wrapper">
           <!-- Content -->
           <div class="container-xxl flex-grow-1 container-p-y">
-  <!-- Order List Widget -->
+  <div class="row">
+    <div class="col-12">
+      <h4 class="fw-bold py-3 mb-4"> Logs</h4>
 
-  <div class="card mb-6">
-    <div class="card-widget-separator-wrapper">
-      <div class="card-body card-widget-separator">
-        <div class="row gy-4 gy-sm-1">
-          <div class="col-sm-6 col-lg-3">
-            <div class="d-flex justify-content-between align-items-start card-widget-1 border-end pb-4 pb-sm-0">
-              <div>
-                <h4 class="mb-0">56</h4>
-                <p class="mb-0">Pending Payment</p>
-              </div>
-              <span class="avatar me-sm-6">
-                <span class="avatar-initial bg-label-secondary rounded text-heading">
-                  <i class="icon-base ti tabler-calendar-stats icon-26px text-heading"></i>
+      <div class="card mb-3">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card card-custom card-total-voided">
+                        <div class="card-body">
+                            <p class="card-text"><strong>Total Voided Sales</strong></p>
+                            <h4 class="text-black">₱239,00.00</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card card-custom card-monthly-voided">
+                        <div class="card-body">
+                            <p class="card-text"><strong>Monthly Voided Sales</strong></p>
+                            <h4 class="text-black">₱500.00</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card card-custom card-weekly-voided">
+                        <div class="card-body">
+                            <p class="card-text"><strong>Weekly Voided Sales</strong></p>
+                            <h4 class="text-black">₱972.50</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card card-custom card-daily-voided">
+                        <div class="card-body">
+                            <p class="card-text"><strong>Daily Voided Sales</strong></p>
+                            <h4 class="text-black">₱0.00</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <div class="card">
+        <div class="card-body">
+                        
+
+          <div class="d-flex mb-3 " style="width: 60%; "> 
+       
+            <div class="input-group me-9 " style="width: 70%;"> 
+                <span class="input-group-text" id="search-addon">
+                    <i class="icon-base ti tabler-search"></i>
                 </span>
-              </span>
+                <input type="text" id="searchInput" placeholder="Search for Receipt No. ,Customer, Item" class="form-control" onkeyup="searchVoid()">
             </div>
-            <hr class="d-none d-sm-block d-lg-none me-6" />
-          </div>
-          <div class="col-sm-6 col-lg-3">
-            <div class="d-flex justify-content-between align-items-start card-widget-2 border-end pb-4 pb-sm-0">
-              <div>
-                <h4 class="mb-0">12,689</h4>
-                <p class="mb-0">Completed</p>
-              </div>
-              <span class="avatar p-2 me-lg-6">
-                <span class="avatar-initial bg-label-secondary rounded"><i class="icon-base ti tabler-checks icon-26px text-heading"></i></span>
-              </span>
+        
+            <div class="d-flex justify-content-end me-auto">
+           
+              <div class="d-flex justify-content-end align-items-center gap-2 me-9 ">
+                <!-- Filter Label -->
+              
+                <label for="dateInput" class="fw-bold" style="white-space: nowrap;">Filter by date:</label>
+
+                <!-- Date Filter Dropdown -->
+                <select id="dateFilter" class="form-select w-auto" onchange="filterByDatee()"> <!-- Added onchange event -->
+                  <option value="Today">Today</option>
+                  <option value="Yesterday">Yesterday</option>
+                  <option value="Last 7 Days">Last 7 Days</option>
+                  <option value="Last 30 Days">Last 30 Days</option>
+                  <option value="This Month">This Month</option>
+                  <option value="Last Month">Last Month</option>
+                  <option value="Custom Range">Custom Range</option>
+              </select>
+              <button id="exportButton" class="btn btn-primary ms-2 " onclick="exportData()">Export  <i class="ti tabler-chevron-right "></i> </button>
+                <!-- Date Input Group -->
+              
             </div>
-            <hr class="d-none d-sm-block d-lg-none" />
-          </div>
-          <div class="col-sm-6 col-lg-3">
-            <div class="d-flex justify-content-between align-items-start border-end pb-4 pb-sm-0 card-widget-3">
-              <div>
-                <h4 class="mb-0">124</h4>
-                <p class="mb-0">Refunded</p>
-              </div>
-              <span class="avatar p-2 me-sm-6">
-                <span class="avatar-initial bg-label-secondary rounded"><i class="icon-base ti tabler-wallet icon-26px text-heading"></i></span>
-              </span>
+            
+            <!-- Custom Range Date Inputs (Initially Hidden) -->
+            <div id="customDateInputs" class="mt-2 d-none">
+                <input type="date" id="startDate" class="form-control mb-2">
+                <input type="date" id="endDate" class="form-control">
             </div>
+            
+    
+    <!-- Date input for Custom Range (initially hidden) -->
+    <div id="customDateInputs" style="display: none; margin-top: 10px;">
+    <input type="date" id="startDate" class="form-control mb-2">
+    <input type="date" id="endDate" class="form-control">
+    </div>
+    
           </div>
-          <div class="col-sm-6 col-lg-3">
-            <div class="d-flex justify-content-between align-items-start">
-              <div>
-                <h4 class="mb-0">32</h4>
-                <p class="mb-0">Failed</p>
-              </div>
-              <span class="avatar p-2">
-                <span class="avatar-initial bg-label-secondary rounded"><i class="icon-base ti tabler-alert-octagon icon-26px text-heading"></i></span>
-              </span>
+          
+        </div>
+              
+            <div class="container">
+                <table class="table" id="logsTable">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Receipt No.</th>
+                            <th>Item</th>
+                            <th>Customer</th>
+                            <th>Cashier</th>
+                            <th>Amount Voided</th>
+                            <th>Voided By</th>
+                          <th>Date Voided</th>
+                        </tr>
+                    </thead>
+                    <tbody id="logsTablee">
+                        
+                    </tbody>
+                </table>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-
-  <!-- Order List Table -->
-  <div class="card">
-    <div class="card-datatable table-responsive">
-      <table class="datatables-order table border-top">
-        <thead>
-          <tr>
-            <th></th>
-            <th></th>
-            <th>order</th>
-            <th>date</th>
-            <th>customers</th>
-            <th>payment</th>
-            <th>status</th>
-            <th>method</th>
-            <th>actions</th>
-          </tr>
-        </thead>
-      </table>
     </div>
   </div>
 </div>
@@ -1123,7 +1148,7 @@
       </div>
     </div>
   </footer>
-<!-- / Footer -->
+  <!-- / Footer -->
 
           
           <div class="content-backdrop fade"></div>
@@ -1146,9 +1171,7 @@
   <!-- / Layout wrapper -->
 
     
-    
-    
-
+      
     
 
     <!-- Core JS -->
@@ -1183,7 +1206,9 @@
     <!-- endbuild -->
 
     <!-- Vendors JS -->
-    <script src="../../assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
+    <script src="../../assets/vendor/libs/moment/moment.js"></script>
+  <script src="../../assets/vendor/libs/flatpickr/flatpickr.js"></script>
+  <script src="../../assets/vendor/libs/cleave-zen/cleave-zen.js"></script>
 
     <!-- Main JS -->
     
@@ -1191,12 +1216,125 @@
     
 
     <!-- Page JS -->
-    <script src="../../assets/js/order-list.js"></script>
+  <script src="../../assets/js/void-logs.js"></script>
+  
+ 
+  <script>
+    function filterByDatee() {
+        const filterDate = document.getElementById('dateFilter').value; // Get the selected filter value
+        const startDate = document.getElementById('startDate').value; // Get the start date for custom range
+        const endDate = document.getElementById('endDate').value; // Get the end date for custom range
+        const table = document.getElementById('logsTablee');
+        const tr = table.getElementsByTagName('tr');
     
+        for (let i = 1; i < tr.length; i++) {
+            const td = tr[i].getElementsByTagName('td');
+            const transactionDate = new Date(td[7].textContent); // Assuming the date is in the 8th column
+            let displayRow = false;
+    
+            if (filterDate === "Custom Range") {
+                const start = new Date(startDate);
+                const end = new Date(endDate);
+                displayRow = transactionDate >= start && transactionDate <= end; // Check if date is within the range
+            } else {
+                const today = new Date();
+                if (filterDate === "Today") {
+                    displayRow = transactionDate.toDateString() === today.toDateString();
+                } else if (filterDate === "Yesterday") {
+                    const yesterday = new Date();
+                    yesterday.setDate(today.getDate() - 1);
+                    displayRow = transactionDate.toDateString() === yesterday.toDateString();
+                } else if (filterDate === "Last 7 Days") {
+                    const last7Days = new Date();
+                    last7Days.setDate(today.getDate() - 7);
+                    displayRow = transactionDate >= last7Days && transactionDate <= today;
+                } else if (filterDate === "Last 30 Days") {
+                    const last30Days = new Date();
+                    last30Days.setDate(today.getDate() - 30);
+                    displayRow = transactionDate >= last30Days && transactionDate <= today;
+                } else if (filterDate === "This Month") {
+                    displayRow = transactionDate.getMonth() === today.getMonth() && transactionDate.getFullYear() === today.getFullYear();
+                } else if (filterDate === "Last Month") {
+                    const lastMonth = new Date();
+                    lastMonth.setMonth(today.getMonth() - 1);
+                    displayRow = transactionDate.getMonth() === lastMonth.getMonth() && transactionDate.getFullYear() === lastMonth.getFullYear();
+                }
+            }
+    
+            tr[i].style.display = displayRow ? "" : "none"; // Show or hide the row based on the filter
+        }
+    }
+    </script>
+
+  <script>
+    function filterByDate() {
+      const input = document.getElementById('dateFilter ');
+      const filterDate = input.value;
+      const table = document.getElementById('logsTablee');
+      const tr = table.getElementsByTagName('tr');
+  
+      for (let i = 1; i < tr.length; i++) {
+        const td = tr[i].getElementsByTagName('td');
+        const transactionDate = td[7].textContent; // Assuming the date is in the 8th column
+        tr[i].style.display = transactionDate === filterDate || filterDate === "" ? "" : "none";
+      }
+    }
+  </script>
+
+ 
+  <!-- Add Fetching Functionality for Sales -->
+  <script>
+    // Fetch JSON data and populate the table
+    fetch('../../assets/void-logs.json') // Adjusted relative path
+        .then(response => response.json())
+        .then(data => {
+            const tableBody = document.getElementById('logsTablee');
+            data.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                <td>${item.id}</td>
+                <td>${item.receipt_no}</td>
+                <td>${item.item}</td>
+                <td>${item.customer}</td>
+                <td>${item.cashier}</td>
+                <td>${item.amount_voided}</td>
+                <td>${item.voided_by}</td>
+                <td>${item.date_voided}</td> 
+                `;
+                tableBody.appendChild(row);
+            });
+        })
+        .catch(error => console.error('Error fetching the JSON data:', error));
+</script>
+ 
   </body>
 
-<!-- Mirrored from demos.pixinvent.com/vuexy-html-admin-template/html/vertical-menu-template/app-ecommerce-order-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Feb 2025 08:26:18 GMT -->
+<!-- Mirrored from demos.pixinvent.com/vuexy-html-admin-template/html/vertical-menu-template/app-invoice-preview.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Feb 2025 08:26:33 GMT -->
 </html>
 
   <!-- beautify ignore:end -->
+
+<script>
+  function searchVoid() {
+    const input = document.getElementById('searchInput');
+    const filter = input.value.toLowerCase();
+    const table = document.getElementById('logsTablee');
+    const tr = table.getElementsByTagName('tr');
+
+    for (let i = 1; i < tr.length; i++) {
+      const td = tr[i].getElementsByTagName('td');
+      let found = false;
+      for (let j = 0; j < td.length; j++) {
+        if (td[j]) {
+          const txtValue = td[j].textContent || td[j].innerText;
+          if (txtValue.toLowerCase().indexOf(filter) > -1) {
+            found = true;
+            break;
+          }
+        }
+      }
+      tr[i].style.display = found ? "" : "none";
+    }
+  }
+</script>
 

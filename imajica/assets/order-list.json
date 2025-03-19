@@ -5,13 +5,13 @@
         "order": "5478",
         "date": "2023-10-15",
         "time": "14:30:00",
-        "customer": "John Doe",
-        "email": "john.doe@example.com",
-        "avatar": "1.png",
+        "customer": "Romm Geraldez",
+        "email": "romm.geral@example.com",
+        "avatar": "rommel.jpg",
         "payment": 1,
         "status": 1,
-        "method": "paypal",
-        "method_number": "john.doe@gmail.com"
+        "method": "Paypal",
+        "method_number": "romm.doe@gmail.com"
       },
       {
         "id": 2,
