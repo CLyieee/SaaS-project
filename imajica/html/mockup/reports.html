@@ -130,6 +130,17 @@
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
 
     <script src="../../assets/js/config.js"></script>
+
+
+    <style>
+      .toast-container {
+        z-index: 1056;
+      }
+      .toast-ex {
+        background-color: white;
+      }
+    </style>
+
   </head>
 
   <body>
@@ -246,26 +257,7 @@
 
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon icon-base ti tabler-truck"></i>
-                <div data-i18n="Supplier">Supplier</div>
-              </a>
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="new-supplier.html" class="menu-link">
-                    <div data-i18n="New Supplier">New Supplier</div>
-                  </a>
-                </li>
 
-                <li class="menu-item">
-                  <a href="supplier-list.html" class="menu-link">
-                    <div data-i18n="Supplier List">Supplier List</div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-            <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon icon-base ti tabler-layout-board"></i>
                 <div data-i18n="Coupon">Coupon</div>
               </a>
@@ -273,16 +265,21 @@
                 <li class="menu-item">
                   <a href="new-coupon.html" class="menu-link">
                     <div data-i18n="New Coupon">New Coupon</div>
+
                   </a>
                 </li>
 
                 <li class="menu-item">
+
                   <a href="coupon-list.html" class="menu-link">
                     <div data-i18n="Coupon List">Coupon List</div>
+
                   </a>
                 </li>
               </ul>
             </li>
+
+
 
             <!-- Academy menu start -->
 
@@ -673,163 +670,357 @@
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
-              <div class="row g-12">
-                <!-- Navigation -->
 
-                <!-- /Navigation -->
-                <!-- Options -->
-                <div class="col-6 col-lg-6 pt-6 pt-lg-0">
-                  <div class="tab-content p-0">
-                    <!-- Payments Tab -->
-                    <div
-                      class="tab-pane fade show active"
-                      id="payments"
-                      role="tabpanel"
-                    >
-                      <div class="card mb-6">
-                        <div class="card-header">
-                          <h5 class="card-title m-0">Client Report</h5>
-                        </div>
-
-                        <div class="card-body">
-                          <p class="mb-5">
-                            Generate a complete list of all registered clients,
-                            including their contact details, membership tier,
-                            and total loyalty points.
-                          </p>
-
-                          <div class="col-md-6">
-                            <label for="flatpickr-range" class="form-label"
-                              >Date Range</label
-                            >
-                            <input
-                              type="text"
-                              class="form-control"
-                              placeholder="YYYY-MM-DD to YYYY-MM-DD"
-                              id="flatpickr-range"
-                            />
-                          </div>
-
-                          <br />
-
-                          <button
-                            class="btn btn-label-primary"
-                            data-bs-toggle="modal"
-                            data-bs-target="#paymentProvider"
-                          >
-                            Generate Report
-                          </button>
-                        </div>
+              <div class="row g-4">
+                <!-- Sales Report -->
+                <div class="col-md-6 col-lg-4">
+                  <div class="card h-100">
+                    <div class="card-header">
+                      <h5 class="card-title m-0">Sales Report</h5>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                      <p class="mb-4">
+                        Comprehensive analysis of revenue generated from
+                        services. Track total sales, best-selling services, and
+                        seasonal trends to drive business growth.
+                      </p>
+                      <div class="mb-4">
+                        <label for="sales-date-range" class="form-label"
+                          >Date Range</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="YYYY-MM-DD to YYYY-MM-DD"
+                          id="sales-date-range"
+                        />
+                      </div>
+                      <div class="mt-auto">
+                        <button
+                          class="btn btn-primary w-100"
+                          data-bs-toggle="modal"
+                          data-bs-target="#reportModal"
+                        >
+                          Generate Report
+                        </button>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div class="col-6 col-lg-6 pt-6 pt-lg-0">
-                  <div class="tab-content p-0">
-                    <!-- Payments Tab -->
-                    <div
-                      class="tab-pane fade show active"
-                      id="payments"
-                      role="tabpanel"
-                    >
-                      <div class="card mb-6">
-                        <div class="card-header">
-                          <h5 class="card-title m-0">Expense Report</h5>
-                        </div>
+                <!-- Client Report -->
+                <div class="col-md-6 col-lg-4">
+                  <div class="card h-100">
+                    <div class="card-header">
+                      <h5 class="card-title m-0">Client Report</h5>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                      <p class="mb-4">
+                        Generate a complete list of all registered clients,
+                        including their contact details, membership tier, and
+                        total loyalty points.
+                      </p>
+                      <div class="mb-4">
+                        <label for="client-date-range" class="form-label"
+                          >Date Range</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="YYYY-MM-DD to YYYY-MM-DD"
+                          id="client-date-range"
+                        />
+                      </div>
+                      <div class="mt-auto">
+                        <button
+                          class="btn btn-primary w-100"
+                          data-bs-toggle="modal"
+                          data-bs-target="#reportModal"
+                        >
+                          Generate Report
+                        </button>
 
-                        <div class="card-body">
-                          <p class="mb-5">
-                            Report of business expenses categorized by type,
-                            payment status, and date range. Helps in monitoring
-                            spending, optimizing budget allocation, and ensuring
-                            financial stability.
-                          </p>
-
-                          <div class="col-md-6">
-                            <label for="flatpickr-range" class="form-label"
-                              >Date Range</label
-                            >
-                            <input
-                              type="text"
-                              class="form-control"
-                              placeholder="YYYY-MM-DD to YYYY-MM-DD"
-                              id="flatpickr-range"
-                            />
-                          </div>
-
-                          <br />
-
-                          <button
-                            class="btn btn-label-primary"
-                            data-bs-toggle="modal"
-                            data-bs-target="#paymentProvider"
-                          >
-                            Generate Report
-                          </button>
-                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div class="col-6 col-lg-6 pt-6 pt-lg-0">
-                  <div class="tab-content p-0">
-                    <!-- Payments Tab -->
-                    <div
-                      class="tab-pane fade show active"
-                      id="payments"
-                      role="tabpanel"
-                    >
-                      <div class="card mb-6">
-                        <div class="card-header">
-                          <h5 class="card-title m-0">Sales Report</h5>
-                        </div>
 
-                        <div class="card-body">
-                          <p class="mb-5">
-                            Comprehensive analysis of revenue generated from
-                            services. Track total sales, best-selling services,
-                            and seasonal trends to drive business growth.
-                          </p>
-
-                          <div class="col-md-6">
-                            <label for="flatpickr-range" class="form-label"
-                              >Date Range</label
-                            >
-                            <input
-                              type="text"
-                              class="form-control"
-                              placeholder="YYYY-MM-DD to YYYY-MM-DD"
-                              id="flatpickr-range"
-                            />
-                          </div>
-
-                          <br />
-
-                          <button
-                            class="btn btn-label-primary"
-                            data-bs-toggle="modal"
-                            data-bs-target="#paymentProvider"
-                          >
-                            Generate Report
-                          </button>
-                        </div>
+                <!-- Expense Report -->
+                <div class="col-md-6 col-lg-4">
+                  <div class="card h-100">
+                    <div class="card-header">
+                      <h5 class="card-title m-0">Expense Report</h5>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                      <p class="mb-4">
+                        Report of business expenses categorized by type, payment
+                        status, and date range. Helps in monitoring spending,
+                        optimizing budget allocation, and ensuring financial
+                        stability.
+                      </p>
+                      <div class="mb-4">
+                        <label for="expense-date-range" class="form-label"
+                          >Date Range</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="YYYY-MM-DD to YYYY-MM-DD"
+                          id="expense-date-range"
+                        />
+                      </div>
+                      <div class="mt-auto">
+                        <button
+                          class="btn btn-primary w-100"
+                          data-bs-toggle="modal"
+                          data-bs-target="#reportModal"
+                        >
+                          Generate Report
+                        </button>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <!-- /Options-->
+                <!-- Services Report -->
+                <div class="col-md-6 col-lg-4">
+                  <div class="card h-100">
+                    <div class="card-header">
+                      <h5 class="card-title m-0">Services Report</h5>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                      <p class="mb-4">
+                        Detailed analysis of service performance, including
+                        popularity metrics, booking trends, and revenue
+                        generation by service type.
+                      </p>
+                      <div class="mb-4">
+                        <label for="services-date-range" class="form-label"
+                          >Date Range</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="YYYY-MM-DD to YYYY-MM-DD"
+                          id="services-date-range"
+                        />
+                      </div>
+                      <div class="mt-auto">
+                        <button
+                          class="btn btn-primary w-100"
+                          data-bs-toggle="modal"
+                          data-bs-target="#reportModal"
+                        >
+                          Generate Report
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Staff Report -->
+                <div class="col-md-6 col-lg-4">
+                  <div class="card h-100">
+                    <div class="card-header">
+                      <h5 class="card-title m-0">Staff Report</h5>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                      <p class="mb-4">
+                        Performance analysis of staff members, including service
+                        completion rates, client feedback, and scheduling
+                        efficiency metrics.
+                      </p>
+                      <div class="mb-4">
+                        <label for="staff-date-range" class="form-label"
+                          >Date Range</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="YYYY-MM-DD to YYYY-MM-DD"
+                          id="staff-date-range"
+                        />
+                      </div>
+                      <div class="mt-auto">
+                        <button
+                          class="btn btn-primary w-100"
+                          data-bs-toggle="modal"
+                          data-bs-target="#reportModal"
+                        >
+                          Generate Report
+                        </button>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <!-- Custom Report -->
+                <div class="col-md-6 col-lg-4">
+                  <div class="card h-100">
+                    <div class="card-header">
+                      <h5 class="card-title m-0">Custom Report</h5>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                      <p class="mb-4">
+                        Create a customized report by selecting specific metrics
+                        and parameters to analyze your business data according
+                        to your needs.
+                      </p>
+                      <div class="mb-4">
+                        <label for="custom-date-range" class="form-label"
+                          >Date Range</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="YYYY-MM-DD to YYYY-MM-DD"
+                          id="custom-date-range"
+                        />
+                      </div>
+                      <div class="mt-auto">
+                        <button
+                          class="btn btn-primary w-100"
+                          data-bs-toggle="modal"
+                          data-bs-target="#reportModal"
+                        >
+                          Generate Report
+                        </button>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Content wrapper -->
+
+          <!-- Add Report Modal -->
+          <div
+            class="modal fade"
+            id="reportModal"
+            tabindex="-1"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Report Preview</h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <!-- Loading State -->
+                  <div id="loadingState" class="text-center">
+                    <div class="spinner-border text-primary mb-3" role="status">
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p>Generating your report...</p>
+                    <small class="text-muted"
+                      >Once generated, you can download the summary</small
+                    >
+                  </div>
+
+                  <!-- Report Content -->
+                  <div id="reportContent" class="d-none">
+                    <div class="mb-4">
+                      <h6>Report Summary</h6>
+                      <div class="row g-3">
+                        <div class="col-md-4">
+                          <div class="card bg-label-primary">
+                            <div class="card-body">
+                              <h5 class="card-title">Total Revenue</h5>
+                              <p class="card-text">$24,500</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="card bg-label-success">
+                            <div class="card-body">
+                              <h5 class="card-title">Total Bookings</h5>
+                              <p class="card-text">156</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="card bg-label-info">
+                            <div class="card-body">
+                              <h5 class="card-title">Average Rating</h5>
+                              <p class="card-text">4.8/5.0</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="table-responsive mb-4">
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th>Service</th>
+                            <th>Bookings</th>
+                            <th>Revenue</th>
+                            <th>Growth</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Hair Styling</td>
+                            <td>45</td>
+                            <td>$4,500</td>
+                            <td>
+                              <span class="badge bg-label-success">+12%</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Massage</td>
+                            <td>38</td>
+                            <td>$7,600</td>
+                            <td>
+                              <span class="badge bg-label-success">+8%</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Facial</td>
+                            <td>42</td>
+                            <td>$6,300</td>
+                            <td>
+                              <span class="badge bg-label-danger">-3%</span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <div class="text-end">
+                      <button
+                        type="button"
+                        class="btn btn-outline-secondary me-2"
+                        data-bs-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        onclick="downloadReport()"
+                      >
+                        <i class="ti tabler-download me-1"></i>Download Summary
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              <!-- Payment provider modal -->
-
-              <!-- / Payment provider modal -->
-
-              <!-- Payment Methods modal -->
-
-              <!-- / Payment Methods modal -->
             </div>
           </div>
 
@@ -908,6 +1099,342 @@
           var selectedBranch = $(this).val();
           table.column(0).search(selectedBranch).draw();
         });
+
+
+        // Handle report generation
+        $("#reportModal").on("show.bs.modal", function (event) {
+          // Get the button that triggered the modal
+          var button = $(event.relatedTarget);
+          var reportType = button.closest(".card").find(".card-title").text();
+
+          // Show loading state
+          $("#loadingState").removeClass("d-none");
+          $("#reportContent").addClass("d-none");
+
+          // Simulate loading time
+          setTimeout(function () {
+            // Update modal content based on report type
+            updateReportContent(reportType);
+
+            // Hide loading state and show report content
+            $("#loadingState").addClass("d-none");
+            $("#reportContent").removeClass("d-none");
+          }, 2000);
+        });
+
+        // Reset modal content when closed
+        $("#reportModal").on("hidden.bs.modal", function () {
+          $("#loadingState").removeClass("d-none");
+          $("#reportContent").addClass("d-none");
+        });
+
+        function updateReportContent(reportType) {
+          var reportData = {
+            "Sales Report": {
+              title: "Sales Report Summary",
+              metrics: [
+                {
+                  title: "Total Revenue",
+                  value: "$24,500",
+                  class: "bg-label-primary",
+                },
+                {
+                  title: "Total Sales",
+                  value: "156",
+                  class: "bg-label-success",
+                },
+                {
+                  title: "Average Sale",
+                  value: "$157",
+                  class: "bg-label-info",
+                },
+              ],
+              table: {
+                headers: ["Service", "Sales", "Revenue", "Growth"],
+                rows: [
+                  [
+                    "Hair Styling",
+                    "45",
+                    "$4,500",
+                    '<span class="badge bg-label-success">+12%</span>',
+                  ],
+                  [
+                    "Massage",
+                    "38",
+                    "$7,600",
+                    '<span class="badge bg-label-success">+8%</span>',
+                  ],
+                  [
+                    "Facial",
+                    "42",
+                    "$6,300",
+                    '<span class="badge bg-label-danger">-3%</span>',
+                  ],
+                ],
+              },
+            },
+            "Client Report": {
+              title: "Client Report Summary",
+              metrics: [
+                {
+                  title: "Total Clients",
+                  value: "342",
+                  class: "bg-label-primary",
+                },
+                {
+                  title: "New Clients",
+                  value: "28",
+                  class: "bg-label-success",
+                },
+                {
+                  title: "Retention Rate",
+                  value: "85%",
+                  class: "bg-label-info",
+                },
+              ],
+              table: {
+                headers: ["Client Type", "Count", "Revenue", "Loyalty Points"],
+                rows: [
+                  ["Regular", "156", "$15,600", "4,680"],
+                  ["VIP", "86", "$12,900", "6,450"],
+                  ["New", "28", "$2,800", "280"],
+                ],
+              },
+            },
+            "Expense Report": {
+              title: "Expense Report Summary",
+              metrics: [
+                {
+                  title: "Total Expenses",
+                  value: "$12,450",
+                  class: "bg-label-primary",
+                },
+                { title: "Categories", value: "8", class: "bg-label-success" },
+                { title: "Budget Used", value: "76%", class: "bg-label-info" },
+              ],
+              table: {
+                headers: ["Category", "Amount", "Budget", "Status"],
+                rows: [
+                  [
+                    "Supplies",
+                    "$4,500",
+                    "$5,000",
+                    '<span class="badge bg-label-success">Under Budget</span>',
+                  ],
+                  [
+                    "Marketing",
+                    "$3,800",
+                    "$3,500",
+                    '<span class="badge bg-label-warning">Over Budget</span>',
+                  ],
+                  [
+                    "Utilities",
+                    "$2,300",
+                    "$2,500",
+                    '<span class="badge bg-label-success">Under Budget</span>',
+                  ],
+                ],
+              },
+            },
+            "Services Report": {
+              title: "Services Report Summary",
+              metrics: [
+                {
+                  title: "Total Services",
+                  value: "24",
+                  class: "bg-label-primary",
+                },
+                {
+                  title: "Active Services",
+                  value: "18",
+                  class: "bg-label-success",
+                },
+                { title: "Avg Duration", value: "45m", class: "bg-label-info" },
+              ],
+              table: {
+                headers: ["Service", "Bookings", "Duration", "Rating"],
+                rows: [
+                  ["Hair Styling", "125", "45m", "4.8/5.0"],
+                  ["Massage", "98", "60m", "4.9/5.0"],
+                  ["Facial", "86", "30m", "4.7/5.0"],
+                ],
+              },
+            },
+            "Staff Report": {
+              title: "Staff Report Summary",
+              metrics: [
+                {
+                  title: "Total Staff",
+                  value: "12",
+                  class: "bg-label-primary",
+                },
+                {
+                  title: "Avg Bookings",
+                  value: "26",
+                  class: "bg-label-success",
+                },
+                {
+                  title: "Satisfaction",
+                  value: "4.8/5",
+                  class: "bg-label-info",
+                },
+              ],
+              table: {
+                headers: ["Staff Member", "Bookings", "Revenue", "Rating"],
+                rows: [
+                  ["John Smith", "32", "$3,200", "4.9/5.0"],
+                  ["Sarah Johnson", "28", "$2,800", "4.8/5.0"],
+                  ["Mike Wilson", "26", "$2,600", "4.7/5.0"],
+                ],
+              },
+            },
+            "Custom Report": {
+              title: "Custom Report Summary",
+              metrics: [
+                {
+                  title: "Selected Metrics",
+                  value: "5",
+                  class: "bg-label-primary",
+                },
+                {
+                  title: "Date Range",
+                  value: "30d",
+                  class: "bg-label-success",
+                },
+                { title: "Data Points", value: "450", class: "bg-label-info" },
+              ],
+              table: {
+                headers: ["Metric", "Value", "Change", "Trend"],
+                rows: [
+                  [
+                    "Revenue",
+                    "$24,500",
+                    "+12%",
+                    '<span class="badge bg-label-success">↑</span>',
+                  ],
+                  [
+                    "Clients",
+                    "342",
+                    "+8%",
+                    '<span class="badge bg-label-success">↑</span>',
+                  ],
+                  [
+                    "Bookings",
+                    "156",
+                    "-3%",
+                    '<span class="badge bg-label-danger">↓</span>',
+                  ],
+                ],
+              },
+            },
+          };
+
+          var data = reportData[reportType] || reportData["Custom Report"];
+
+          // Update title
+          $(".modal-title").text(data.title);
+
+          // Update metrics
+          var metricsHtml = data.metrics
+            .map(function (metric) {
+              return `
+              <div class="col-md-4">
+                <div class="card ${metric.class}">
+                  <div class="card-body">
+                    <h5 class="card-title">${metric.title}</h5>
+                    <p class="card-text">${metric.value}</p>
+                  </div>
+                </div>
+              </div>
+            `;
+            })
+            .join("");
+
+          // Update table
+          var tableHtml = `
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  ${data.table.headers
+                    .map((header) => `<th>${header}</th>`)
+                    .join("")}
+                </tr>
+              </thead>
+              <tbody>
+                ${data.table.rows
+                  .map(
+                    (row) => `
+                  <tr>
+                    ${row.map((cell) => `<td>${cell}</td>`).join("")}
+                  </tr>
+                `
+                  )
+                  .join("")}
+              </tbody>
+            </table>
+          `;
+
+          $("#reportContent .row").html(metricsHtml);
+          $("#reportContent .table-responsive").html(tableHtml);
+        }
+
+        function downloadReport() {
+          // Get the current report content
+          const reportTitle = $(".modal-title").text();
+          const date = new Date().toISOString().split("T")[0];
+          const filename = `${reportTitle.replace(" ", "_")}_${date}.pdf`;
+
+          // Show download started toast
+          const toastHTML = `
+            <div class="bs-toast toast toast-ex animate__animated animate__fadeInUp" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="toast-header bg-primary">
+                <i class="ti tabler-download text-white me-2"></i>
+                <div class="me-auto text-white fw-semibold">Download Started</div>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+              <div class="toast-body">
+                Your report "${reportTitle}" is being downloaded
+              </div>
+            </div>
+          `;
+
+          // Append and show toast
+          if (!$("#toast-container").length) {
+            $("body").append(
+              '<div id="toast-container" class="toast-container position-fixed top-0 end-0 p-3"></div>'
+            );
+          }
+          $("#toast-container").append(toastHTML);
+          const toast = new bootstrap.Toast($(".toast").last());
+          toast.show();
+
+          // Simulate download delay
+          setTimeout(() => {
+            // Create a dummy PDF download
+            const link = document.createElement("a");
+            link.href = "#"; // In real implementation, this would be the actual report URL
+            link.download = filename;
+            link.click();
+
+            // Show success toast
+            const successToastHTML = `
+              <div class="bs-toast toast toast-ex animate__animated animate__fadeInUp" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header bg-success">
+                  <i class="ti tabler-check text-white me-2"></i>
+                  <div class="me-auto text-white fw-semibold">Download Complete</div>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                  Report summary "${reportTitle}" has been downloaded successfully
+                </div>
+              </div>
+            `;
+            $("#toast-container").append(successToastHTML);
+            const successToast = new bootstrap.Toast($(".toast").last());
+            successToast.show();
+          }, 2000);
+        }
+
       });
     </script>
   </body>

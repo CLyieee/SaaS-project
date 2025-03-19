@@ -679,7 +679,8 @@
       <div class="d-flex gap-2">
         <button class="btn btn-sm btn-success view-client" data-bs-toggle="modal" data-bs-target="#clientModal"
           data-name="Sophia Mendoza" data-contact="+63 917 123 4567" data-email="sophia.mendoza@email.com"
-          data-address="123 Makati Ave, Makati City" data-membership="Bronze" data-points="150" data-joined="2023-05-15">
+          data-address="123 Makati Ave, Makati City" data-membership="Bronze" data-points="150" data-joined="2023-05-15"
+          data-medical-concerns="Allergic to lavender essential oil, Mild hypertension, Sensitive skin">
           View
         </button>
         <button class="btn btn-sm btn-info">Edit</button>
@@ -860,6 +861,7 @@
     <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
 
     <script src="../../assets/vendor/libs/popper/popper.js"></script>
+
     <script src="../../assets/vendor/js/bootstrap.js"></script>
     <script src="../../assets/vendor/libs/node-waves/node-waves.js"></script>
 
@@ -917,9 +919,9 @@
           <div class="modal-body p-4">
             <div class="row g-3">
               <!-- Profile and Personal Info Column -->
-              <div class="col-md-4">
-                <!-- Profile Section -->
+              <div class="col-md-6">
                 <div class="client-detail-card h-100">
+                  <!-- Profile Section -->
                   <div class="text-center mb-3">
                     <div class="client-profile-wrapper mx-auto">
                       <img 
@@ -964,7 +966,7 @@
               </div>
 
               <!-- Membership Details Column -->
-              <div class="col-md-4">
+              <div class="col-md-6">
                 <div class="client-detail-card h-100">
                   <h6 class="text-primary mb-3">Membership Details</h6>
                   <div class="client-info-item">
@@ -997,26 +999,27 @@
                 </div>
               </div>
 
-              <!-- Recent Bookings Column -->
-              <div class="col-md-4">
-                <div class="client-detail-card h-100">
-                  <h6 class="text-primary mb-3">Recent Bookings</h6>
-                  <div class="table-responsive">
-                    <table class="table table-sm mb-0">
-                      <thead>
-                        <tr>
-                          <th>Date</th>
-                          <th>Service</th>
-                          <th>Status</th>
-                        </tr>
-                      </thead>
-                      <tbody id="recentBookings">
-                        <!-- Will be populated dynamically -->
-                      </tbody>
-                    </table>
+              <!-- Medical Concerns Section -->
+              <div class="col-12 mt-3">
+                <div class="client-detail-card">
+                  <h6 class="text-primary d-flex align-items-center mb-3">
+                    <i class="ti tabler-stethoscope me-2"></i>
+                    Medical Information
+                  </h6>
+                  <div class="medical-concerns-content">
+                    <div class="alert alert-info-custom mb-0">
+                      <div class="d-flex align-items-start">
+                        <i class="ti tabler-alert-circle fs-5 me-2 text-primary"></i>
+                        <div class="w-100">
+                          <h6 class="alert-heading mb-2">Allergies & Medical Concerns</h6>
+                          <div id="medicalConcernsText" class="medical-concerns-list"></div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
@@ -1044,6 +1047,7 @@
       height: 100%;
       object-fit: cover;
       transition: transform 0.3s ease;
+      background-color: #0a3622;
     }
 
     .client-profile-image:hover {
@@ -1057,27 +1061,114 @@
       border-top-right-radius: 1rem;
       padding: 1.5rem;
     }
+
+    .client-profile-wrapper {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid #0a3622;
+      box-shadow: 0 4px 15px rgba(10, 54, 34, 0.2);
+      margin: 0 auto 1rem;
+    }
+
+    .medical-concerns-content {
+      background-color: #f8f9fa;
+      border-radius: 0.75rem;
+      padding: 1rem;
+    }
+
+    .medical-concern-item {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(10, 54, 34, 0.1);
+    }
+
+    .medical-concern-item:last-child {
+      border-bottom: none;
+    }
+
+    .medical-concern-item i {
+      font-size: 0.75rem;
+    }
+
+    /* Add these styles to your existing CSS */
+    .alert-info-custom {
+      background-color: rgba(10, 54, 34, 0.05);
+      border: 1px solid rgba(10, 54, 34, 0.1);
+      border-radius: 0.75rem;
+    }
+
+    .medical-concerns-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .medical-concern-item {
+      display: flex;
+      align-items: start;
+      padding: 0.5rem;
+      background: white;
+      border-radius: 0.5rem;
+      border: 1px solid rgba(10, 54, 34, 0.1);
+    }
+
+    .medical-concern-item i {
+      color: #0a3622;
+      margin-top: 0.25rem;
+    }
     </style>
 
     <!-- Update the JavaScript event handler -->
     <script>
+    // Add this function to create initials avatar
+    function createInitialsAvatar(name) {
+      const canvas = document.createElement('canvas');
+      const context = canvas.getContext('2d');
+      canvas.width = 120;
+      canvas.height = 120;
+
+      // Draw circle background
+      context.fillStyle = '#0a3622';
+      context.beginPath();
+      context.arc(60, 60, 60, 0, Math.PI * 2);
+      context.fill();
+
+      // Get initials
+      const initials = name
+        .split(' ')
+        .map(word => word[0])
+        .join('')
+        .toUpperCase();
+
+      // Draw text
+      context.font = 'bold 48px Arial';
+      context.fillStyle = '#FFFFFF';
+      context.textAlign = 'center';
+      context.textBaseline = 'middle';
+      context.fillText(initials, 60, 60);
+
+      return canvas.toDataURL();
+    }
+
+    // Update the view client click handler
     document.addEventListener('DOMContentLoaded', function() {
       document.querySelectorAll('.view-client').forEach(button => {
         button.addEventListener('click', function() {
-          // Update profile section
-          document.getElementById('modalClientNameProfile').textContent = this.dataset.name;
-          document.getElementById('modalMembershipBadge').textContent = this.dataset.membership;
-          
-          // Set profile image if available
+          const name = this.dataset.name;
           const profileImage = document.getElementById('modalProfileImage');
+          
+          // Handle profile image
           if (this.dataset.profileImage) {
             profileImage.src = this.dataset.profileImage;
           } else {
-            profileImage.src = '../../assets/img/avatars/default-avatar.png';
+            profileImage.src = createInitialsAvatar(name);
           }
 
-          // Existing modal data population
-          document.getElementById('modalClientName').textContent = this.dataset.name;
+          // Update modal content
+          document.getElementById('modalClientName').textContent = name;
+          document.getElementById('modalClientNameProfile').textContent = name;
+          document.getElementById('modalMembershipBadge').textContent = this.dataset.membership;
           document.getElementById('modalContact').textContent = this.dataset.contact;
           document.getElementById('modalEmail').textContent = this.dataset.email;
           document.getElementById('modalAddress').textContent = this.dataset.address;
@@ -1085,25 +1176,23 @@
           document.getElementById('modalPoints').textContent = this.dataset.points;
           document.getElementById('modalJoined').textContent = this.dataset.joined;
 
-          // Add sample recent bookings
-          const recentBookings = document.getElementById('recentBookings');
-          recentBookings.innerHTML = `
-            <tr>
-              <td>2024-03-10</td>
-              <td>Facial Treatment</td>
-              <td><span class="badge bg-success">Completed</span></td>
-            </tr>
-            <tr>
-              <td>2024-02-25</td>
-              <td>Hair Treatment</td>
-              <td><span class="badge bg-success">Completed</span></td>
-            </tr>
-            <tr>
-              <td>2024-03-15</td>
-              <td>Massage Therapy</td>
-              <td><span class="badge bg-warning">Upcoming</span></td>
-            </tr>
-          `;
+          // Handle medical concerns - single implementation
+          const medicalConcerns = this.dataset.medicalConcerns;
+          const modalMedicalConcerns = document.getElementById('modalMedicalConcerns');
+          
+          if (medicalConcerns) {
+            const concernsList = medicalConcerns.split(',').map(concern => 
+              `<div class="medical-concern-item">
+                <i class="ti tabler-point text-primary me-2"></i>
+                ${concern.trim()}
+              </div>`
+            ).join('');
+            
+            modalMedicalConcerns.innerHTML = concernsList;
+          } else {
+            modalMedicalConcerns.innerHTML = 
+              '<div class="text-muted">No allergies or medical concerns reported.</div>';
+          }
         });
       });
     });
@@ -1161,8 +1250,25 @@
       padding: 0.5rem;
       font-size: 0.875rem;
     }
+
+    .medical-concerns-content {
+      background-color: #f8f9fa;
+      border-radius: 0.75rem;
+      padding: 1rem;
+    }
+
+    .medical-concern-item {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(10, 54, 34, 0.1);
+    }
+
+    .medical-concern-item:last-child {
+      border-bottom: none;
+    }
+
+    .medical-concern-item i {
+      font-size: 0.75rem;
+    }
     </style>
   </body>
 </html>
-
-<!-- beautify ignore:end -->

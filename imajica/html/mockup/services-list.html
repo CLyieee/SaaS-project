@@ -115,6 +115,71 @@
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
 
     <script src="../../assets/js/config.js"></script>
+    <style>
+      /* Add to your existing styles */
+      .client-detail-card {
+        background: #fff;
+        border-radius: 0.75rem;
+        padding: 1.25rem;
+        height: 100%;
+        box-shadow: 0 0.125rem 0.25rem rgba(10, 54, 34, 0.075);
+      }
+
+      .client-info-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+      }
+
+      .client-info-icon {
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #e7efe9;
+        color: #0a3622;
+        border-radius: 0.5rem;
+        margin-right: 0.75rem;
+      }
+
+      .modal-content {
+        border-radius: 1rem;
+      }
+
+      .modal-header {
+        background: linear-gradient(
+          135deg,
+          #0a3622 0%,
+          #1a5c3c 100%
+        ) !important;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+        padding: 1.5rem;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.25rem;
+      }
+
+      .btn i {
+        font-size: 1rem;
+      }
+
+      .btn-sm {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+      }
+
+      .gap-2 {
+        gap: 0.5rem !important;
+      }
+    </style>
   </head>
 
   <body>
@@ -691,60 +756,129 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>Facial Rejuvenation Therapy</td>
-
-                        <td>2,500 PHP</td>
-                        <td><span class="badge bg-label-success">100</span></td>
-                        <td>
-                          <button class="btn btn-sm btn-primary">Edit</button>
-                          <button class="btn btn-sm btn-danger">Delete</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Hydrating Skin Booster</td>
-
-                        <td>3,800 PHP</td>
-                        <td><span class="badge bg-label-success">200</span></td>
-                        <td>
-                          <button class="btn btn-sm btn-primary">Edit</button>
-                          <button class="btn btn-sm btn-danger">Delete</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Laser Hair Removal (Underarm)</td>
-
-                        <td>4,500 PHP</td>
-                        <td><span class="badge bg-label-success">350</span></td>
-                        <td>
-                          <button class="btn btn-sm btn-primary">Edit</button>
-                          <button class="btn btn-sm btn-danger">Delete</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Body Contouring & Sculpting</td>
-
-                        <td>5,500 PHP</td>
-                        <td><span class="badge bg-label-success">300</span></td>
-                        <td>
-                          <button class="btn btn-sm btn-primary">Edit</button>
-                          <button class="btn btn-sm btn-danger">Delete</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Anti-Aging IV Drip</td>
-
-                        <td>3,000 PHP</td>
-                        <td><span class="badge bg-label-success">150</span></td>
-                        <td>
-                          <button class="btn btn-sm btn-primary">Edit</button>
-                          <button class="btn btn-sm btn-danger">Delete</button>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+  <tr>
+    <td>Facial Rejuvenation Therapy</td>
+    <td>2,500 PHP</td>
+    <td><span class="badge bg-label-success">100</span></td>
+    <td>
+      <div class="d-flex gap-2">
+        <button class="btn btn-sm btn-success view-service" 
+          data-bs-toggle="modal" 
+          data-bs-target="#serviceModal"
+          data-name="Facial Rejuvenation Therapy"
+          data-cost="2,500 PHP"
+          data-points="100"
+          data-description="Advanced facial treatment designed to rejuvenate and refresh skin">
+          View
+        </button>
+        <button class="btn btn-sm btn-info">
+          Edit
+        </button>
+        <button class="btn btn-sm btn-danger">
+          Delete
+        </button>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>Hydrating Skin Booster</td>
+    <td>3,800 PHP</td>
+    <td><span class="badge bg-label-success">200</span></td>
+    <td>
+      <div class="d-flex gap-2">
+        <button class="btn btn-sm btn-success view-service"
+          data-bs-toggle="modal"
+          data-bs-target="#serviceModal"
+          data-name="Hydrating Skin Booster"
+          data-cost="3,800 PHP"
+          data-points="200"
+          data-description="Deep hydration treatment for plump and glowing skin">
+          View
+        </button>
+        <button class="btn btn-sm btn-info">
+          Edit
+        </button>
+        <button class="btn btn-sm btn-danger">
+          Delete
+        </button>
+      </div>
+    </td>
+  </tr>
+  <!-- Repeat the same pattern for other rows -->
+</tbody>
 
                   <br />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Add this modal after your table -->
+          <div
+            class="modal fade"
+            id="serviceModal"
+            tabindex="-1"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+              <div class="modal-content border-0">
+                <div class="modal-header bg-primary text-white border-0">
+                  <h5 class="modal-title text-white fs-4">
+                    <i class="ti tabler-plus me-2"></i>
+                    <span id="modalServiceName"></span>
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close btn-close-white"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body p-4">
+                  <div class="row g-3">
+                    <!-- Service Details -->
+                    <div class="col-md-6">
+                      <div class="client-detail-card h-100">
+                        <h6 class="text-primary mb-3">Service Information</h6>
+                        <div class="client-info-item">
+                          <div class="client-info-icon">
+                            <i class="ti tabler-tag"></i>
+                          </div>
+                          <div>
+                            <small class="text-muted d-block"
+                              >Service Cost</small
+                            >
+                            <span id="modalCost" class="fw-semibold"></span>
+                          </div>
+                        </div>
+                        <div class="client-info-item">
+                          <div class="client-info-icon">
+                            <i class="ti tabler-award"></i>
+                          </div>
+                          <div>
+                            <small class="text-muted d-block"
+                              >Loyalty Points</small
+                            >
+                            <span id="modalPoints" class="fw-semibold"></span>
+                          </div>
+                        </div>
+                        <div class="client-info-item mb-0">
+                          <div class="client-info-icon">
+                            <i class="ti tabler-file-text"></i>
+                          </div>
+                          <div>
+                            <small class="text-muted d-block"
+                              >Description</small
+                            >
+                            <span
+                              id="modalDescription"
+                              class="fw-semibold"
+                            ></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -816,6 +950,23 @@
         $("#branchFilter").on("change", function () {
           var selectedBranch = $(this).val();
           table.column(0).search(selectedBranch).draw();
+        });
+      });
+
+      // Add this to your existing script section
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".view-service").forEach((button) => {
+          button.addEventListener("click", function () {
+            // Update modal content
+            document.getElementById("modalServiceName").textContent =
+              this.dataset.name;
+            document.getElementById("modalCost").textContent =
+              this.dataset.cost;
+            document.getElementById("modalPoints").textContent =
+              this.dataset.points;
+            document.getElementById("modalDescription").textContent =
+              this.dataset.description;
+          });
         });
       });
     </script>
